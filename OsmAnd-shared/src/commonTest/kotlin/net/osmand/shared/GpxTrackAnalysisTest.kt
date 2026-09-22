@@ -172,7 +172,11 @@ class GpxTrackAnalysisTest {
 		assertFalse(GpxDbUtils.isAnalysisOutdated(GpxDbUtils.createDataVersion(ANALYSIS_VERSION)))
 		// a schema bump alone leaves the analysis of an item current
 		assertFalse(GpxDbUtils.isAnalysisOutdated(dataVersion(GpxDatabase.DB_VERSION - 1, ANALYSIS_VERSION)))
-		assertFalse(GpxDbUtils.isAnalysisOutdated(dataVersion(GpxDatabase.DB_VERSION - 5, ANALYSIS_VERSION)))
+		assertFalse(GpxDbUtils.isAnalysisOutdated(dataVersion(GpxDatabase.DB_VERSION + 1, ANALYSIS_VERSION)))
+		assertFalse(GpxDbUtils.isAnalysisOutdated(dataVersion(GpxDbUtils.ANALYSIS_COLUMNS_DB_VERSION, ANALYSIS_VERSION)))
+		// except a schema from before the last migration that added analysis columns: those rows
+		// were never read for them
+		assertTrue(GpxDbUtils.isAnalysisOutdated(dataVersion(GpxDbUtils.ANALYSIS_COLUMNS_DB_VERSION - 1, ANALYSIS_VERSION)))
 		// an older analysis is read again whatever the schema, and so is the reset to 0 that
 		// GpxDbHelper.updateDataItemParameter writes
 		assertTrue(GpxDbUtils.isAnalysisOutdated(dataVersion(GpxDatabase.DB_VERSION, ANALYSIS_VERSION - 1)))

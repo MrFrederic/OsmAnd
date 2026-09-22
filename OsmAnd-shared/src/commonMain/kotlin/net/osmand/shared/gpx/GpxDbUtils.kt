@@ -22,6 +22,13 @@ object GpxDbUtils {
 	// version of the analysis it carries
 	private const val ANALYSIS_VERSION_BITS = 10
 
+	// until ANALYSIS_VERSION took over that role, a schema bump was what filled analysis
+	// columns added by a migration: vehicle metrics with DB_VERSION 34 (5a4d51e479), minimum
+	// heart rate with 32 (c51364fdb6). A row written under an older schema than the last such
+	// migration never had them computed and is read again; from here on a migration that adds
+	// analysis columns bumps ANALYSIS_VERSION instead
+	const val ANALYSIS_COLUMNS_DB_VERSION = 34
+
 	fun getCreateGpxTableQuery(): String {
 		return getCreateTableQuery(GpxParameter.entries, GPX_TABLE_NAME)
 	}
@@ -348,11 +355,15 @@ object GpxDbUtils {
 		return (GpxDatabase.DB_VERSION shl ANALYSIS_VERSION_BITS) + analysisVersion
 	}
 
-	// only the analysis part decides whether the file has to be read again: a schema bump adds
-	// columns and changes nothing that is computed from the file, and sending every track
-	// through the readers for it is minutes of parsing that fills the heap on a large library
-	fun isAnalysisOutdated(dataVersion: Int): Boolean =
-		(dataVersion and ((1 shl ANALYSIS_VERSION_BITS) - 1)) < ANALYSIS_VERSION
+	// the analysis part decides whether the file has to be read again, not the schema part: a
+	// schema bump on its own changes nothing that is computed from the file, and sending every
+	// track through the readers for it is minutes of parsing that fills the heap on a large
+	// library. The one exception is a schema from before ANALYSIS_COLUMNS_DB_VERSION
+	fun isAnalysisOutdated(dataVersion: Int): Boolean {
+		val schemaVersion = dataVersion shr ANALYSIS_VERSION_BITS
+		val analysisVersion = dataVersion and ((1 shl ANALYSIS_VERSION_BITS) - 1)
+		return schemaVersion < ANALYSIS_COLUMNS_DB_VERSION || analysisVersion < ANALYSIS_VERSION
+	}
 
 	private fun getCreateAppearanceTriggerQuery(tableName: String, triggerName: String): String {
 		val stampColumn = GpxParameter.APPEARANCE_LAST_MODIFIED_TIME.columnName
