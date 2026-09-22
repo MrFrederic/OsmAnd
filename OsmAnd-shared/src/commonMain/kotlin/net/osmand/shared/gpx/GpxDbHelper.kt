@@ -365,6 +365,12 @@ object GpxDbHelper : GpxReaderAdapter {
 			val entry = readingItemsMap.entries.firstOrNull()?.takeIf { mayRead(it.key, readers.size) }
 			val result = entry?.toPair()?.apply { readingItemsMap.remove(first) }
 			action?.invoke(result)
+			if (result != null) {
+				// the file now at the head may be readable where the one just taken was not: a
+				// library queued behind a large file would otherwise be left to this one reader,
+				// as the queue fills faster than the first reader reaches its first pull
+				startReadingIfPossible()
+			}
 			result
 		}
 
