@@ -3,7 +3,7 @@ package net.osmand.shared.api
 import co.touchlab.sqliter.Cursor
 import co.touchlab.sqliter.DatabaseConfiguration
 import co.touchlab.sqliter.DatabaseConnection
-import co.touchlab.sqliter.DatabaseManager
+import co.touchlab.sqliter.JournalMode
 import co.touchlab.sqliter.NO_VERSION_CHECK
 import co.touchlab.sqliter.Statement
 import co.touchlab.sqliter.createDatabaseManager
@@ -15,18 +15,21 @@ import co.touchlab.sqliter.stringForQuery
 import co.touchlab.sqliter.withStatement
 import co.touchlab.sqliter.interop.SQLiteException
 import net.osmand.shared.api.SQLiteAPI.*
+import okio.FileSystem
+import okio.Path
 import okio.Path.Companion.toPath
+import okio.SYSTEM
 
 class SQLiteAPIImpl : SQLiteAPI {
 
-	private lateinit var databaseManager: DatabaseManager
-
 	override fun getOrCreateDatabase(name: String, readOnly: Boolean): SQLiteConnection {
-		val configuration = DatabaseConfiguration(name = name, version = NO_VERSION_CHECK, create = { _ ->
-		}, upgrade = { _, _, _ -> })
-
-		databaseManager = createDatabaseManager(configuration)
-		val ds = databaseManager.createMultiThreadedConnection()
+		val configuration = DatabaseConfiguration(
+				name = name,
+				version = NO_VERSION_CHECK,
+				create = { _ -> },
+				upgrade = { _, _, _ -> }
+		)
+		val ds = createDatabaseManager(configuration).createMultiThreadedConnection()
 		return SQLiteDatabaseWrapper(ds)
 	}
 
@@ -37,11 +40,29 @@ class SQLiteAPIImpl : SQLiteAPI {
 				version = NO_VERSION_CHECK,
 				create = { _ -> },
 				upgrade = { _, _, _ -> },
+				journalMode = if (readOnly) storedJournalMode(p) else JournalMode.WAL,
 				extendedConfig = DatabaseConfiguration.Extended(basePath = p.parent.toString())
 		)
-		databaseManager = createDatabaseManager(configuration)
-		val ds = databaseManager.createMultiThreadedConnection()
+		val ds = createDatabaseManager(configuration).createMultiThreadedConnection()
 		return SQLiteDatabaseWrapper(ds)
+	}
+
+	/**
+	 * SQLiter 1.3.1 always opens with CREATE_IF_NECESSARY and offers no read-only option, but it
+	 * applies the journal mode only when it differs from the one the file carries. Asking for the
+	 * mode already stored in the header therefore leaves the file alone, instead of rewriting a
+	 * shipped rollback-journal database - proj.db, for one - into WAL and dropping -wal/-shm files
+	 * next to it. Byte 18 of an SQLite header is the write version: 2 means WAL.
+	 */
+	private fun storedJournalMode(path: Path): JournalMode {
+		return try {
+			FileSystem.SYSTEM.read(path) {
+				skip(WRITE_VERSION_OFFSET)
+				if (readByte().toInt() == WAL_WRITE_VERSION) JournalMode.WAL else JournalMode.DELETE
+			}
+		} catch (e: Exception) {
+			JournalMode.DELETE
+		}
 	}
 
 	class SQLiteDatabaseWrapper(private val ds: DatabaseConnection) : SQLiteConnection {
@@ -180,5 +201,10 @@ class SQLiteAPIImpl : SQLiteAPI {
 		override fun close() {
 			statement.finalizeStatement()
 		}
+	}
+
+	private companion object {
+		private const val WRITE_VERSION_OFFSET = 18L
+		private const val WAL_WRITE_VERSION = 2
 	}
 }
