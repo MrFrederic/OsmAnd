@@ -32,6 +32,10 @@ object GpxDbHelper : GpxReaderAdapter {
 	private val readingItemsCallbacks = mutableMapOf<KFile, MutableList<GpxDataItemCallback>?>()
 
 	private const val READER_TASKS_LIMIT = 4
+	// a reader holds a whole parsed file until it moves on, and a file being parsed costs about
+	// as much heap as it takes on disk: four large recordings at once took the Java heap to its
+	// limit (473 of 512 MB on a POCO X3), so a file this large is read on its own
+	private const val LARGE_FILE_BYTES = 8L * 1024 * 1024
 	private var readers = mutableListOf<GpxReader>()
 	private var readerSync = Synchronizable()
 
@@ -322,9 +326,19 @@ object GpxDbHelper : GpxReaderAdapter {
 			}
 			if (!isReading(file)) {
 				readingItemsMap[file] = item ?: GpxDataItem(file)
-				if (readers.size < READER_TASKS_LIMIT) {
-					startReading()
-				}
+				startReadingIfPossible()
+			}
+		}
+	}
+
+	// a reader that could not take the file at the head of the queue would end at once, and on a
+	// large library that is one pointless task per track, each of them two messages on the main
+	// thread through KAsyncTask
+	private fun startReadingIfPossible() {
+		readerSync.synchronize {
+			val next = readingItemsMap.keys.firstOrNull()
+			if (next != null && readers.size < READER_TASKS_LIMIT && mayRead(next, readers.size + 1)) {
+				startReading()
 			}
 		}
 	}
@@ -346,10 +360,17 @@ object GpxDbHelper : GpxReaderAdapter {
 
 	override fun pullNextFileItem(action: ((Pair<KFile, GpxDataItem>?) -> Unit)?): Pair<KFile, GpxDataItem>? =
 		readerSync.synchronize {
-			val result = readingItemsMap.entries.firstOrNull()?.toPair()?.apply { readingItemsMap.remove(first) }
+			// a reader that may not take the file at the head takes nothing and ends; another is
+			// started by onReadingFinished once that file can be read
+			val entry = readingItemsMap.entries.firstOrNull()?.takeIf { mayRead(it.key, readers.size) }
+			val result = entry?.toPair()?.apply { readingItemsMap.remove(first) }
 			action?.invoke(result)
 			result
 		}
+
+	// the queue keeps its order, so a large file is not passed over for a smaller one behind it
+	private fun mayRead(file: KFile, readersWhenReading: Int): Boolean =
+		readersWhenReading <= 1 || file.length() <= LARGE_FILE_BYTES
 
 	override fun onGpxDataItemRead(item: GpxDataItem) {
 		putGpxDataItemToSmartFolder(item)
@@ -386,10 +407,10 @@ object GpxDbHelper : GpxReaderAdapter {
 
 	override fun onReadingFinished(reader: GpxReader, cancelled: Boolean) {
 		readerSync.synchronize {
-			if (readingItemsMap.isNotEmpty() && readers.size < READER_TASKS_LIMIT && !cancelled) {
-				startReading()
+			readers.remove(reader) // first: a reader that ended over the limit has to be replaced
+			if (!cancelled) {
+				startReadingIfPossible()
 			}
-			readers.remove(reader)
 		}
 	}
 }
