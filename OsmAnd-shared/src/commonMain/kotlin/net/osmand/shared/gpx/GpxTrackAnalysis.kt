@@ -12,6 +12,8 @@ import net.osmand.shared.util.KMapUtils
 class GpxTrackAnalysis {
 
 	companion object {
+		// bump when anything GpxReader computes from the file changes: items stored with an
+		// older version are read again, a DB_VERSION bump on its own does not re-read tracks
 		const val ANALYSIS_VERSION = 1
 
 		fun prepareInformation(fileTimeStamp: Long,

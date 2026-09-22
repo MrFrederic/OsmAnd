@@ -18,6 +18,10 @@ object GpxDbUtils {
 	private const val GPX_APPEARANCE_TRIGGER = "triggerGpxAppearanceLastModified"
 	private const val GPX_DIR_APPEARANCE_TRIGGER = "triggerGpxDirAppearanceLastModified"
 
+	// the stored data version keeps the schema version an item was written under above the
+	// version of the analysis it carries
+	private const val ANALYSIS_VERSION_BITS = 10
+
 	fun getCreateGpxTableQuery(): String {
 		return getCreateTableQuery(GpxParameter.entries, GPX_TABLE_NAME)
 	}
@@ -275,7 +279,7 @@ object GpxDbUtils {
 					|| (item.getAnalysis()!!.getLatLonStart() == null && item.getAnalysis()!!.points > 0)
 					|| item.requireParameter(FILE_LAST_MODIFIED_TIME) as Long != item.file.lastModified()
 					|| item.requireParameter(FILE_CREATION_TIME) as Long <= 0
-					|| createDataVersion(ANALYSIS_VERSION) > item.requireParameter(DATA_VERSION) as Int
+					|| isAnalysisOutdated(item.requireParameter(DATA_VERSION) as Int)
 		}
 		return true
 	}
@@ -341,8 +345,14 @@ object GpxDbUtils {
 	}
 
 	fun createDataVersion(analysisVersion: Int): Int {
-		return (GpxDatabase.DB_VERSION shl 10) + analysisVersion
+		return (GpxDatabase.DB_VERSION shl ANALYSIS_VERSION_BITS) + analysisVersion
 	}
+
+	// only the analysis part decides whether the file has to be read again: a schema bump adds
+	// columns and changes nothing that is computed from the file, and sending every track
+	// through the readers for it is minutes of parsing that fills the heap on a large library
+	fun isAnalysisOutdated(dataVersion: Int): Boolean =
+		(dataVersion and ((1 shl ANALYSIS_VERSION_BITS) - 1)) < ANALYSIS_VERSION
 
 	private fun getCreateAppearanceTriggerQuery(tableName: String, triggerName: String): String {
 		val stampColumn = GpxParameter.APPEARANCE_LAST_MODIFIED_TIME.columnName

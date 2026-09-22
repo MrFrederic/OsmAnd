@@ -1,12 +1,16 @@
 package net.osmand.shared
 
+import net.osmand.shared.gpx.GpxDatabase
+import net.osmand.shared.gpx.GpxDbUtils
 import net.osmand.shared.gpx.GpxFile
 import net.osmand.shared.gpx.GpxTrackAnalysis
+import net.osmand.shared.gpx.GpxTrackAnalysis.Companion.ANALYSIS_VERSION
 import net.osmand.shared.gpx.SplitSegment
 import net.osmand.shared.gpx.primitives.TrkSegment
 import net.osmand.shared.gpx.primitives.WptPt
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertNull
 import kotlin.test.assertSame
 import kotlin.test.assertTrue
@@ -158,6 +162,22 @@ class GpxTrackAnalysisTest {
 		assertTrue(compactAnalysis.pointAttributes.isEmpty())
 		assertEquals(partialEndAttributes.speed,
 			requireNotNull(compactAnalysis.lastUphill).maxSpeed, 0.001f)
+	}
+
+	@Test
+	fun onlyTheAnalysisVersionDecidesWhetherATrackIsReadAgain() {
+		// the stored data version packs the schema version above the analysis version
+		fun dataVersion(dbVersion: Int, analysisVersion: Int) = (dbVersion shl 10) + analysisVersion
+
+		assertFalse(GpxDbUtils.isAnalysisOutdated(GpxDbUtils.createDataVersion(ANALYSIS_VERSION)))
+		// a schema bump alone leaves the analysis of an item current
+		assertFalse(GpxDbUtils.isAnalysisOutdated(dataVersion(GpxDatabase.DB_VERSION - 1, ANALYSIS_VERSION)))
+		assertFalse(GpxDbUtils.isAnalysisOutdated(dataVersion(GpxDatabase.DB_VERSION - 5, ANALYSIS_VERSION)))
+		// an older analysis is read again whatever the schema, and so is the reset to 0 that
+		// GpxDbHelper.updateDataItemParameter writes
+		assertTrue(GpxDbUtils.isAnalysisOutdated(dataVersion(GpxDatabase.DB_VERSION, ANALYSIS_VERSION - 1)))
+		assertTrue(GpxDbUtils.isAnalysisOutdated(dataVersion(GpxDatabase.DB_VERSION + 1, ANALYSIS_VERSION - 1)))
+		assertTrue(GpxDbUtils.isAnalysisOutdated(0))
 	}
 
 	private fun createSparseSegment() = TrkSegment().apply {
