@@ -3,8 +3,8 @@ package net.osmand.plus.base;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -455,9 +455,16 @@ public abstract class MenuBottomSheetDialogFragment extends BottomSheetDialogFra
 		return ColorUtilities.getListBgColorId(nightMode);
 	}
 
+	/**
+	 * M3 sheet surface: top corners rounded, bottom edge square against the screen edge.
+	 */
 	@NonNull
 	protected Drawable getColoredBg() {
-		return new ColorDrawable(getColor(getBgColorId()));
+		float radius = getDimensionPixelSize(R.dimen.bottom_sheet_corner_radius);
+		GradientDrawable drawable = new GradientDrawable();
+		drawable.setColor(getColor(getBgColorId()));
+		drawable.setCornerRadii(new float[] {radius, radius, radius, radius, 0, 0, 0, 0});
+		return drawable;
 	}
 
 	protected Drawable getPortraitBg(@NonNull Context ctx) {

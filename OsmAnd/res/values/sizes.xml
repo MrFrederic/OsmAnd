@@ -25,6 +25,8 @@
 	<!-- M3 buttons use the full (pill) shape: shape drawables clamp the radius to half
 	     the button height -->
 	<dimen name="dlg_button_rect_rad">24dp</dimen>
+	<!-- M3 extra-large shape, used for the top corners of bottom sheets and map panels -->
+	<dimen name="bottom_sheet_corner_radius">28dp</dimen>
 
 	<dimen name="widget_turn_lane_size">36dp</dimen>
 	<dimen name="widget_turn_lane_border">6dp</dimen>

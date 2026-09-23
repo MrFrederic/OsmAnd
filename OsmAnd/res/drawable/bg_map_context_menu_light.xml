@@ -7,6 +7,9 @@
         <shape>
             <solid
                 android:color="@color/list_background_color_light" />
+            <corners
+                android:topLeftRadius="@dimen/bottom_sheet_corner_radius"
+                android:topRightRadius="@dimen/bottom_sheet_corner_radius" />
         </shape>
     </item>
 </layer-list>
