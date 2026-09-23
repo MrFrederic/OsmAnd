@@ -922,6 +922,9 @@ public class UiUtilities {
 		TopToolbarController toolbarController = infoLayer.getTopToolbarController();
 		if (toolbarController != null && mapControlsVisible && topToolbarVisible) {
 			color = toolbarController.getStatusBarColor(activity, nightMode);
+			if (color != NO_COLOR) {
+				nightModeForContent = !ColorUtilities.isLightColor(color);
+			}
 		}
 		if (color == NO_COLOR) {
 			Integer customTopPanelColor = getCustomTopPanelColor(activity, nightMode);

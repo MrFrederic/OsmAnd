@@ -38,6 +38,7 @@ import net.osmand.plus.track.fragments.ReadGpxDescriptionFragment;
 import net.osmand.shared.gpx.GpxDataItem;
 import net.osmand.plus.track.helpers.SelectedGpxFile;
 import net.osmand.plus.utils.AndroidUtils;
+import net.osmand.plus.utils.ColorUtilities;
 import net.osmand.plus.utils.FileUtils;
 import net.osmand.plus.utils.UiUtilities;
 import net.osmand.shared.gpx.primitives.RouteActivity;
@@ -82,7 +83,7 @@ public class OverviewCard extends MapBaseCard {
 	@Override
 	public void updateContent() {
 		int iconColorDef = nightMode ? R.color.icon_color_active_dark : R.color.icon_color_active_light;
-		int iconColorPres = R.color.active_buttons_and_links_text_dark;
+		int iconColorPres = ColorUtilities.getOnActiveColorId(nightMode);
 		GpxFile gpxFile = getGPXFile();
 		boolean fileAvailable = gpxFile.getPath() != null && !gpxFile.isShowCurrentTrack();
 

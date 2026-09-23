@@ -88,6 +88,7 @@ import net.osmand.plus.settings.enums.HistorySource;
 import net.osmand.plus.settings.fragments.HistorySettingsDialogFragment;
 import net.osmand.plus.settings.fragments.OnPreferenceChanged;
 import net.osmand.plus.utils.AndroidUtils;
+import net.osmand.plus.utils.ColorUtilities;
 import net.osmand.plus.utils.InsetTarget;
 import net.osmand.plus.utils.InsetTargetsCollection;
 import net.osmand.plus.utils.OsmAndFormatter;
@@ -406,12 +407,12 @@ public class QuickSearchDialogFragment extends BaseFullScreenDialogFragment impl
 		toolbar.setNavigationOnClickListener(v -> onBackButtonPressed());
 
 		toolbarEdit = view.findViewById(R.id.toolbar_edit);
-		toolbarEdit.setNavigationIcon(iconsCache.getIcon(R.drawable.ic_action_remove_dark));
+		toolbarEdit.setNavigationIcon(iconsCache.getIcon(R.drawable.ic_action_remove_dark, ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode)));
 		toolbarEdit.setNavigationContentDescription(R.string.shared_string_cancel);
 		toolbarEdit.setNavigationOnClickListener(v -> enableSelectionMode(false, -1));
 
 		titleEdit = view.findViewById(R.id.titleEdit);
-		Drawable shareIcon = iconsCache.getIcon(R.drawable.ic_action_gshare_dark, R.color.card_and_list_background_light);
+		Drawable shareIcon = iconsCache.getIcon(R.drawable.ic_action_gshare_dark, ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode));
 		shareIcon = AndroidUtils.getDrawableForDirection(app, shareIcon);
 		ImageView shareButton = view.findViewById(R.id.shareButton);
 		shareButton.setImageDrawable(shareIcon);

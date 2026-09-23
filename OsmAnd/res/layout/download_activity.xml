@@ -21,7 +21,7 @@
 				android:id="@+id/sliding_tabs"
 				android:layout_width="match_parent"
 				android:layout_height="@dimen/list_item_height"
-				android:background="?attr/colorPrimary" />
+				android:background="?attr/pstsTabBackground" />
 
 		</FrameLayout>
 

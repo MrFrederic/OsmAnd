@@ -117,7 +117,7 @@ public class SelectRouteActivityFragment extends CustomizableSingleSelectionDial
 		clearSearchQueryButton.setVisibility(View.GONE);
 		searchEditText = searchContainer.findViewById(R.id.searchEditText);
 		searchEditText.setHint(R.string.poi_filter_by_name);
-		searchEditText.setTextColor(ColorUtilities.getColor(app, R.color.card_and_list_background_light));
+		searchEditText.setTextColor(ColorUtilities.getActiveButtonsAndLinksTextColor(app, nightMode));
 		searchEditText.setHintTextColor(ColorUtilities.getColor(app, R.color.white_50_transparent));
 		searchEditText.addTextChangedListener(new SimpleTextWatcher() {
 			@Override

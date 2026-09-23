@@ -79,7 +79,7 @@ public class TracksFreeBackupCard extends BaseCard {
 					0,
 					getDimen(R.dimen.content_padding_half),
 					0);
-			discountBadge.setTextColor(app.getColor(R.color.active_buttons_and_links_text_light));
+			discountBadge.setTextColor(app.getColor(R.color.content_on_dark_fixed));
 			discountBadge.setTextSize(14);
 			FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
 					FrameLayout.LayoutParams.WRAP_CONTENT,

@@ -119,7 +119,7 @@ public class ChangesFragment extends BaseFullScreenFragment implements OnPrepare
 		});
 
 		ImageView actionButton = toolbar.findViewById(R.id.action_button);
-		actionButton.setImageDrawable(getIcon(R.drawable.ic_overflow_menu_white));
+		actionButton.setImageDrawable(getIcon(R.drawable.ic_overflow_menu_white, ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode)));
 		actionButton.setContentDescription(getString(R.string.shared_string_more));
 		actionButton.setOnClickListener(this::showOptionsMenu);
 		AndroidUiHelper.updateVisibility(actionButton, true);

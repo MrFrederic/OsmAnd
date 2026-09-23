@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import net.osmand.plus.R;
 import net.osmand.plus.helpers.AndroidUiHelper;
 import net.osmand.plus.utils.AndroidUtils;
+import net.osmand.plus.utils.ColorUtilities;
 
 public class CustomizableSingleSelectionDialogFragment extends CustomizableDialogFragment {
 
@@ -51,7 +52,7 @@ public class CustomizableSingleSelectionDialogFragment extends CustomizableDialo
 		title.setText((String) displayData.getExtra(TITLE));
 
 		ImageView closeButton = toolbar.findViewById(R.id.close_button);
-		closeButton.setImageDrawable(getIcon(R.drawable.ic_action_close));
+		closeButton.setImageDrawable(getIcon(R.drawable.ic_action_close, ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode)));
 		closeButton.setOnClickListener(v -> dismiss());
 
 		ImageView actionButton = toolbar.findViewById(R.id.action_button);

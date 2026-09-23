@@ -194,7 +194,7 @@ public class PlanRouteFragment extends BaseFullScreenFragment implements OsmAndL
 
 		if (portrait) {
 			mainView.findViewById(R.id.toolbar_divider).setBackgroundColor(ContextCompat.getColor(mapActivity,
-					nightMode ? R.color.app_bar_main_dark : R.color.divider_color_light));
+					ColorUtilities.getDividerColorId(nightMode)));
 
 			Drawable arrow = getContentIcon(fullScreen ? R.drawable.ic_action_arrow_down : R.drawable.ic_action_arrow_up);
 			((ImageView) mainView.findViewById(R.id.up_down_icon)).setImageDrawable(arrow);

@@ -7,6 +7,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.ColorUtils;
 
 import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.R;
@@ -69,6 +70,14 @@ public class ColorUtilities {
 		int g = Color.green(color);
 		int b = Color.blue(color);
 		return Color.argb(alpha, r, g, b);
+	}
+
+	/**
+	 * True when dark content (text, icons, system bar icons) contrasts more with the colour
+	 * than light content does. Alpha is ignored.
+	 */
+	public static boolean isLightColor(@ColorInt int color) {
+		return ColorUtils.calculateLuminance(removeAlpha(color)) > 0.179;
 	}
 
 	@ColorInt

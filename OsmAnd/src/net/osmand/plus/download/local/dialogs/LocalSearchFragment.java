@@ -134,7 +134,7 @@ public class LocalSearchFragment extends LocalBaseFragment implements LocalItemL
 		searchEditText.setHint(R.string.poi_filter_by_name);
 		searchEditText.setTextColor(activeTextColor);
 
-		int hintColorId = nightMode ? R.color.searchbar_tab_inactive_dark : R.color.inactive_item_orange;
+		int hintColorId = ColorUtilities.getSecondaryTextColorId(nightMode);
 		searchEditText.setHintTextColor(ContextCompat.getColor(app, hintColorId));
 
 		progressBar = view.findViewById(R.id.searchProgressBar);

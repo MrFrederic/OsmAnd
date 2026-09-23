@@ -166,7 +166,7 @@ public class ImportTracksFragment extends BaseFullScreenDialogFragment implement
 
 		title.setText(R.string.import_tracks);
 		closeButton.setOnClickListener(v -> showExitDialog());
-		closeButton.setImageDrawable(getIcon(R.drawable.ic_action_close));
+		closeButton.setImageDrawable(getIcon(R.drawable.ic_action_close, ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode)));
 	}
 
 	private void setupProgress(@NonNull View view) {

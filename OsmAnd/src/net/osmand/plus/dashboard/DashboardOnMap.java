@@ -9,6 +9,7 @@ import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.Gravity;
@@ -29,6 +30,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.core.widget.ImageViewCompat;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -165,6 +167,9 @@ public class DashboardOnMap implements ObservableScrollViewCallbacks, IRouteInfo
 	private ProgressBar planRouteProgressBar;
 
 	int baseColor;
+	private boolean toolbarSolid;
+	private static final int[] TOOLBAR_ICON_IDS = {R.id.toolbar_back, R.id.toolbar_edit, R.id.toolbar_sort,
+			R.id.toolbar_ok, R.id.toolbar_flat, R.id.toolbar_settings, R.id.toolbar_list};
 
 	private WaypointDialogHelper waypointDialogHelper;
 	private Drawable gradientToolbar;
@@ -212,7 +217,7 @@ public class DashboardOnMap implements ObservableScrollViewCallbacks, IRouteInfo
 	}
 
 	public void createDashboardView() {
-		baseColor = ContextCompat.getColor(mapActivity, R.color.osmand_orange) & 0x00ffffff;
+		baseColor = ColorUtilities.getAppBarColor(mapActivity, nightMode) & 0x00ffffff;
 		waypointDialogHelper = new WaypointDialogHelper();
 		landscape = !AndroidUiHelper.isOrientationPortrait(mapActivity);
 		dashboardView = mapActivity.findViewById(R.id.dashboard);
@@ -403,6 +408,34 @@ public class DashboardOnMap implements ObservableScrollViewCallbacks, IRouteInfo
 		}
 
 		toolbar.getMenu().clear();
+		if (portrait) {
+			updateToolbarContentColor(toolbarSolid);
+		} else {
+			toolbar.setBackgroundColor(ColorUtilities.getAppBarColor(mapActivity, nightMode));
+			updateToolbarContentColor(true);
+		}
+	}
+
+	/**
+	 * Over the map the toolbar sits on a dark gradient and its content is white; once it becomes
+	 * the solid M3 app bar (surface) the content switches to the app bar content colour.
+	 */
+	private void updateToolbarContentColor(boolean solid) {
+		toolbarSolid = solid;
+		int color = solid
+				? ColorUtilities.getActiveButtonsAndLinksTextColor(mapActivity, nightMode)
+				: ContextCompat.getColor(mapActivity, R.color.content_on_dark_fixed);
+		TextView title = dashboardView.findViewById(R.id.toolbar_text);
+		if (title != null) {
+			title.setTextColor(color);
+		}
+		ColorStateList tint = ColorStateList.valueOf(color);
+		for (int id : TOOLBAR_ICON_IDS) {
+			ImageView icon = dashboardView.findViewById(id);
+			if (icon != null) {
+				ImageViewCompat.setImageTintList(icon, tint);
+			}
+		}
 	}
 
 	private FrameLayout.LayoutParams getActionButtonLayoutParams(int btnSizePx) {
@@ -542,6 +575,7 @@ public class DashboardOnMap implements ObservableScrollViewCallbacks, IRouteInfo
 		}
 		mapActivity.getRoutingHelper().removeListener(this);
 		nightMode = getMyApplication().getDaynightHelper().isNightMode(ThemeUsageContext.OVER_MAP);
+		baseColor = ColorUtilities.getAppBarColor(mapActivity, nightMode) & 0x00ffffff;
 		this.visible = visible;
 		mapActivity.updateBackPressedCallbackState();
 		updateVisibilityStack(type, visible);
@@ -1227,6 +1261,10 @@ public class DashboardOnMap implements ObservableScrollViewCallbacks, IRouteInfo
 				toolbar.setBackground(gradientToolbar);
 			} else {
 				toolbar.setBackgroundColor(0xff000000 | baseColor);
+			}
+			boolean solid = t >= 1;
+			if (solid != toolbarSolid) {
+				updateToolbarContentColor(solid);
 			}
 		}
 	}

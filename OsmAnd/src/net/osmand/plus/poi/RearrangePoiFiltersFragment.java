@@ -298,7 +298,7 @@ public class RearrangePoiFiltersFragment extends BaseFullScreenDialogFragment im
 		if (profileButton != null) {
 			int iconColor = selectedAppMode.getProfileColor(nightMode);
 			int bgColor = ColorUtilities.getColor(app, nightMode ?
-					R.color.divider_color_dark : R.color.active_buttons_and_links_text_light);
+					R.color.divider_color_dark : R.color.card_and_list_background_light);
 			int selectedColor = ColorUtilities.getColorWithAlpha(iconColor, 0.3f);
 
 			if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {

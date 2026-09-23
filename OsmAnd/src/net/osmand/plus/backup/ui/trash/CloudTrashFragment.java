@@ -108,7 +108,7 @@ public class CloudTrashFragment extends BaseFullScreenFragment implements Confir
 		});
 		ImageView actionButton = toolbar.findViewById(R.id.action_button);
 		actionButton.setOnClickListener(this::showOptionsMenu);
-		actionButton.setImageDrawable(getIcon(R.drawable.ic_overflow_menu_white));
+		actionButton.setImageDrawable(getIcon(R.drawable.ic_overflow_menu_white, ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode)));
 		actionButton.setContentDescription(getString(R.string.shared_string_more));
 		AndroidUiHelper.updateVisibility(actionButton, true);
 	}

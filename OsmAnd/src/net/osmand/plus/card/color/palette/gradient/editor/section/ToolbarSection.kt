@@ -10,6 +10,7 @@ import net.osmand.plus.R
 import net.osmand.plus.card.color.palette.gradient.editor.data.EditorStaticUiData
 import net.osmand.plus.card.color.palette.gradient.editor.data.EditorUiState
 import net.osmand.plus.helpers.AndroidUiHelper
+import net.osmand.plus.utils.ColorUtilities
 
 class ToolbarSection(
 	rootView: View,
@@ -33,11 +34,11 @@ class ToolbarSection(
 		AndroidUiHelper.updateVisibility(subtitle, true)
 
 		val closeButton = toolbar.findViewById<ImageView>(R.id.close_button)
-		closeButton.setImageDrawable(getIcon(R.drawable.ic_action_close))
+		closeButton.setImageDrawable(app.uiUtilities.getIcon(R.drawable.ic_action_close, ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode)))
 		closeButton.setOnClickListener { onBackClicked() }
 		closeButton.contentDescription = getString(R.string.shared_string_close_the_dialog)
 
-		undoButton.setImageDrawable(getIcon(R.drawable.ic_action_undo_dark))
+		undoButton.setImageDrawable(app.uiUtilities.getIcon(R.drawable.ic_action_undo_dark, ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode)))
 		undoButton.setOnClickListener { onUndoClicked() }
 		undoButton.contentDescription = getString(R.string.shared_string_undo)
 		AndroidUiHelper.updateVisibility(undoButton, true)

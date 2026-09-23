@@ -135,7 +135,7 @@ public class RequiredMapsFragment extends BaseFullScreenDialogFragment implement
 		toolbar.setBackgroundColor(appBarColor);
 
 		ImageView closeButton = toolbar.findViewById(R.id.close_button);
-		closeButton.setImageDrawable(getIcon(R.drawable.ic_action_close));
+		closeButton.setImageDrawable(getIcon(R.drawable.ic_action_close, ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode)));
 		closeButton.setOnClickListener(v -> closeDialog());
 
 		updateToolbarTitle();
@@ -145,7 +145,7 @@ public class RequiredMapsFragment extends BaseFullScreenDialogFragment implement
 			controller.onSelectAllClicked();
 			updateSelection();
 		});
-		actionButton.setImageDrawable(getIcon(R.drawable.ic_action_add_no_bg));
+		actionButton.setImageDrawable(getIcon(R.drawable.ic_action_add_no_bg, ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode)));
 		actionButton.setContentDescription(getString(R.string.shared_string_add));
 		AndroidUiHelper.updateVisibility(actionButton, true);
 

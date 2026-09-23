@@ -144,8 +144,8 @@ public class QuickSearchCoordinatesFragment extends BaseFullScreenDialogFragment
 		toolbar.setNavigationIcon(icBack);
 		toolbar.setNavigationContentDescription(R.string.access_shared_string_navigate_up);
 		toolbar.setNavigationOnClickListener(v -> dismiss());
-		toolbar.setBackgroundColor(getColor(!nightMode ? R.color.osmand_orange : R.color.osmand_orange_dark));
-		toolbar.setTitleTextColor(getColor(R.color.card_and_list_background_light));
+		toolbar.setBackgroundColor(ColorUtilities.getAppBarColor(app, nightMode));
+		toolbar.setTitleTextColor(ColorUtilities.getActiveButtonsAndLinksTextColor(app, nightMode));
 
 		updateLocationViewCache = UpdateLocationUtils.getUpdateLocationViewCache(view.getContext());
 		myLocation = app.getLocationProvider().getLastKnownLocation();

@@ -42,6 +42,7 @@ import com.google.android.material.transition.MaterialContainerTransform;
 
 import net.osmand.PlatformUtil;
 import net.osmand.plus.R;
+import net.osmand.plus.utils.ColorUtilities;
 import net.osmand.plus.utils.InsetsUtils;
 import net.osmand.util.Algorithms;
 
@@ -215,6 +216,11 @@ public class AndroidUiHelper {
 		} else {
 			previousColor = window.getStatusBarColor();
 			window.setStatusBarColor(color);
+		}
+		// M3 app bars are light in day mode: status bar icons follow the colour behind them.
+		// Translucent colours (over the map) leave the choice to the caller.
+		if (Color.alpha(color) == 255) {
+			setStatusBarContentColor(window.getDecorView(), !ColorUtilities.isLightColor(color));
 		}
 		return previousColor;
 	}

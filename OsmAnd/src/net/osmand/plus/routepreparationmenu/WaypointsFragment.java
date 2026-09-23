@@ -393,7 +393,7 @@ public class WaypointsFragment extends BaseFullScreenFragment implements IContex
 		ProgressBar progressBar = view.findViewById(R.id.progress_bar_button);
 		startButtonText.setText(getText(R.string.shared_string_apply));
 
-		int progressTextColor = nightMode ? R.color.text_color_secondary_dark : R.color.active_buttons_and_links_text_light;
+		int progressTextColor = nightMode ? R.color.text_color_secondary_dark : R.color.on_primary_light;
 		setupRouteCalculationButtonProgressBar(progressBar, startButtonText, progressTextColor);
 	}
 

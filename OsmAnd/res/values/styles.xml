@@ -124,11 +124,11 @@
         <item name="android:background">@color/app_bar_main_light</item>
         <item name="titleTextStyle">@style/Widget.Styled.LightActionBarTitle</item>
         <item name="subtitleTextStyle">@style/Widget.Styled.LightActionBarSubtitle</item>
-        <item name="actionBarWidgetTheme">@style/Theme.AppCompat</item>
+        <item name="actionBarWidgetTheme">@style/ThemeOverlay.Material3.Light</item>
 
         <item name="android:titleTextStyle">@style/Widget.Styled.LightActionBarTitle</item>
         <item name="android:subtitleTextStyle">@style/Widget.Styled.LightActionBarSubtitle</item>
-        <item name="android:actionBarWidgetTheme">@style/Theme.AppCompat</item>
+        <item name="android:actionBarWidgetTheme">@style/ThemeOverlay.Material3.Light</item>
         <item name="elevation">0dp</item>
     </style>
 
@@ -143,7 +143,7 @@
     </style>
 
     <style name="Widget.Styled.LightActionBarTitle" parent="TextAppearance.Material3.TitleLarge">
-        <item name="android:textColor">@color/card_and_list_background_light</item>
+        <item name="android:textColor">@color/on_surface_light</item>
     </style>
 
     <style name="Widget.Styled.DarkActionBarTitle" parent="TextAppearance.Material3.TitleLarge">
@@ -151,7 +151,7 @@
     </style>
 
     <style name="Widget.Styled.LightActionBarSubtitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Subtitle">
-        <item name="android:textColor">@color/white_80_transparent</item>
+        <item name="android:textColor">@color/on_surface_variant_light</item>
     </style>
 
     <style name="WhiteActionMode" parent="@style/Widget.AppCompat.ActionMode">
@@ -159,8 +159,8 @@
         <item name="android:titleTextStyle">@style/WhiteActionModeTitleTextStyle</item>
     </style>
 
-    <style name="WhiteActionModeTitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
-        <item name="android:textColor">@color/card_and_list_background_light</item>
+    <style name="WhiteActionModeTitleTextStyle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
     <!-- Dialog popup -->
@@ -353,11 +353,12 @@
         <item name="hintTextColor">?android:textColorSecondary</item>
     </style>
 
+    <!-- M3 primary FAB: primary container, on-primary-container icon, 10% state layer -->
     <style name="MaterialOsmandFab">
         <item name="cornerSize">16dp</item>
-        <item name="rippleColor">?attr/active_color_primary</item>
-        <item name="tint">?attr/active_color_primary</item>
-        <item name="backgroundTint">?attr/active_color_secondary</item>
+        <item name="rippleColor">@color/fab_state_layer</item>
+        <item name="tint">?attr/colorOnPrimaryContainer</item>
+        <item name="backgroundTint">?attr/colorPrimaryContainer</item>
     </style>
 
 	<!-- Material Styles -->

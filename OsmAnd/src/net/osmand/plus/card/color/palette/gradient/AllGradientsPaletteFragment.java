@@ -76,7 +76,7 @@ public class AllGradientsPaletteFragment extends BaseFullScreenDialogFragment im
 		title.setText(R.string.shared_string_all_colors);
 
 		ImageView closeButton = toolbar.findViewById(R.id.close_button);
-		closeButton.setImageDrawable(getIcon(R.drawable.ic_action_close));
+		closeButton.setImageDrawable(getIcon(R.drawable.ic_action_close, ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode)));
 		closeButton.setOnClickListener(v -> dismiss());
 
 		ImageView actionButton = toolbar.findViewById(R.id.action_button);
@@ -85,7 +85,7 @@ public class AllGradientsPaletteFragment extends BaseFullScreenDialogFragment im
 				controller.onAddButtonClick(requireActivity());
 			}
 		});
-		actionButton.setImageDrawable(getIcon(R.drawable.ic_action_add_no_bg));
+		actionButton.setImageDrawable(getIcon(R.drawable.ic_action_add_no_bg, ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode)));
 		actionButton.setContentDescription(getString(R.string.shared_string_add));
 		AndroidUiHelper.updateVisibility(actionButton, controller.isAddingNewItemsSupported());
 	}

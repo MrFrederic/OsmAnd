@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 
 import net.osmand.plus.activities.MapActivity;
 import net.osmand.plus.helpers.AndroidUiHelper;
+import net.osmand.plus.utils.ColorUtilities;
 
 /**
  * Base class for full-screen fragments that are displayed as standalone screens
@@ -109,8 +110,13 @@ public class BaseFullScreenFragment extends BaseOsmAndFragment implements Transi
 		return -1;
 	}
 
+	/**
+	 * Whether the status bar content (icons) should be light: derived from the status bar colour,
+	 * so screens with a light M3 app bar get dark icons without overriding this.
+	 */
 	public boolean getContentStatusBarNightMode() {
-		return true;
+		int colorId = getStatusBarColorId();
+		return colorId == -1 || !ColorUtilities.isLightColor(getColor(colorId));
 	}
 
 	protected boolean isFullScreenAllowed() {

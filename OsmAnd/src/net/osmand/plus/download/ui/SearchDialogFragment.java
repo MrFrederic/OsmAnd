@@ -129,7 +129,7 @@ public class SearchDialogFragment extends BaseFullScreenDialogFragment implement
 		searchEditText = view.findViewById(R.id.searchEditText);
 		searchEditText.setHint(R.string.search_map_hint);
 		searchEditText.setTextColor(ColorUtilities.getActiveButtonsAndLinksTextColor(app, nightMode));
-		int hintColorId = nightMode ? R.color.searchbar_tab_inactive_dark : R.color.inactive_item_orange;
+		int hintColorId = ColorUtilities.getSecondaryTextColorId(nightMode);
 		searchEditText.setHintTextColor(ContextCompat.getColor(app, hintColorId));
 
 		progressBar = view.findViewById(R.id.searchProgressBar);

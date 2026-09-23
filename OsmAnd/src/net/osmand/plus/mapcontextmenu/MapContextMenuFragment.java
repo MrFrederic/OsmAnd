@@ -224,7 +224,11 @@ public class MapContextMenuFragment extends BaseFullScreenFragment implements Do
 		toolbarTextView = view.findViewById(R.id.context_menu_toolbar_text);
 		updateVisibility(toolbarContainer, 0);
 		toolbarBackButton.setOnClickListener(v -> openMenuHeaderOnly());
-		toolbarBackButton.setImageResource(AndroidUtils.getNavigationIconResId(mapActivity));
+		// M3 top app bar: surface container with on-surface content
+		view.findViewById(R.id.context_menu_toolbar).setBackgroundColor(ColorUtilities.getAppBarColor(mapActivity, nightMode));
+		toolbarBackButton.setImageDrawable(getIcon(AndroidUtils.getNavigationIconResId(mapActivity),
+				ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode)));
+		toolbarTextView.setTextColor(ColorUtilities.getActiveButtonsAndLinksTextColor(mapActivity, nightMode));
 
 		topButtonContainer = view.findViewById(R.id.context_menu_top_button_container);
 		ImageView backButton = view.findViewById(R.id.context_menu_top_back);

@@ -139,7 +139,7 @@ public class BackupCloudFragment extends BaseFullScreenFragment implements InApp
 		});
 
 		ImageView actionButton = toolbar.findViewById(R.id.action_button);
-		actionButton.setImageDrawable(getIcon(R.drawable.ic_action_settings));
+		actionButton.setImageDrawable(getIcon(R.drawable.ic_action_settings, ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode)));
 		actionButton.setOnClickListener(v -> openSettings());
 		AndroidUiHelper.updateVisibility(actionButton, true);
 	}

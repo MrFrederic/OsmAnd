@@ -25,6 +25,7 @@ import net.osmand.plus.card.icon.IIconsPaletteController;
 import net.osmand.plus.card.icon.IconsPaletteElements;
 import net.osmand.plus.helpers.AndroidUiHelper;
 import net.osmand.plus.utils.AndroidUtils;
+import net.osmand.plus.utils.ColorUtilities;
 import net.osmand.plus.widgets.FlowLayout;
 
 public class IconsPaletteFragment<IconData> extends BaseFullScreenDialogFragment implements IIconsPalette<IconData> {
@@ -69,7 +70,7 @@ public class IconsPaletteFragment<IconData> extends BaseFullScreenDialogFragment
 		title.setText(paletteName != null ? paletteName : getString(R.string.shared_string_all_icons));
 
 		ImageView closeButton = toolbar.findViewById(R.id.close_button);
-		closeButton.setImageDrawable(getIcon(R.drawable.ic_action_close));
+		closeButton.setImageDrawable(getIcon(R.drawable.ic_action_close, ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode)));
 		closeButton.setOnClickListener(v -> dismiss());
 
 		ImageView actionButton = toolbar.findViewById(R.id.action_button);

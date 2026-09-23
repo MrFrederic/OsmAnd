@@ -119,11 +119,6 @@ public class SelectLocationFragment extends ConfigureMapOptionFragment implement
 	}
 
 	@Override
-	public boolean getContentStatusBarNightMode() {
-		return true;
-	}
-
-	@Override
 	public void onResume() {
 		super.onResume();
 		if (controller != null) {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <style name="OsmandDarkTheme.DarkActionbar">
-        <item name="colorAccent">@color/card_and_list_background_light</item>
+        <item name="colorAccent">@color/primary_dark</item>
     </style>
 
     <style name="OsmandDarkTheme.SearchTabbar" parent="Widget.Material3.TabLayout">
@@ -70,10 +70,10 @@
         <item name="bottomToolBarColor">@color/tool_bar_color_dark</item>
         <item name="downloadButtonBackground">@drawable/download_dark</item>
         <item name="pstsTabBackground">@color/app_bar_main_dark</item>
-        <item name="pstsUnderlineColor">@color/app_bar_main_dark</item>
+        <item name="pstsUnderlineColor">@color/outline_variant_dark</item>
         <item name="pstsIndicatorColor">@color/active_color_primary_light</item>
-        <item name="pstsTextColor">@color/text_color_tab_active_dark</item>
-        <item name="pstsInactiveTextColor">@color/searchbar_tab_inactive_dark</item>
+        <item name="pstsTextColor">@color/primary_dark</item>
+        <item name="pstsInactiveTextColor">@color/on_surface_variant_dark</item>
         <item name="btn_flat_bg">@drawable/btn_flat_night</item>
         <item name="btn_border_bg">@drawable/btn_border_bg_dark</item>
         <item name="banner_border_bg">@drawable/banner_border_bg_dark</item>
@@ -183,7 +183,7 @@
         <item name="wikivoyage_bottom_bar_bg_color">@color/wikivoyage_bottom_bar_bg_dark</item>
         <item name="wikivoyage_bottom_bar_divider_color">@color/divider_color_dark</item>
         <item name="wikivoyage_secondary_btn_bg_color">@color/wikivoyage_secondary_btn_bg_dark</item>
-        <item name="wikivoyage_primary_btn_text_color">@color/active_buttons_and_links_text_dark</item>
+        <item name="wikivoyage_primary_btn_text_color">@color/on_primary_dark</item>
         <item name="wikivoyage_welcome_bg_color">@color/wikivoyage_welcome_bg_dark</item>
         <item name="wikivoyage_primary_text_color">@color/text_color_primary_dark</item>
 

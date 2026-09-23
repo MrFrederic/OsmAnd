@@ -55,22 +55,22 @@
 	<color name="icon_color_inverse_dark">#F2F2F2</color>
 	
 	<!-- AppBar & Status bar -->
-	<color name="app_bar_main_light">@color/brand_accent_light</color>
-	<color name="app_bar_main_dark">@color/surface_container_dark</color>
+	<color name="app_bar_main_light">@color/surface_light</color>
+	<color name="app_bar_main_dark">@color/surface_dark</color>
 	<color name="app_bar_secondary_light">@color/surface_light</color>
 	<color name="app_bar_secondary_dark">@color/surface_dark</color>
-	<color name="app_bar_active_light">@color/primary_light</color>
-	<color name="app_bar_active_dark">@color/primary_container_dark</color>
+	<color name="app_bar_active_light">@color/surface_container_light</color>
+	<color name="app_bar_active_dark">@color/surface_container_dark</color>
 
 	<color name="navigation_bar_bg_light">#000000</color>
 	<color name="navigation_bar_bg_dark">#000000</color>
 
-	<color name="status_bar_main_light">#E68200</color>
-	<color name="status_bar_main_dark">@color/surface_container_dark</color>
+	<color name="status_bar_main_light">@color/surface_light</color>
+	<color name="status_bar_main_dark">@color/surface_dark</color>
 	<color name="status_bar_secondary_light">@color/surface_light</color>
 	<color name="status_bar_secondary_dark">@color/surface_dark</color>
-	<color name="status_bar_selection_color_light">@color/primary_pressed_light</color>
-	<color name="status_bar_selection_color_dark">#0B2F65</color>
+	<color name="status_bar_selection_color_light">@color/surface_container_light</color>
+	<color name="status_bar_selection_color_dark">@color/surface_container_dark</color>
 	<color name="status_bar_transparent_light">#66000000</color>
 	<color name="status_bar_transparent_dark">#99000000</color>
 
@@ -150,8 +150,9 @@
 	<color name="active_buttons_and_links_bg_pressed_dark">@color/primary_pressed_dark</color>
 	<color name="inactive_buttons_and_links_bg_light">@color/secondary_container_light</color>
 	<color name="inactive_buttons_and_links_bg_dark">@color/secondary_container_dark</color>
-	<color name="active_buttons_and_links_text_light">#ffffff</color>
-	<color name="active_buttons_and_links_text_dark">#ebebeb</color>
+	<!-- Content of the (M3 surface) app bar: title, navigation and action icons -->
+	<color name="active_buttons_and_links_text_light">@color/on_surface_light</color>
+	<color name="active_buttons_and_links_text_dark">@color/on_surface_dark</color>
 	<color name="stroked_buttons_and_links_bg_light">#00ffffff</color>
 	<color name="stroked_buttons_and_links_bg_dark">#0017181a</color>
 	<color name="stroked_buttons_and_links_outline_light">@color/outline_variant_light</color>
@@ -853,6 +854,10 @@
 	<color name="error_container_dark">@color/palette_red_30</color>
 	<color name="on_error_container_light">@color/palette_red_30</color>
 	<color name="on_error_container_dark">@color/palette_red_93</color>
+
+	<!-- Text and icons on backgrounds that stay dark or saturated in both themes:
+	     photos, video, sale badges -->
+	<color name="content_on_dark_fixed">#FFFFFF</color>
 
 	<!-- M3 disabled state: content at 38% and containers at 12% of on-surface -->
 	<color name="disabled_content_light">#6118181B</color>

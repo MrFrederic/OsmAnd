@@ -442,7 +442,7 @@ public class SearchFavoriteFragment extends BaseFullScreenDialogFragment impleme
 		setStatusBarBackgroundColor(ColorUtilities.getStatusBarColor(app, nightMode));
 
 		selectedCountTv = view.findViewById(R.id.selected_count);
-		selectedCountTv.setTextColor(ContextCompat.getColor(app, R.color.card_and_list_background_light));
+		selectedCountTv.setTextColor(ColorUtilities.getActiveButtonsAndLinksTextColor(app, nightMode));
 
 		searchContainer = view.findViewById(R.id.search_container);
 		selectButton = view.findViewById(R.id.select_all_button);
@@ -501,7 +501,7 @@ public class SearchFavoriteFragment extends BaseFullScreenDialogFragment impleme
 		clearSearchQuery.setVisibility(View.GONE);
 		searchEditText = searchContainer.findViewById(R.id.searchEditText);
 		searchEditText.setHint(R.string.poi_filter_by_name);
-		searchEditText.setTextColor(ContextCompat.getColor(app, R.color.card_and_list_background_light));
+		searchEditText.setTextColor(ColorUtilities.getActiveButtonsAndLinksTextColor(app, nightMode));
 		searchEditText.setHintTextColor(ContextCompat.getColor(app, R.color.white_50_transparent));
 		searchEditText.addTextChangedListener(new SimpleTextWatcher() {
 			@Override

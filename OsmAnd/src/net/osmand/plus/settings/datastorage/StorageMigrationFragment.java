@@ -177,7 +177,7 @@ public class StorageMigrationFragment extends BaseFullScreenDialogFragment imple
 		toolbarLayout.setTitle(copyFinished ? getString(R.string.copying_completed) : getString(R.string.copying_osmand_files));
 		Toolbar toolbar = mainView.findViewById(R.id.toolbar);
 
-		toolbar.setNavigationIcon(copyFinished ? null : getIcon(R.drawable.ic_action_close));
+		toolbar.setNavigationIcon(copyFinished ? null : getIcon(R.drawable.ic_action_close, ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode)));
 		toolbar.setNavigationContentDescription(R.string.shared_string_close);
 		toolbar.setNavigationOnClickListener(v -> {
 			closeDialog = createCancelDialog();

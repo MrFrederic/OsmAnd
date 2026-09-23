@@ -16,9 +16,9 @@ public class ContextMenuToolbarController extends TopToolbarController {
 		this.controller = controller;
 		setBgIds(R.color.app_bar_main_light, R.color.app_bar_main_dark,
 				R.color.app_bar_main_light, R.color.app_bar_main_dark);
-		setBackBtnIconClrIds(R.color.card_and_list_background_light, R.color.card_and_list_background_light);
-		setCloseBtnIconClrIds(R.color.card_and_list_background_light, R.color.card_and_list_background_light);
-		setTitleTextClrIds(R.color.card_and_list_background_light, R.color.card_and_list_background_light);
+		setBackBtnIconClrIds(R.color.active_buttons_and_links_text_light, R.color.active_buttons_and_links_text_dark);
+		setCloseBtnIconClrIds(R.color.active_buttons_and_links_text_light, R.color.active_buttons_and_links_text_dark);
+		setTitleTextClrIds(R.color.active_buttons_and_links_text_light, R.color.active_buttons_and_links_text_dark);
 	}
 
 	public MenuController getController() {

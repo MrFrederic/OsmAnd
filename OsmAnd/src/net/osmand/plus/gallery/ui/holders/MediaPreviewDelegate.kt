@@ -144,7 +144,7 @@ class MediaPreviewDelegate(
 
 	private fun getDurationTextColor(): Int =
 		if (boundType == MediaType.VIDEO) {
-			ContextCompat.getColor(app, R.color.active_buttons_and_links_text_light)
+			ContextCompat.getColor(app, R.color.content_on_dark_fixed)
 		} else {
 			ColorUtilities.getSecondaryTextColor(app, nightMode)
 		}

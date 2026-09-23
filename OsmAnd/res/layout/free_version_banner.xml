@@ -113,7 +113,7 @@
 					android:gravity="center"
 					android:paddingLeft="@dimen/content_padding_medium"
 					android:paddingRight="@dimen/content_padding_medium"
-					android:textColor="@color/active_buttons_and_links_text_light"
+					android:textColor="@color/content_on_dark_fixed"
 					android:textSize="14sp"
 					android:visibility="gone"
 					tools:text="-50%"

@@ -88,7 +88,7 @@ public class CoordinatesFormatFragment extends BaseCoordinateFormatFragment
 		lastRenderedIds = formatPreferences.getPreferredIds(appMode);
 		contentContainer.removeAllViews();
 
-		fab.setImageDrawable(getIcon(R.drawable.ic_action_add_no_bg, ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode)));
+		fab.setImageDrawable(getIcon(R.drawable.ic_action_add_no_bg, nightMode ? R.color.on_primary_container_dark : R.color.on_primary_container_light));
 		fab.setOnClickListener(v -> AddCoordinateFormatFragment.show(requireMyActivity(), appMode, false, false, null));
 
 		TextView description = createText(R.string.coordinate_format_description, 16, 18, 16, 18);

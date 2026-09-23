@@ -230,12 +230,12 @@ class GalleryGridFragment : BaseFullScreenFragment(), IGalleryGridView {
 		toolbar.setBackgroundColor(bgColor)
 
 		val contentColor = if (selection) {
-			ContextCompat.getColor(app, R.color.active_buttons_and_links_text_light)
+			ContextCompat.getColor(app, R.color.content_on_dark_fixed)
 		} else {
 			ColorUtilities.getPrimaryTextColor(app, nightMode)
 		}
 		val iconColor = if (selection) {
-			ContextCompat.getColor(app, R.color.active_buttons_and_links_text_light)
+			ContextCompat.getColor(app, R.color.content_on_dark_fixed)
 		} else {
 			ColorUtilities.getDefaultIconColor(app, nightMode)
 		}

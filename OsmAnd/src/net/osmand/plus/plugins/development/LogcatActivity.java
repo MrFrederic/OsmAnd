@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import net.osmand.PlatformUtil;
 import net.osmand.plus.R;
 import net.osmand.plus.utils.AndroidUtils;
+import net.osmand.plus.utils.ColorUtilities;
 import net.osmand.plus.utils.InsetTarget;
 import net.osmand.plus.utils.InsetTargetsCollection;
 
@@ -74,7 +75,8 @@ public class LogcatActivity extends BaseLogcatActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		Drawable shareIcon = app.getUIUtilities().getIcon(R.drawable.ic_action_gshare_dark);
+		Drawable shareIcon = app.getUIUtilities().getIcon(R.drawable.ic_action_gshare_dark,
+				ColorUtilities.getActiveButtonsAndLinksTextColorId(!app.getSettings().isLightContent()));
 		MenuItem share = menu.add(0, SHARE_ID, 0, R.string.shared_string_export);
 		share.setIcon(AndroidUtils.getDrawableForDirection(app, shareIcon));
 		share.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);

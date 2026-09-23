@@ -267,11 +267,11 @@ public class CoordinateInputDialogFragment extends BaseFullScreenDialogFragment 
 			int color = ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode);
 			Drawable icBack = getIcon(resId, color);
 			backBtn.setImageDrawable(icBack);
-			optionsButton.setTextColor(getColor(!nightMode ? R.color.card_and_list_background_light : R.color.active_color_primary_dark));
+			optionsButton.setTextColor(ColorUtilities.getActiveColor(app, nightMode));
 			TextView toolbar = mainView.findViewById(R.id.toolbar_text);
-			toolbar.setTextColor(getColor(!nightMode ? R.color.card_and_list_background_light : R.color.text_color_primary_dark));
+			toolbar.setTextColor(ColorUtilities.getActiveButtonsAndLinksTextColor(app, nightMode));
 			toolbar.setText(R.string.coord_input_add_point);
-			setBackgroundColor(R.id.app_bar, !nightMode ? R.color.app_bar_main_light : R.color.card_and_list_background_dark);
+			setBackgroundColor(R.id.app_bar, ColorUtilities.getAppBarColorId(nightMode));
 		}
 
 		optionsButton.setOnClickListener(v -> showCoordinateInputDialog());

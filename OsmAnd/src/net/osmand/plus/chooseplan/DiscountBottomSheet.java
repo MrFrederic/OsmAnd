@@ -831,7 +831,7 @@ public class DiscountBottomSheet extends BaseMaterialBottomSheetDialogFragment i
 		DiscountBadgeSpan(@NonNull MapActivity activity) {
 			int badgeColor = activity.isNightMode() ? R.color.sale_badge_dark: R.color.sale_badge_light;
 			backgroundColor = ColorUtilities.getColor(activity, badgeColor);
-			textColor = ColorUtilities.getColor(activity, R.color.active_buttons_and_links_text_light);
+			textColor = ColorUtilities.getColor(activity, R.color.content_on_dark_fixed);
 			paddingHorizontal = activity.getResources().getDimensionPixelSize(R.dimen.content_padding_small_half);
 			paddingVertical = activity.getResources().getDimensionPixelSize(R.dimen.dash_margin);
 			marginStart = activity.getResources().getDimensionPixelSize(R.dimen.content_padding_half);

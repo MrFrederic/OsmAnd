@@ -793,7 +793,7 @@ class GalleryMediaPlayerFragment : BaseFullScreenFragment() {
 	}
 
 	private fun whiteColor(): Int =
-		ContextCompat.getColor(app, R.color.active_buttons_and_links_text_light)
+		ContextCompat.getColor(app, R.color.content_on_dark_fixed)
 
 	companion object {
 		const val TAG = "GalleryMediaPlayerFragment"

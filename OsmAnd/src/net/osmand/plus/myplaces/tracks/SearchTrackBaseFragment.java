@@ -196,7 +196,7 @@ public abstract class SearchTrackBaseFragment extends BaseFullScreenDialogFragme
 		backButton.setOnClickListener((v) -> dismiss());
 		searchEditText = searchContainer.findViewById(R.id.searchEditText);
 		searchEditText.setHint(R.string.search_track_by_name);
-		searchEditText.setTextColor(ContextCompat.getColor(app, R.color.card_and_list_background_light));
+		searchEditText.setTextColor(ColorUtilities.getActiveButtonsAndLinksTextColor(app, nightMode));
 		searchEditText.setHintTextColor(ContextCompat.getColor(app, R.color.white_50_transparent));
 		searchEditText.addTextChangedListener(new SimpleTextWatcher() {
 			@Override

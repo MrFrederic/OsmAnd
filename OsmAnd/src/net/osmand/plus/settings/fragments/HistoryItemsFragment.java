@@ -166,7 +166,7 @@ public abstract class HistoryItemsFragment extends BaseFullScreenDialogFragment 
 	protected void setupToolbar(@NonNull View appbar) {
 		ViewCompat.setElevation(appbar, 5.0f);
 		ImageView closeButton = appbar.findViewById(R.id.close_button);
-		closeButton.setImageDrawable(getIcon(R.drawable.ic_action_close));
+		closeButton.setImageDrawable(getIcon(R.drawable.ic_action_close, ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode)));
 		closeButton.setOnClickListener(v -> {
 			dismiss();
 		});
@@ -189,7 +189,7 @@ public abstract class HistoryItemsFragment extends BaseFullScreenDialogFragment 
 		boolean checked = isHistoryEnabled();
 
 		if (checked && !selectedItems.isEmpty()) {
-			shareButton.setImageDrawable(getIcon(R.drawable.ic_action_upload));
+			shareButton.setImageDrawable(getIcon(R.drawable.ic_action_upload, ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode)));
 		} else {
 			int color = ContextCompat.getColor(app, R.color.active_buttons_and_links_text_light);
 			int colorWithAlpha = ColorUtilities.getColorWithAlpha(color, 0.5f);
