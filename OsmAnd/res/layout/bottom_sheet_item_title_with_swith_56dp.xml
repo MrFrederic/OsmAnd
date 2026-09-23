@@ -32,7 +32,7 @@
             app:typefaceWeight="medium"
             tools:text="Some Title" />
 
-        <androidx.appcompat.widget.SwitchCompat
+        <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/compound_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

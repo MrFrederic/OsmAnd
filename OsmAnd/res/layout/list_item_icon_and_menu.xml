@@ -62,7 +62,7 @@
 		    android:minHeight="@dimen/standard_icon_size"
 		    tools:src="@drawable/ic_action_info_dark" />
 
-        <androidx.appcompat.widget.SwitchCompat
+        <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/toggle_item"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

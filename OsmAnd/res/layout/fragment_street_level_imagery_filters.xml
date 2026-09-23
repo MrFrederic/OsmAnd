@@ -40,7 +40,7 @@
                 android:textAppearance="@style/TextAppearance.ListItemTitle"
                 tools:text="Some title text" />
 
-            <androidx.appcompat.widget.SwitchCompat
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/toggle_row_toggle"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dialog_button_ex_height"
@@ -380,7 +380,7 @@
                 android:text="@string/mapillary_menu_title_pano"
                 android:textAppearance="@style/TextAppearance.ListItemTitle" />
 
-            <androidx.appcompat.widget.SwitchCompat
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/pano_row_toggle"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"

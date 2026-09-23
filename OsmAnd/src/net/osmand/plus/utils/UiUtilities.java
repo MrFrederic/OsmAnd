@@ -44,6 +44,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.TintableCompoundButton;
 
+import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.slider.LabelFormatter;
 import com.google.android.material.slider.RangeSlider;
 import com.google.android.material.slider.Slider;
@@ -509,7 +510,9 @@ public class UiUtilities {
 				new int[] {-android.R.attr.state_checked},
 				new int[] {android.R.attr.state_checked}
 		};
-		if (compoundButton instanceof SwitchCompat) {
+		if (compoundButton instanceof MaterialSwitch materialSwitch) {
+			setupMaterialSwitch(materialSwitch, activeColor, inactiveColorPrimary, inactiveColorSecondary);
+		} else if (compoundButton instanceof SwitchCompat) {
 			int[] thumbColors = {inactiveColorPrimary, inactiveColorPrimary, activeColor};
 			int[] trackColors = {inactiveColorSecondary, inactiveColorSecondary, inactiveColorSecondary};
 
@@ -522,6 +525,45 @@ public class UiUtilities {
 			((TintableCompoundButton) compoundButton).setSupportButtonTintList(csl);
 		}
 		compoundButton.setBackgroundColor(Color.TRANSPARENT);
+	}
+
+	/**
+	 * M3 switch: the track carries the active colour and the thumb a colour that contrasts
+	 * with it; unchecked, the thumb and the track outline use the inactive colour.
+	 */
+	private static void setupMaterialSwitch(@NonNull MaterialSwitch materialSwitch,
+	                                        @ColorInt int activeColor,
+	                                        @ColorInt int inactiveColorPrimary,
+	                                        @ColorInt int inactiveColorSecondary) {
+		int[][] states = {
+				new int[] {-android.R.attr.state_enabled, android.R.attr.state_checked},
+				new int[] {-android.R.attr.state_enabled},
+				new int[] {android.R.attr.state_checked},
+				new int[] {}
+		};
+		float disabledAlpha = 0.38f;
+		int onActiveColor = ColorUtils.calculateLuminance(activeColor) > 0.5 ? Color.BLACK : Color.WHITE;
+		int[] thumbColors = {
+				ColorUtilities.getColorWithAlpha(onActiveColor, disabledAlpha),
+				ColorUtilities.getColorWithAlpha(inactiveColorPrimary, disabledAlpha),
+				onActiveColor,
+				inactiveColorPrimary
+		};
+		int[] trackColors = {
+				ColorUtilities.getColorWithAlpha(activeColor, disabledAlpha),
+				ColorUtilities.getColorWithAlpha(inactiveColorSecondary, disabledAlpha),
+				activeColor,
+				inactiveColorSecondary
+		};
+		int[] decorationColors = {
+				Color.TRANSPARENT,
+				ColorUtilities.getColorWithAlpha(inactiveColorPrimary, disabledAlpha),
+				Color.TRANSPARENT,
+				inactiveColorPrimary
+		};
+		materialSwitch.setThumbTintList(new ColorStateList(states, thumbColors));
+		materialSwitch.setTrackTintList(new ColorStateList(states, trackColors));
+		materialSwitch.setTrackDecorationTintList(new ColorStateList(states, decorationColors));
 	}
 
 	public static void setupToolbarOverflowIcon(Toolbar toolbar, @DrawableRes int iconId, @ColorRes int colorId) {

@@ -32,7 +32,7 @@
 				android:lineSpacingExtra="5sp" />
 		</com.google.android.material.textfield.TextInputLayout>
 
-		<androidx.appcompat.widget.SwitchCompat
+		<com.google.android.material.materialswitch.MaterialSwitch
 			android:id="@+id/upload_anonymously_switch"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"

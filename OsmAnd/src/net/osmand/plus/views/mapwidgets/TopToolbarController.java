@@ -15,7 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
 
 import net.osmand.plus.R;
 import net.osmand.plus.helpers.AndroidUiHelper;
@@ -358,9 +357,6 @@ public class TopToolbarController {
 		AndroidUiHelper.updateVisibility(switchCompat, topBarSwitchVisible);
 		if (topBarSwitchVisible) {
 			switchCompat.setChecked(topBarSwitchChecked);
-			if (topBarSwitchChecked) {
-				DrawableCompat.setTint(switchCompat.getTrackDrawable(), ContextCompat.getColor(switchCompat.getContext(), R.color.map_toolbar_switch_track_color));
-			}
 		}
 		View shadowView = toolbarView.getShadowView();
 		if (shadowView != null) {

@@ -242,7 +242,6 @@
 	<color name="purchase_sc_discount">#EE5622</color>
 	<color name="purchase_save_discount">#12B38B</color>
 
-	<color name="map_toolbar_switch_track_color">#c5d2e6</color>
 
 
 	<color name="searchbar_tab_inactive_dark">#66FFFFFF</color>
@@ -566,8 +565,8 @@
 
 	<color name="inactive_pages_light">#cccccc</color>
 	<color name="inactive_pages_dark">#505050</color>
-	<color name="active_buttons_and_links_trans_light">#66237bff</color>
-	<color name="active_buttons_and_links_trans_dark">#66d28521</color>
+	<color name="active_buttons_and_links_trans_light">#663355FF</color>
+	<color name="active_buttons_and_links_trans_dark">#668A9DFF</color>
 	<!-- <color name="settings_divider">#dcdcdc</color> -->
 	<color name="profile_button_gray">#EFEFEF</color>
 	<color name="profile_button_gray_pressed">#ababab</color>

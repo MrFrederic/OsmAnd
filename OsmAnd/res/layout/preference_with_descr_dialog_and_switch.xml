@@ -67,7 +67,7 @@
 			android:layout_marginBottom="18dp"
 			android:background="?attr/divider_color_basic" />
 
-		<androidx.appcompat.widget.SwitchCompat
+		<com.google.android.material.materialswitch.MaterialSwitch
 			android:id="@+id/switchWidget"
 			android:layout_width="wrap_content"
 			android:layout_height="match_parent"

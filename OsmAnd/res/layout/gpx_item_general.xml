@@ -88,7 +88,7 @@
 			android:textSize="@dimen/default_list_text_size"
 			android:textStyle="normal" />
 
-		<androidx.appcompat.widget.SwitchCompat
+		<com.google.android.material.materialswitch.MaterialSwitch
 			android:id="@+id/gpx_join_gaps_switch"
 			android:layout_width="wrap_content"
 			android:layout_height="match_parent"

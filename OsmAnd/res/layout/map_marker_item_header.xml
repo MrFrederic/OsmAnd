@@ -54,7 +54,7 @@
 			android:paddingEnd="@dimen/bottom_sheet_content_margin"
 			android:paddingStart="@dimen/bottom_sheet_content_margin" />
 
-        <androidx.appcompat.widget.SwitchCompat
+        <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/disable_group_switch"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

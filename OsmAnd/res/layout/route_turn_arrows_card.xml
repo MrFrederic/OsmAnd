@@ -43,7 +43,7 @@
 			android:textColor="?android:textColorPrimary"
 			android:textSize="@dimen/default_list_text_size" />
 
-		<androidx.appcompat.widget.SwitchCompat
+		<com.google.android.material.materialswitch.MaterialSwitch
 			android:id="@+id/compound_button"
 			android:layout_width="wrap_content"
 			android:layout_height="match_parent"

@@ -30,7 +30,7 @@
 			android:maxLines="1"
 			android:text="@string/shared_string_show_icon" />
 
-		<androidx.appcompat.widget.SwitchCompat
+		<com.google.android.material.materialswitch.MaterialSwitch
 			android:id="@+id/show_icon_toggle"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"

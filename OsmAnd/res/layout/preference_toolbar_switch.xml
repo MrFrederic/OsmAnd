@@ -32,7 +32,7 @@
 			android:paddingStart="@dimen/content_padding"
 			android:paddingEnd="@dimen/content_padding" />
 
-		<androidx.appcompat.widget.SwitchCompat
+		<com.google.android.material.materialswitch.MaterialSwitch
 			android:id="@+id/switchWidget"
 			android:layout_width="wrap_content"
 			android:layout_height="match_parent"

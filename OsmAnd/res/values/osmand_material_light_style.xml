@@ -31,9 +31,9 @@
 		<item name="list_divider">@color/divider_color_light</item>
 		<item name="divider_color">@color/divider_color_light</item>
 		<item name="divider_color_basic">@color/divider_color_light</item>
-		<item name="dlg_btn_ripple">@drawable/ripple_light</item>
-		<item name="dlg_btn_ripple_solid">@drawable/ripple_solid_light</item>
-		<item name="dlg_btn_ripple_tertiary">@drawable/ripple_tetriary_light</item>
+		<item name="dlg_btn_ripple">@drawable/ripple_btn_light</item>
+		<item name="dlg_btn_ripple_solid">@drawable/ripple_btn_solid_light</item>
+		<item name="dlg_btn_ripple_tertiary">@drawable/ripple_btn_tertiary_light</item>
 		<item name="dlg_btn_primary">@drawable/dlg_btn_primary_light</item>
 		<item name="dlg_btn_primary_harmful">@drawable/dlg_btn_primary_harmful</item>
 		<item name="dlg_btn_primary_text">@color/dlg_btn_primary_text_light</item>

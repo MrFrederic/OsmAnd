@@ -220,9 +220,9 @@
         <item name="card_and_list_background_basic">@color/card_and_list_background_dark</item>
         <item name="activity_background_basic">@color/activity_background_color_dark</item>
         <item name="pages_bg">@drawable/pages_bg_dark</item>
-        <item name="dlg_btn_ripple">@drawable/ripple_dark</item>
-        <item name="dlg_btn_ripple_solid">@drawable/ripple_solid_dark</item>
-        <item name="dlg_btn_ripple_tertiary">@drawable/ripple_dark</item>
+        <item name="dlg_btn_ripple">@drawable/ripple_btn_dark</item>
+        <item name="dlg_btn_ripple_solid">@drawable/ripple_btn_solid_dark</item>
+        <item name="dlg_btn_ripple_tertiary">@drawable/ripple_btn_dark</item>
         <item name="dlg_btn_primary">@drawable/dlg_btn_primary_dark</item>
         <item name="dlg_btn_primary_harmful">@drawable/dlg_btn_primary_harmful</item>
         <item name="dlg_btn_primary_text">@color/dlg_btn_primary_text_dark</item>

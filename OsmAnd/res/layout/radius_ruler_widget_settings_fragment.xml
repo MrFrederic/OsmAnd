@@ -75,7 +75,7 @@
 			android:text="@string/compass_on_circles"
 			android:textColor="?android:textColorPrimary" />
 
-		<androidx.appcompat.widget.SwitchCompat
+		<com.google.android.material.materialswitch.MaterialSwitch
 			android:id="@+id/compass_on_circles_switch"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
