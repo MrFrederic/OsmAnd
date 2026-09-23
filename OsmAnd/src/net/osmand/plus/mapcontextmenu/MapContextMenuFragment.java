@@ -9,6 +9,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Outline;
 import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
@@ -479,6 +480,7 @@ public class MapContextMenuFragment extends BaseFullScreenFragment implements Do
 		View topShadowAllView = view.findViewById(R.id.context_menu_top_shadow_all);
 		AndroidUtils.setBackground(mapActivity, topShadowAllView, nightMode, R.drawable.bg_map_context_menu_light,
 				R.drawable.bg_map_context_menu_dark);
+		setupSheetShadow(mainView, topShadowAllView);
 
 		mainView.setListener(slideTouchListener);
 		mainView.setOnTouchListener(slideTouchListener);
@@ -1317,6 +1319,25 @@ public class MapContextMenuFragment extends BaseFullScreenFragment implements Do
 					startIndex, title.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 		}
 		return title;
+	}
+
+	/**
+	 * M3 sheet shadow: one rounded outline from the top of the header down past the screen
+	 * edge, so the shadow follows the rounded corners and does not fall between header and body.
+	 */
+	private void setupSheetShadow(@NonNull View sheet, @NonNull View header) {
+		float radius = getResources().getDimension(R.dimen.bottom_sheet_corner_radius);
+		int inset = getResources().getDimensionPixelSize(R.dimen.bottom_sheet_shadow_inset);
+		sheet.setOutlineProvider(new ViewOutlineProvider() {
+			@Override
+			public void getOutline(View view, Outline outline) {
+				int top = header.getTop() + inset;
+				outline.setRoundRect(0, top, view.getWidth(), view.getHeight() + (int) radius, radius);
+				outline.setAlpha(1f);
+			}
+		});
+		sheet.setElevation(getResources().getDimension(R.dimen.bottom_sheet_elevation));
+		header.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> sheet.invalidateOutline());
 	}
 
 	private void buildHeader() {

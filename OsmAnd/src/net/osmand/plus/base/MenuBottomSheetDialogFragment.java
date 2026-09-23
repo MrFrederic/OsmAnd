@@ -3,8 +3,11 @@ package net.osmand.plus.base;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -248,7 +251,12 @@ public abstract class MenuBottomSheetDialogFragment extends BottomSheetDialogFra
 			bg = showTopShadow ? getLandscapeTopsidesBg(activity) : getLandscapeSidesBg(activity);
 		}
 
-		AndroidUtils.setBackground(mainView.findViewById(R.id.main_container), bg);
+		View container = mainView.findViewById(R.id.main_container);
+		AndroidUtils.setBackground(container, bg);
+		// the rounded sheet casts an elevation shadow that follows its corners; a full height
+		// sheet (no top shadow) is square and flat, as M3 sheets are once expanded
+		boolean rounded = showTopShadow;
+		container.setElevation(rounded ? getDimensionPixelSize(R.dimen.bottom_sheet_elevation) : 0);
 	}
 
 	private int getContentHeight(int availableScreenHeight) {
@@ -455,11 +463,16 @@ public abstract class MenuBottomSheetDialogFragment extends BottomSheetDialogFra
 		return ColorUtilities.getListBgColorId(nightMode);
 	}
 
+	@NonNull
+	protected Drawable getColoredBg() {
+		return new ColorDrawable(getColor(getBgColorId()));
+	}
+
 	/**
 	 * M3 sheet surface: top corners rounded, bottom edge square against the screen edge.
 	 */
 	@NonNull
-	protected Drawable getColoredBg() {
+	protected Drawable getRoundedColoredBg() {
 		float radius = getDimensionPixelSize(R.dimen.bottom_sheet_corner_radius);
 		GradientDrawable drawable = new GradientDrawable();
 		drawable.setColor(getColor(getBgColorId()));
@@ -468,11 +481,25 @@ public abstract class MenuBottomSheetDialogFragment extends BottomSheetDialogFra
 	}
 
 	protected Drawable getPortraitBg(@NonNull Context ctx) {
-		return createBackgroundDrawable(ctx, R.drawable.bg_contextmenu_shadow_top_light);
+		return createRoundedBackgroundDrawable(ctx, R.drawable.bg_contextmenu_shadow_top_light);
 	}
 
 	protected Drawable getLandscapeTopsidesBg(@NonNull Context ctx) {
-		return createBackgroundDrawable(ctx, R.drawable.bg_shadow_bottomsheet_topsides);
+		return createRoundedBackgroundDrawable(ctx, R.drawable.bg_shadow_bottomsheet_topsides);
+	}
+
+	/**
+	 * The rounded surface inset by the padding the legacy shadow image reserved, so the content
+	 * keeps its position; the shadow itself comes from the view elevation, which follows the
+	 * rounded outline instead of drawing a straight band above the corners.
+	 */
+	protected Drawable createRoundedBackgroundDrawable(@NonNull Context ctx, @DrawableRes int shadowDrawableResId) {
+		Rect padding = new Rect();
+		Drawable shadowDrawable = ContextCompat.getDrawable(ctx, shadowDrawableResId);
+		if (shadowDrawable != null) {
+			shadowDrawable.getPadding(padding);
+		}
+		return new InsetDrawable(getRoundedColoredBg(), padding.left, padding.top, padding.right, padding.bottom);
 	}
 
 	protected Drawable getLandscapeSidesBg(@NonNull Context ctx) {

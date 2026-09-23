@@ -27,6 +27,10 @@
 	<dimen name="dlg_button_rect_rad">24dp</dimen>
 	<!-- M3 extra-large shape, used for the top corners of bottom sheets and map panels -->
 	<dimen name="bottom_sheet_corner_radius">28dp</dimen>
+	<!-- Shadow of sheets and panels over the map (M3 elevation level 2); follows the rounded outline -->
+	<dimen name="bottom_sheet_elevation">3dp</dimen>
+	<!-- Space the legacy top shadow image reserved above sheet content -->
+	<dimen name="bottom_sheet_shadow_inset">15dp</dimen>
 
 	<dimen name="widget_turn_lane_size">36dp</dimen>
 	<dimen name="widget_turn_lane_border">6dp</dimen>

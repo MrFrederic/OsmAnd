@@ -8,6 +8,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
     android:background="?attr/bottom_menu_view_bg"
+    android:elevation="@dimen/bottom_sheet_elevation"
     android:clickable="true"
     android:visibility="gone"
     tools:visibility="visible">

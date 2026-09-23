@@ -152,6 +152,7 @@ public abstract class BottomSheetBehaviourDialogFragment extends BottomSheetDial
 	private void updateBackground() {
 		if (portrait) {
 			itemsContainer.setBackgroundResource(getPortraitBgResId());
+			itemsContainer.setElevation(getResources().getDimension(R.dimen.bottom_sheet_elevation));
 		} else {
 			itemsContainer.setBackgroundResource(getLandscapeTopsidesBgResId());
 		}

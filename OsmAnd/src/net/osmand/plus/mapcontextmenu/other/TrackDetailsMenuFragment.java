@@ -279,6 +279,7 @@ public class TrackDetailsMenuFragment extends BaseFullScreenFragment
 			boolean landscapeLayout = !portraitMode;
 			if (!landscapeLayout) {
 				AndroidUtils.setBackground(ctx, mainView, nightMode, R.drawable.bg_bottom_menu_light, R.drawable.bg_bottom_menu_dark);
+				mainView.setElevation(getResources().getDimension(R.dimen.bottom_sheet_elevation));
 			} else {
 				TypedValue typedValueAttr = new TypedValue();
 				int bgAttrId = AndroidUtils.isLayoutRtl(ctx) ? R.attr.right_menu_view_bg : R.attr.left_menu_view_bg;
