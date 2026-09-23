@@ -705,12 +705,19 @@
     <color name="palette_neutral_10">#18181B</color>
     <color name="palette_neutral_0">#000000</color>
 
+	<color name="palette_orange_93">#FFEEDB</color>
+	<color name="palette_orange_77">#FFC88A</color>
+	<color name="palette_orange_65">#FFAC4D</color>
     <color name="palette_orange_50">#FF8800</color>
     <color name="palette_orange_40">#CC6D00</color>
+	<color name="palette_orange_30">#995200</color>
+	<color name="palette_orange_20">#663600</color>
 
+	<color name="palette_red_93">#FCDFE2</color>
     <color name="palette_red_65">#EE5D70</color>
 	<color name="palette_red_50">#E71832</color>
     <color name="palette_red_45">#CF162D</color>
+	<color name="palette_red_30">#8B0E1E</color>
 
     <color name="palette_green_50">#34CB66</color>
 	<color name="palette_green_40">#339944</color>
@@ -793,6 +800,62 @@
 
     <color name="scrim_light">#52000000</color>
     <color name="scrim_dark">#52000000</color>
+
+	<!-- M3 MIGRATION — COMPLETING THE ROLE SET                        -->
+	<!-- Every colour role Theme.Material3 reads is defined here, so   -->
+	<!-- no baseline (purple) M3 value leaks into OsmAnd screens.      -->
+
+	<color name="surface_container_lowest_light">@color/palette_neutral_100</color>
+	<color name="surface_container_lowest_dark">@color/palette_neutral_0</color>
+	<color name="surface_container_low_light">@color/palette_neutral_100</color>
+	<color name="surface_container_low_dark">@color/palette_neutral_15</color>
+	<color name="surface_container_high_light">@color/palette_neutral_90</color>
+	<color name="surface_container_high_dark">@color/palette_neutral_25</color>
+	<color name="surface_variant_light">@color/palette_neutral_90</color>
+	<color name="surface_variant_dark">@color/palette_neutral_25</color>
+	<color name="surface_dim_light">@color/palette_neutral_85</color>
+	<color name="surface_dim_dark">@color/palette_neutral_0</color>
+	<color name="surface_bright_light">@color/palette_neutral_95</color>
+	<color name="surface_bright_dark">@color/palette_neutral_25</color>
+	<!-- Low-emphasis content: secondary icons, placeholders. -->
+	<color name="on_surface_quaternary_light">@color/palette_neutral_70</color>
+	<color name="on_surface_quaternary_dark">@color/palette_neutral_30</color>
+
+	<color name="surface_inverse_light">@color/palette_neutral_15</color>
+	<color name="surface_inverse_dark">@color/palette_neutral_90</color>
+	<color name="on_surface_inverse_light">@color/palette_neutral_95</color>
+	<color name="on_surface_inverse_dark">@color/palette_neutral_15</color>
+	<color name="primary_inverse_light">@color/palette_blue_77</color>
+	<color name="primary_inverse_dark">@color/palette_blue_60</color>
+
+	<!-- Tertiary carries the OsmAnd brand orange. -->
+	<color name="tertiary_light">@color/palette_orange_40</color>
+	<color name="tertiary_dark">@color/palette_orange_65</color>
+	<color name="on_tertiary_light">@color/palette_neutral_100</color>
+	<color name="on_tertiary_dark">@color/palette_orange_20</color>
+	<color name="tertiary_container_light">@color/palette_orange_93</color>
+	<color name="tertiary_container_dark">@color/palette_orange_30</color>
+	<color name="on_tertiary_container_light">@color/palette_orange_30</color>
+	<color name="on_tertiary_container_dark">@color/palette_orange_93</color>
+
+	<color name="error_container_light">@color/palette_red_93</color>
+	<color name="error_container_dark">@color/palette_red_30</color>
+	<color name="on_error_container_light">@color/palette_red_30</color>
+	<color name="on_error_container_dark">@color/palette_red_93</color>
+
+	<!-- Fixed roles keep the same value in light and dark. -->
+	<color name="primary_fixed">@color/palette_blue_93</color>
+	<color name="primary_fixed_dim">@color/palette_blue_85</color>
+	<color name="on_primary_fixed">@color/palette_blue_muted_30</color>
+	<color name="on_primary_fixed_variant">@color/palette_blue_muted_45</color>
+	<color name="secondary_fixed">@color/palette_blue_muted_93</color>
+	<color name="secondary_fixed_dim">@color/palette_blue_muted_60</color>
+	<color name="on_secondary_fixed">@color/palette_blue_muted_30</color>
+	<color name="on_secondary_fixed_variant">@color/palette_blue_muted_45</color>
+	<color name="tertiary_fixed">@color/palette_orange_93</color>
+	<color name="tertiary_fixed_dim">@color/palette_orange_77</color>
+	<color name="on_tertiary_fixed">@color/palette_orange_20</color>
+	<color name="on_tertiary_fixed_variant">@color/palette_orange_30</color>
 	
 
 
