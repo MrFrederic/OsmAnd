@@ -30,10 +30,10 @@ import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -533,7 +533,7 @@ public class ImportHelper {
 
 	private void showPermissionsAlert() {
 		if (AndroidUtils.isActivityNotDestroyed(activity)) {
-			new AlertDialog.Builder(activity)
+			new MaterialAlertDialogBuilder(activity)
 					.setTitle(R.string.shared_string_import2osmand)
 					.setMessage(R.string.import_gpx_failed_descr)
 					.setNeutralButton(R.string.shared_string_permissions, (dialog, which) -> {
@@ -689,7 +689,7 @@ public class ImportHelper {
 								break;
 						}
 					};
-					new AlertDialog.Builder(activity)
+					new MaterialAlertDialogBuilder(activity)
 							.setTitle(R.string.import_track)
 							.setMessage(activity.getString(R.string.import_track_desc, fileName))
 							.setPositiveButton(R.string.shared_string_import, importAsTrackListener)

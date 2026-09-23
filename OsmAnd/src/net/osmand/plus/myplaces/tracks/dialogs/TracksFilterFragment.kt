@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuItemCompat
@@ -16,6 +15,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import net.osmand.CallbackWithObject
 import net.osmand.plus.OsmandApplication
 import net.osmand.plus.R
@@ -220,7 +220,7 @@ class TracksFilterFragment : BaseFullScreenDialogFragment(),
 		if (filterChanged()) {
 			val fragmentManager = fragmentManager
 			fragmentManager?.let {
-				val builder = AlertDialog.Builder(requireContext())
+				val builder = MaterialAlertDialogBuilder(requireContext())
 				builder.setTitle(R.string.discard_filter_changes)
 				builder.setMessage(R.string.discard_filter_changes_prompt)
 				builder.setNegativeButton(R.string.shared_string_cancel, null)

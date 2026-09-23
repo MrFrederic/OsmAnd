@@ -10,6 +10,8 @@ import android.widget.LinearLayout;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.data.Amenity;
 import net.osmand.data.LatLon;
 import net.osmand.osm.edit.Entity;
@@ -76,7 +78,7 @@ public class DeletePoiHelper {
 			app.showToastMessage(R.string.poi_cannot_be_found);
 			return;
 		}
-		AlertDialog.Builder builder = new AlertDialog.Builder(themedContext);
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(themedContext);
 		builder.setTitle(R.string.poi_remove_title);
 		EditText comment;
 		CheckBox closeChangesetCheckBox;

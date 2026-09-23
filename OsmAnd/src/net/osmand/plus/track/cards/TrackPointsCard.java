@@ -29,6 +29,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.Location;
 import net.osmand.data.LatLon;
 import net.osmand.data.PointDescription;
@@ -277,7 +279,7 @@ public class TrackPointsCard extends MapBaseCard implements OnChildClickListener
 	public void deleteItemsAction() {
 		int size = getSelectedItemsCount();
 		if (size > 0) {
-			AlertDialog.Builder b = new AlertDialog.Builder(mapActivity);
+			AlertDialog.Builder b = new MaterialAlertDialogBuilder(mapActivity);
 			b.setMessage(app.getString(R.string.points_delete_multiple, size));
 			b.setPositiveButton(R.string.shared_string_delete, new DialogInterface.OnClickListener() {
 				@Override

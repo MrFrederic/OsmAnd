@@ -60,6 +60,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import net.osmand.CallbackWithObject;
 import net.osmand.IndexConstants;
@@ -1278,7 +1279,7 @@ public class TrackMenuFragment extends ContextMenuScrollFragment implements Card
 			} else if (buttonIndex == DELETE_BUTTON_INDEX) {
 				String fileName = Algorithms.getFileWithoutDirs(gpxFile.getPath());
 
-				AlertDialog.Builder builder = new AlertDialog.Builder(UiUtilities.getThemedContext(mapActivity, isNightMode()));
+				AlertDialog.Builder builder = new MaterialAlertDialogBuilder(UiUtilities.getThemedContext(mapActivity, isNightMode()));
 				builder.setTitle(getString(R.string.delete_confirmation_msg, fileName));
 				builder.setMessage(R.string.are_you_sure);
 				String gpxFilePath = gpxFile.getPath();
@@ -1640,7 +1641,7 @@ public class TrackMenuFragment extends ContextMenuScrollFragment implements Card
 					if (!confirmDeletion) {
 						deleteAndSaveSegment(segment);
 					} else if (AndroidUtils.isActivityNotDestroyed(fragmentActivity)) {
-						AlertDialog.Builder builder = new AlertDialog.Builder(fragmentActivity);
+						AlertDialog.Builder builder = new MaterialAlertDialogBuilder(fragmentActivity);
 						builder.setMessage(getString(R.string.delete_confirmation_msg, gpxItem.trackSegmentName));
 						builder.setPositiveButton(R.string.shared_string_yes, (dialog, which) -> deleteAndSaveSegment(segment));
 						builder.setNegativeButton(R.string.shared_string_cancel, null);

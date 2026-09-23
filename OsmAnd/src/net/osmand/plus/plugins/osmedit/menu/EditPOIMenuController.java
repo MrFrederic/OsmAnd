@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.data.PointDescription;
 import net.osmand.osm.PoiType;
 import net.osmand.plus.OsmandApplication;
@@ -79,7 +81,7 @@ public class EditPOIMenuController extends MenuController {
 			public void buttonPressed() {
 				MapActivity activity = getMapActivity();
 				if (activity != null) {
-					AlertDialog.Builder bld = new AlertDialog.Builder(activity);
+					AlertDialog.Builder bld = new MaterialAlertDialogBuilder(activity);
 					String itemName = pointDescription.getName();
 					bld.setMessage(activity.getString(R.string.delete_confirmation_msg, itemName));
 					bld.setPositiveButton(R.string.shared_string_yes, (dialog, which) -> {

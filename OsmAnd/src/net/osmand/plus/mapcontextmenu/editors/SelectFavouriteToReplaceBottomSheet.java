@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.data.FavouritePoint;
 import net.osmand.data.LatLon;
 import net.osmand.plus.R;
@@ -23,7 +25,7 @@ public class SelectFavouriteToReplaceBottomSheet extends SelectFavouriteBottomSh
 	}
 
 	private void showConfirmationDialog(@NonNull FavouritePoint favourite) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(getThemedContext());
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(getThemedContext());
 		builder.setTitle(R.string.update_existing);
 		builder.setMessage(getString(R.string.replace_favorite_confirmation, favourite.getName()));
 		builder.setNegativeButton(R.string.shared_string_no, null);

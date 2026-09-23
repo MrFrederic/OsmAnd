@@ -21,6 +21,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.CallbackWithObject;
 import net.osmand.ResultMatcher;
 import net.osmand.StateChangedListener;
@@ -258,7 +260,7 @@ public class OsmandRasterMapsPlugin extends OsmandPlugin {
 		OsmandSettings settings = app.getSettings();
 		Map<String, String> entriesMap = settings.getTileSourceEntries();
 		ArrayList<String> keys = new ArrayList<>(entriesMap.keySet());
-		AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(mapActivity, getThemeRes(mapActivity)));
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(new ContextThemeWrapper(mapActivity, getThemeRes(mapActivity)));
 		String[] items = new String[entriesMap.size() + 1];
 		int i = 0;
 		for (String it : entriesMap.values()) {

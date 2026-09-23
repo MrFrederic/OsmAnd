@@ -22,6 +22,8 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.data.FavouritePoint;
 import net.osmand.data.LatLon;
 import net.osmand.data.PointDescription;
@@ -183,7 +185,7 @@ public class FavoriteMenu {
 				.setIcon(uiUtilities.getThemedIcon(R.drawable.ic_action_delete_outlined))
 				.setOnClickListener(v -> {
 					OsmandApplication app = (OsmandApplication) activity.getApplication();
-					AlertDialog.Builder builder = new AlertDialog.Builder(getThemedContext(activity, nightMode));
+					AlertDialog.Builder builder = new MaterialAlertDialogBuilder(getThemedContext(activity, nightMode));
 					builder.setMessage(app.getString(R.string.favourites_remove_dialog_msg, favouritePoint.getName()));
 					builder.setNegativeButton(R.string.shared_string_no, null);
 					builder.setPositiveButton(R.string.shared_string_yes, (dialog, which) -> {
@@ -292,7 +294,7 @@ public class FavoriteMenu {
 				.setTitleId(R.string.shared_string_delete)
 				.setIcon(uiUtilities.getThemedIcon(R.drawable.ic_action_delete_outlined))
 				.setOnClickListener(v -> {
-					AlertDialog.Builder b = new AlertDialog.Builder(getThemedContext(activity, nightMode));
+					AlertDialog.Builder b = new MaterialAlertDialogBuilder(getThemedContext(activity, nightMode));
 					b.setTitle(R.string.delete_folder);
 					b.setMessage(getDeleteFolderMessage(selectedFolder));
 					b.setNeutralButton(R.string.shared_string_cancel, null);
@@ -434,7 +436,7 @@ public class FavoriteMenu {
 				.setTitleId(R.string.shared_string_delete)
 				.setIcon(uiUtilities.getThemedIcon(R.drawable.ic_action_delete_outlined))
 				.setOnClickListener(v -> {
-					AlertDialog.Builder b = new AlertDialog.Builder(getThemedContext(activity, nightMode));
+					AlertDialog.Builder b = new MaterialAlertDialogBuilder(getThemedContext(activity, nightMode));
 					b.setTitle(R.string.favorite_delete_group);
 					b.setMessage(app.getString(R.string.delete_groups_confirmation));
 					b.setNeutralButton(R.string.shared_string_cancel, null);
@@ -489,7 +491,7 @@ public class FavoriteMenu {
 				.setTitleId(R.string.shared_string_delete)
 				.setIcon(uiUtilities.getThemedIcon(R.drawable.ic_action_delete_outlined))
 				.setOnClickListener(v -> {
-					AlertDialog.Builder builder = new AlertDialog.Builder(getThemedContext(activity, nightMode));
+					AlertDialog.Builder builder = new MaterialAlertDialogBuilder(getThemedContext(activity, nightMode));
 					builder.setMessage(getDeleteSelectionMessage(selection));
 					builder.setNegativeButton(R.string.shared_string_no, null);
 					builder.setPositiveButton(R.string.shared_string_yes, (dialog, which) -> {
@@ -667,7 +669,7 @@ public class FavoriteMenu {
 				.setIcon(uiUtilities.getThemedIcon(R.drawable.ic_action_delete_outlined))
 				.setOnClickListener(v -> {
 					OsmandApplication app = (OsmandApplication) activity.getApplication();
-					AlertDialog.Builder builder = new AlertDialog.Builder(getThemedContext(activity, nightMode));
+					AlertDialog.Builder builder = new MaterialAlertDialogBuilder(getThemedContext(activity, nightMode));
 					builder.setMessage(app.getString(R.string.favourites_context_menu_delete));
 					builder.setNegativeButton(R.string.shared_string_no, null);
 					builder.setPositiveButton(R.string.shared_string_yes, (dialog, which) -> {

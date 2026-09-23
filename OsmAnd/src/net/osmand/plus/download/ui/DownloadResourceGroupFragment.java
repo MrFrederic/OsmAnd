@@ -31,6 +31,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.map.WorldRegion;
 import net.osmand.plus.LockableViewPager;
 import net.osmand.plus.OsmAndTaskManager;
@@ -321,7 +323,7 @@ public class DownloadResourceGroupFragment extends BaseFullScreenDialogFragment
 	}
 
 	private void subscribe() {
-		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(activity);
 		builder.setTitle(R.string.shared_string_email_address);
 		int hPadding = AndroidUtils.dpToPx(activity, 24f);
 		int vPadding = AndroidUtils.dpToPx(activity, 4f);

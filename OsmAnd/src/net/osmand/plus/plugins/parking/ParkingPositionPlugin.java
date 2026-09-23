@@ -20,6 +20,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.data.FavouritePoint;
 import net.osmand.data.LatLon;
 import net.osmand.data.PointDescription;
@@ -249,7 +251,7 @@ public class ParkingPositionPlugin extends OsmandPlugin {
 	 * Method creates confirmation dialog for deletion of a parking location.
 	 */
 	public AlertDialog showDeleteDialog(Activity activity) {
-		AlertDialog.Builder confirm = new AlertDialog.Builder(activity);
+		AlertDialog.Builder confirm = new MaterialAlertDialogBuilder(activity);
 		confirm.setTitle(activity.getString(R.string.osmand_parking_delete));
 		confirm.setMessage(activity.getString(R.string.osmand_parking_delete_confirm));
 		confirm.setCancelable(true);
@@ -280,7 +282,7 @@ public class ParkingPositionPlugin extends OsmandPlugin {
 		OsmandApplication app = mapActivity.getApp();
 		boolean nightMode = app.getDaynightHelper().isNightMode(ThemeUsageContext.OVER_MAP);
 		View setTimeParking = UiUtilities.getInflater(mapActivity, nightMode).inflate(R.layout.parking_set_time_limit, null);
-		AlertDialog.Builder setTime = new AlertDialog.Builder(mapActivity);
+		AlertDialog.Builder setTime = new MaterialAlertDialogBuilder(mapActivity);
 		setTime.setView(setTimeParking);
 		setTime.setTitle(mapActivity.getString(R.string.osmand_parking_time_limit_title));
 		setTime.setNegativeButton(R.string.shared_string_cancel, (dialog, which) -> cancelParking());
@@ -363,7 +365,7 @@ public class ParkingPositionPlugin extends OsmandPlugin {
 	 */
 	void showDeleteEventWarning(Activity activity) {
 		if (isParkingEventAdded()) {
-			AlertDialog.Builder deleteEventWarning = new AlertDialog.Builder(activity);
+			AlertDialog.Builder deleteEventWarning = new MaterialAlertDialogBuilder(activity);
 			deleteEventWarning.setTitle(activity.getString(R.string.osmand_parking_warning));
 			deleteEventWarning.setMessage(activity.getString(R.string.osmand_parking_warning_text));
 			deleteEventWarning.setNeutralButton(R.string.shared_string_ok, (dialog, which) -> {});

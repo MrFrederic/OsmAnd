@@ -11,6 +11,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatRadioButton;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.plus.AppInitializer;
 import net.osmand.plus.AppInitializeListener;
 import net.osmand.plus.OsmandApplication;
@@ -38,7 +40,7 @@ public class MapRenderingEngineDialog {
 	private AlertDialog createDialog(@Nullable OnRenderChangeListener renderChangeListener) {
 		boolean nightMode = app.getDaynightHelper().isNightMode(ThemeUsageContext.OVER_MAP);
 		Context themedContext = UiUtilities.getThemedContext(fragmentActivity, nightMode);
-		AlertDialog.Builder builder = new AlertDialog.Builder(themedContext);
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(themedContext);
 		View alertDialogView = LayoutInflater.from(themedContext).inflate(R.layout.alert_dialog_message_with_choice_list, null, false);
 		builder.setView(alertDialogView);
 

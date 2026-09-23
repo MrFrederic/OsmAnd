@@ -36,6 +36,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
@@ -744,7 +745,7 @@ public class QuickSearchDialogFragment extends BaseFullScreenDialogFragment impl
 
 	public void saveCustomFilter() {
 		PoiUIFilter filter = app.getPoiFilters().getCustomPOIFilter();
-		AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(requireContext());
 		builder.setTitle(R.string.access_hint_enter_name);
 
 		EditText editText = new EditText(getContext());

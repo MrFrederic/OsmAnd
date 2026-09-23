@@ -18,6 +18,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.IndexConstants;
 import net.osmand.plus.R;
 import net.osmand.plus.activities.MapActivity;
@@ -298,7 +300,7 @@ public class SelectNavProfileBottomSheet extends SelectProfileBottomSheet implem
 	protected OnPopUpMenuItemClickListener getOptionDeleteClickListener(@NonNull ProfilesGroup group) {
 		String fileName = String.valueOf(group.getTitle());
 		return menuItem -> {
-			AlertDialog.Builder builder = new AlertDialog.Builder(getThemedContext());
+			AlertDialog.Builder builder = new MaterialAlertDialogBuilder(getThemedContext());
 			builder.setTitle(getString(R.string.shared_string_delete_file));
 			builder.setMessage(getString(R.string.nav_profile_confirm_delete, fileName));
 			builder.setNeutralButton(R.string.shared_string_cancel, null);

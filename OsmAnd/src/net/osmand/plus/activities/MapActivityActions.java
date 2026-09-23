@@ -18,6 +18,8 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AlertDialog;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.PlatformUtil;
 import net.osmand.data.FavouritePoint;
 import net.osmand.data.LatLon;
@@ -762,7 +764,7 @@ public class MapActivityActions extends MapActions {
 		List<String> items = new ArrayList<>();
 		items.add(getString(R.string.show_location));
 		items.add(getString(R.string.shared_string_show_details));
-		AlertDialog.Builder menu = new AlertDialog.Builder(activity);
+		AlertDialog.Builder menu = new MaterialAlertDialogBuilder(activity);
 		menu.setItems(items.toArray(new String[0]), (dialog, item) -> {
 			dialog.dismiss();
 			switch (item) {

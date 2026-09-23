@@ -19,6 +19,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.CallbackWithObject;
 import net.osmand.plus.OsmAndTaskManager;
 import net.osmand.plus.OsmandApplication;
@@ -427,7 +429,7 @@ public class TrackFoldersHelper implements OnTrackFileMoveListener {
 	                                          @NonNull Fragment fragment) {
 		String size = String.valueOf(trackItems.size() + tracksGroups.size());
 		String delete = app.getString(R.string.shared_string_delete);
-		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(activity);
 		builder.setMessage(app.getString(R.string.local_index_action_do, delete.toLowerCase(), size));
 		builder.setPositiveButton(delete, (dialog, which) -> {
 			deleteTracks(trackItems, tracksGroups);
@@ -480,7 +482,7 @@ public class TrackFoldersHelper implements OnTrackFileMoveListener {
 	}
 
 	private void showDeleteConfirmationDialog(@NonNull TrackItem trackItem) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(activity);
 		builder.setMessage(app.getString(R.string.delete_confirmation_msg, trackItem.getName()));
 		builder.setPositiveButton(R.string.shared_string_yes, (dialog, which) -> deleteTracks(Collections.singleton(trackItem), null));
 		builder.setNegativeButton(R.string.shared_string_cancel, null);

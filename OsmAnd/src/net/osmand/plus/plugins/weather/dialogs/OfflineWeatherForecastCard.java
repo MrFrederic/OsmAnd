@@ -14,6 +14,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.PlatformUtil;
 import net.osmand.data.LatLon;
 import net.osmand.plus.OsmAndTaskManager;
@@ -237,7 +239,7 @@ public class OfflineWeatherForecastCard extends MapBaseCard implements DownloadE
 		String name = indexItem.getVisibleName(app, app.getRegions(), false);
 		String fileName = app.getString(R.string.ltr_or_rtl_combine_via_space, name, WEATHER_FORECAST.getString(app));
 
-		AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(view.getContext());
 		builder.setMessage(app.getString(R.string.delete_confirmation_msg, fileName));
 		builder.setPositiveButton(R.string.shared_string_yes, (dialog, which) -> remove(indexItem.getDownloadedFiles(app)));
 		builder.setNegativeButton(R.string.shared_string_no, null);

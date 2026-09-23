@@ -29,6 +29,8 @@ import androidx.preference.PreferenceGroupAdapter;
 import androidx.preference.PreferenceViewHolder;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.PlatformUtil;
 import net.osmand.plus.R;
 import net.osmand.plus.activities.MapActivity;
@@ -480,7 +482,7 @@ public class ConfigureProfileFragment extends BaseSettingsFragment implements Co
 		FragmentActivity activity = getActivity();
 		if (activity != null) {
 			if (profile.isCustomProfile()) {
-				AlertDialog.Builder builder = new AlertDialog.Builder(UiUtilities.getThemedContext(activity, isNightMode()));
+				AlertDialog.Builder builder = new MaterialAlertDialogBuilder(UiUtilities.getThemedContext(activity, isNightMode()));
 				builder.setTitle(R.string.profile_alert_delete_title);
 				builder.setMessage(String.format(getString(R.string.profile_alert_delete_msg), profile.toHumanString()));
 				builder.setPositiveButton(R.string.shared_string_delete, (dialog, which) -> {

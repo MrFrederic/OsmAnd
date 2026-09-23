@@ -34,6 +34,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.GeoidAltitudeCorrection;
 import net.osmand.PlatformUtil;
 import net.osmand.ResultMatcher;
@@ -886,7 +888,7 @@ public class OsmAndLocationProvider implements SensorEventListener {
 	public boolean checkGPSEnabled(Context context) {
 		if (!isGPSEnabled() && !isNetworkEnabled()) {
 			// notify user
-			AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+			AlertDialog.Builder dialog = new MaterialAlertDialogBuilder(context);
 			dialog.setMessage(context.getResources().getString(R.string.gps_network_not_enabled));
 			dialog.setPositiveButton(context.getResources().getString(R.string.shared_string_settings), (paramDialogInterface, paramInt) -> {
 				Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);

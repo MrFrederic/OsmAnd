@@ -7,6 +7,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.R;
 import net.osmand.plus.activities.MapActivity;
@@ -26,7 +28,7 @@ public class VoiceProviderDialog {
 		OsmandSettings settings = app.getSettings();
 		boolean nightMode = app.getDaynightHelper().isNightMode(ThemeUsageContext.OVER_MAP);
 		RoutingOptionsHelper routingOptionsHelper = app.getRoutingOptionsHelper();
-		AlertDialog.Builder builder = new AlertDialog.Builder(UiUtilities.getThemedContext(activity, nightMode));
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(UiUtilities.getThemedContext(activity, nightMode));
 		String[] firstSelectedVoiceProvider = new String[1];
 
 		View view = UiUtilities.getInflater(activity, nightMode).inflate(R.layout.select_voice_first, null);

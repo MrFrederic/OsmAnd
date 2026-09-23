@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.slider.Slider
 import net.osmand.plus.R
 import net.osmand.plus.helpers.AndroidUiHelper
@@ -162,7 +162,7 @@ class OBDWidgetSettingFragment : BaseSimpleWidgetInfoFragment() {
 		val nightMode = app.daynightHelper.isNightMode(appMode, ThemeUsageContext.APP)
 		seekBarIntervalMillis = selectedIntervalMillis
 		val themedContext = UiUtilities.getThemedContext(requireContext(), nightMode)
-		val builder = AlertDialog.Builder(themedContext)
+		val builder = MaterialAlertDialogBuilder(themedContext)
 		val seekbarView = inflater.inflate(R.layout.map_marker_interval_dialog, null, false)
 		builder.setView(seekbarView)
 		builder.setPositiveButton(R.string.shared_string_apply) { dialog, which ->

@@ -9,6 +9,8 @@ import android.os.Vibrator;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.Location;
 import net.osmand.data.LatLon;
 import net.osmand.plus.utils.OsmAndFormatter;
@@ -352,7 +354,7 @@ public class NavigationInfo implements OsmAndCompassListener, OsmAndLocationList
 		if (attributes.isEmpty())
 			attributes.add(getString(R.string.no_info));
 
-		AlertDialog.Builder info = new AlertDialog.Builder(ctx);
+		AlertDialog.Builder info = new MaterialAlertDialogBuilder(ctx);
 		if (point != null)
 			info.setPositiveButton(autoAnnounce ? R.string.auto_announce_off : R.string.auto_announce_on,
 					new DialogInterface.OnClickListener() {

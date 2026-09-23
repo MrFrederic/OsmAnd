@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 
 import net.osmand.map.ITileSource;
@@ -169,7 +170,7 @@ public class ItemMenuProvider extends AbstractBaseMenuProvider {
 
 	private void clearTiles(@NonNull LocalItem localItem) {
 		Context context = UiUtilities.getThemedContext(activity, nightMode);
-		AlertDialog.Builder builder = new AlertDialog.Builder(context);
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(context);
 		builder.setPositiveButton(R.string.shared_string_yes, (dialog, which) -> {
 			if (fragment instanceof LocalBaseFragment localFragment) {
 				LocalOperationTask task = new LocalOperationTask(app, CLEAR_TILES_OPERATION, localFragment);

@@ -32,6 +32,8 @@ import androidx.appcompat.view.ActionMode;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.Location;
 import net.osmand.data.FavouritePoint;
 import net.osmand.data.LatLon;
@@ -558,7 +560,7 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment implemen
 		int size = getSelectedFavoritesCount();
 		if (groupsToDelete.size() + size > 0) {
 
-			AlertDialog.Builder b = new AlertDialog.Builder(getActivity());
+			AlertDialog.Builder b = new MaterialAlertDialogBuilder(getActivity());
 			b.setMessage(getString(R.string.favorite_delete_multiple, size, groupsToDelete.size()));
 			b.setPositiveButton(R.string.shared_string_delete, (dialog, which) -> {
 				if (actionMode != null) {

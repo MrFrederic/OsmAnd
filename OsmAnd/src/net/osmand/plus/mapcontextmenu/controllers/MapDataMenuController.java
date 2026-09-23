@@ -14,6 +14,8 @@ import android.os.AsyncTask;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.IProgress;
 import net.osmand.IndexConstants;
 import net.osmand.data.LatLon;
@@ -497,7 +499,7 @@ public class MapDataMenuController extends MenuController {
 		if (mapActivity != null) {
 			OsmandApplication app = mapActivity.getApp();
 			if (file.exists()) {
-				AlertDialog.Builder confirm = new AlertDialog.Builder(getMapActivity());
+				AlertDialog.Builder confirm = new MaterialAlertDialogBuilder(getMapActivity());
 				confirm.setPositiveButton(R.string.shared_string_yes, (dialog, which) -> {
 					MapActivity activity = getMapActivity();
 					if (activity != null) {

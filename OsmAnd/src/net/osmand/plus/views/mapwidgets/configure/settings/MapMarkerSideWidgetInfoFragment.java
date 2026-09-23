@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.slider.Slider;
 
 import net.osmand.plus.R;
@@ -201,7 +202,7 @@ public class MapMarkerSideWidgetInfoFragment extends BaseSimpleWidgetInfoFragmen
 		boolean nightMode = app.getDaynightHelper().isNightMode(appMode, ThemeUsageContext.APP);
 		localSeekBarIntervalMillis = selectedIntervalMillis;
 		Context themedContext = UiUtilities.getThemedContext(requireActivity(), nightMode);
-		AlertDialog.Builder builder = new AlertDialog.Builder(themedContext);
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(themedContext);
 		View seekbarView = inflate(R.layout.map_marker_interval_dialog, null, false);
 		builder.setView(seekbarView);
 		builder.setPositiveButton(R.string.shared_string_apply, (dialog, which) -> {

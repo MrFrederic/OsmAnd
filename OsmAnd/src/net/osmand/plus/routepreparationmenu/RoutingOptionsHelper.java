@@ -16,6 +16,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatCheckedTextView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.CallbackWithObject;
 import net.osmand.Collator;
 import net.osmand.IndexConstants;
@@ -330,7 +332,7 @@ public class RoutingOptionsHelper {
 		Context themedContext = UiUtilities.getThemedContext(mapActivity, nightMode);
 		ApplicationMode selectedAppMode = app.getRoutingHelper().getAppMode();
 		int selectedModeColor = selectedAppMode.getProfileColor(nightMode);
-		AlertDialog.Builder builder = new AlertDialog.Builder(themedContext);
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(themedContext);
 		final int layout = R.layout.list_menu_item_native_singlechoice;
 
 		List<String> names = ContextMenuUtils.getNames(adapter.getItems());

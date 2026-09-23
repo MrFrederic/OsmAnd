@@ -17,6 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatCheckBox;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.R;
 import net.osmand.plus.Version;
@@ -56,7 +58,7 @@ public class StartGPSStatus {
 	}
 
 	public void showDialog() {
-		AlertDialog.Builder builder = new AlertDialog.Builder(mapActivity);
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(mapActivity);
 		builder.setTitle(R.string.gps_status);
 		LinearLayout ll = new LinearLayout(mapActivity);
 		ListView lv = new ListView(mapActivity);
@@ -124,7 +126,7 @@ public class StartGPSStatus {
 			intent.addCategory(Intent.CATEGORY_LAUNCHER);
 			AndroidUtils.startActivityIfSafe(mapActivity, intent);
 		} else if (Version.isMarketEnabled()) {
-			AlertDialog.Builder builder = new AlertDialog.Builder(mapActivity);
+			AlertDialog.Builder builder = new MaterialAlertDialogBuilder(mapActivity);
 			builder.setMessage(mapActivity.getString(R.string.gps_status_app_not_found));
 			builder.setPositiveButton(mapActivity.getString(R.string.shared_string_yes), (dialog, which) -> {
 				Uri uri = Uri.parse(Version.getUrlWithUtmRef(app, g.appName));

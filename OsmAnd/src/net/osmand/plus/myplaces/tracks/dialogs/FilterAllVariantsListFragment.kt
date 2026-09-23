@@ -10,13 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.ProgressBar
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import net.osmand.plus.OsmandApplication
 import net.osmand.plus.R
 import net.osmand.plus.base.BaseFullScreenDialogFragment
@@ -166,7 +166,7 @@ class FilterAllVariantsListFragment : BaseFullScreenDialogFragment(), SmartFolde
 
 	private fun closeWithoutApply() {
 		if (filterChanged()) {
-			val builder = AlertDialog.Builder(requireContext())
+			val builder = MaterialAlertDialogBuilder(requireContext())
 			builder.setTitle(R.string.discard_filter_changes)
 			builder.setMessage(R.string.discard_changes_prompt)
 			builder.setNegativeButton(R.string.shared_string_cancel, null)

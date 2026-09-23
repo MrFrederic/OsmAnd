@@ -23,6 +23,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.graphics.ColorUtils;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.settings.backend.preferences.OsmandPreference;
 import net.osmand.plus.settings.enums.ThemeUsageContext;
@@ -116,7 +118,7 @@ public class TestVoiceActivity extends OsmandActionBarActivity {
 			}
 			k++;
 		}
-		AlertDialog.Builder bld = new AlertDialog.Builder(this);
+		AlertDialog.Builder bld = new MaterialAlertDialogBuilder(this);
 		bld.setSingleChoiceItems(entrieValues, selected, (dialog, which) -> {
 			getSupportActionBar().setTitle(app.getString(R.string.test_voice_prompts) + " (" + entrieValues[which] + ")");
 			settings.VOICE_PROVIDER.set(entrieValues[which]);

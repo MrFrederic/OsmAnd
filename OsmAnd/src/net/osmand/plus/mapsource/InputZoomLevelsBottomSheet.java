@@ -15,6 +15,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.slider.RangeSlider;
 
 import net.osmand.PlatformUtil;
@@ -136,7 +137,7 @@ public class InputZoomLevelsBottomSheet extends MenuBottomSheetDialogFragment {
 
 	public static void showClearTilesWarningDialog(Activity activity, boolean nightMode, DialogInterface.OnClickListener onPositiveListener) {
 		Context themedContext = UiUtilities.getThemedContext(activity, nightMode);
-		AlertDialog.Builder dismissDialog = new AlertDialog.Builder(themedContext);
+		AlertDialog.Builder dismissDialog = new MaterialAlertDialogBuilder(themedContext);
 		dismissDialog.setTitle(activity.getString(R.string.osmand_parking_warning));
 		dismissDialog.setMessage(activity.getString(R.string.clear_tiles_warning));
 		dismissDialog.setNegativeButton(R.string.shared_string_cancel, null);

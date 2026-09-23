@@ -30,6 +30,7 @@ import androidx.preference.PreferenceViewHolder;
 import androidx.preference.TwoStatePreference;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.slider.Slider;
 
 import net.osmand.StateChangedListener;
@@ -586,7 +587,7 @@ public class RouteParametersFragment extends BaseSettingsFragment {
 		float[] angleValue = {appMode.getStrAngle()};
 		boolean nightMode = app.getDaynightHelper().isNightMode(appMode, ThemeUsageContext.APP);
 		Context themedContext = UiUtilities.getThemedContext(activity, nightMode);
-		AlertDialog.Builder builder = new AlertDialog.Builder(themedContext);
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(themedContext);
 		View sliderView = LayoutInflater.from(themedContext).inflate(
 				R.layout.recalculation_angle_dialog, null, false);
 		builder.setView(sliderView);

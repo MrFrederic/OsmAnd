@@ -20,6 +20,8 @@ import androidx.appcompat.widget.AppCompatCheckedTextView;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.Preference;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.plus.R;
 import net.osmand.plus.activities.MapActivity;
 import net.osmand.plus.base.MapViewTrackingUtilities;
@@ -398,7 +400,7 @@ public class GeneralProfileSettingsFragment extends BaseSettingsFragment {
 
 	private void showDrivingRegionDialog() {
 		Context themedContext = UiUtilities.getThemedContext(getActivity(), isNightMode());
-		AlertDialog.Builder b = new AlertDialog.Builder(themedContext);
+		AlertDialog.Builder b = new MaterialAlertDialogBuilder(themedContext);
 
 		b.setTitle(getString(R.string.driving_region));
 

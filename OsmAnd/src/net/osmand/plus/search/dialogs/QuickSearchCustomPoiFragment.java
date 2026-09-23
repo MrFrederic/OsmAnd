@@ -32,6 +32,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.Collator;
 import net.osmand.OsmAndCollator;
 import net.osmand.ResultMatcher;
@@ -391,7 +393,7 @@ public class QuickSearchCustomPoiFragment extends BaseFullScreenDialogFragment i
 
 	private void showExitDialog() {
 		Context themedContext = UiUtilities.getThemedContext(requireActivity(), nightMode);
-		AlertDialog.Builder dismissDialog = new AlertDialog.Builder(themedContext);
+		AlertDialog.Builder dismissDialog = new MaterialAlertDialogBuilder(themedContext);
 		dismissDialog.setTitle(getString(R.string.shared_string_dismiss));
 		dismissDialog.setMessage(getString(R.string.exit_without_saving));
 		dismissDialog.setNegativeButton(R.string.shared_string_cancel, null);

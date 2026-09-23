@@ -26,6 +26,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.PlatformUtil;
 import net.osmand.data.FavouritePoint;
 import net.osmand.data.PointDescription;
@@ -560,7 +562,7 @@ public class NotesFragment extends BaseOsmAndListFragment implements FragmentSta
 	}
 
 	private void deleteItems(Set<MediaNote> selected) {
-		new AlertDialog.Builder(getThemedContext())
+		new MaterialAlertDialogBuilder(getThemedContext())
 				.setMessage(getString(R.string.local_recordings_delete_all_confirm, selected.size()))
 				.setPositiveButton(R.string.shared_string_delete, (dialog, which) -> {
 					Map<Linkable, List<Link>> attachedLinks = new IdentityHashMap<>();
@@ -723,7 +725,7 @@ public class NotesFragment extends BaseOsmAndListFragment implements FragmentSta
 	}
 
 	private void editNote(Recording recording) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(getThemedContext());
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(getThemedContext());
 		builder.setTitle(R.string.shared_string_rename);
 		View v = inflate(R.layout.note_edit_dialog, getListView(), false);
 		EditText editText = v.findViewById(R.id.name);
@@ -745,7 +747,7 @@ public class NotesFragment extends BaseOsmAndListFragment implements FragmentSta
 	private void deleteNote(MediaNote note) {
 		Activity activity = requireActivity();
 		String recordingName = note.getName(activity, app.getGalleryHelper().getMetadataRepository(), false);
-		AlertDialog.Builder bld = new AlertDialog.Builder(activity);
+		AlertDialog.Builder bld = new MaterialAlertDialogBuilder(activity);
 		bld.setMessage(getString(R.string.delete_confirmation_msg, recordingName));
 		bld.setPositiveButton(R.string.shared_string_yes, (dialog, which) -> {
 			if (note.isRecording()) {

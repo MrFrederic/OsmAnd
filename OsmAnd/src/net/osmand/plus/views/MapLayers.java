@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.CallbackWithObject;
 import net.osmand.IndexConstants;
 import net.osmand.ResultMatcher;
@@ -327,7 +329,7 @@ public class MapLayers {
 		ContextMenuListAdapter listAdapter = adapter.toListAdapter(mapActivity, viewCreator);
 
 		Context themedContext = UiUtilities.getThemedContext(mapActivity, isNightMode());
-		AlertDialog.Builder builder = new AlertDialog.Builder(themedContext);
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(themedContext);
 		ListView listView = new ListView(themedContext);
 		listView.setDivider(null);
 		listView.setClickable(true);
@@ -396,7 +398,7 @@ public class MapLayers {
 		ContextMenuListAdapter listAdapter = adapter.toListAdapter(mapActivity, viewCreator);
 
 		Context themedContext = UiUtilities.getThemedContext(mapActivity, isNightMode());
-		AlertDialog.Builder builder = new AlertDialog.Builder(themedContext);
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(themedContext);
 		builder.setAdapter(listAdapter, (dialog, which) -> {
 			PoiUIFilter filter = list.get(which);
 			if (filter == null) {

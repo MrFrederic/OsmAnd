@@ -28,6 +28,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.plus.R;
 import net.osmand.plus.activities.MapActivity;
 import net.osmand.plus.activities.TabActivity.OsmandFragmentPagerAdapter;
@@ -144,7 +146,7 @@ public class ChangesFragment extends BaseFullScreenFragment implements OnPrepare
 	}
 
 	private void showConfirmationDialog(@NonNull CharSequence title, @NonNull Runnable runnable) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(UiUtilities.getThemedContext(requireActivity(), nightMode));
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(UiUtilities.getThemedContext(requireActivity(), nightMode));
 		builder.setTitle(title);
 		builder.setMessage(R.string.are_you_sure);
 		builder.setNegativeButton(R.string.shared_string_cancel, null);

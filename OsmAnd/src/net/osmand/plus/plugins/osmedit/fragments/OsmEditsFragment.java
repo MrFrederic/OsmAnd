@@ -23,6 +23,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.data.PointDescription;
 import net.osmand.osm.edit.Entity;
 import net.osmand.plus.OsmAndTaskManager;
@@ -496,7 +498,7 @@ public class OsmEditsFragment extends BaseNestedListFragment implements Progress
 			((EditText) view.findViewById(R.id.message_field)).setText(text);
 		}
 
-		AlertDialog.Builder builder = new AlertDialog.Builder(getThemedContext());
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(getThemedContext());
 		builder.setTitle(R.string.shared_string_commit);
 		builder.setView(view);
 		builder.setPositiveButton(R.string.osn_modify_dialog_title, (dialog, which) -> {

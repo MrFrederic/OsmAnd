@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.IndexConstants;
 import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.R;
@@ -214,7 +216,7 @@ public class ProfileAppearanceController extends BaseDialogController {
 
 	private AlertDialog.Builder createWarningDialog(Activity activity, int title, int message, int negButton) {
 		Context themedContext = UiUtilities.getThemedContext(activity, isNightMode());
-		AlertDialog.Builder warningDialog = new AlertDialog.Builder(themedContext);
+		AlertDialog.Builder warningDialog = new MaterialAlertDialogBuilder(themedContext);
 		warningDialog.setTitle(getString(title));
 		warningDialog.setMessage(getString(message));
 		warningDialog.setNegativeButton(negButton, null);

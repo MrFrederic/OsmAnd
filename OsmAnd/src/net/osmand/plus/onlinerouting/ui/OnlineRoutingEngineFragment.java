@@ -28,6 +28,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.data.LatLon;
 import net.osmand.plus.R;
 import net.osmand.plus.activities.MapActivity;
@@ -455,7 +457,7 @@ public class OnlineRoutingEngineFragment extends BaseFullScreenFragment implemen
 
 	private void delete(Activity activity) {
 		if (engine != null) {
-			AlertDialog.Builder builder = new AlertDialog.Builder(UiUtilities.getThemedContext(activity, isNightMode()));
+			AlertDialog.Builder builder = new MaterialAlertDialogBuilder(UiUtilities.getThemedContext(activity, isNightMode()));
 			builder.setMessage(getString(R.string.delete_online_routing_engine));
 			builder.setNegativeButton(R.string.shared_string_no, null);
 			builder.setPositiveButton(R.string.shared_string_yes, (dialog, which) -> {
@@ -579,7 +581,7 @@ public class OnlineRoutingEngineFragment extends BaseFullScreenFragment implemen
 
 	private AlertDialog.Builder createWarningDialog(Activity activity, int title, int message, int negButton) {
 		Context themedContext = UiUtilities.getThemedContext(activity, isNightMode());
-		AlertDialog.Builder warningDialog = new AlertDialog.Builder(themedContext);
+		AlertDialog.Builder warningDialog = new MaterialAlertDialogBuilder(themedContext);
 		warningDialog.setTitle(getString(title));
 		warningDialog.setMessage(getString(message));
 		warningDialog.setNegativeButton(negButton, null);

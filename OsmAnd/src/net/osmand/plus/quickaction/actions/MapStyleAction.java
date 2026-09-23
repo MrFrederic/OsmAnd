@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.R;
 import net.osmand.plus.activities.MapActivity;
@@ -164,7 +166,7 @@ public class MapStyleAction extends SwitchableAction<String> {
 			boolean nightMode = app.getDaynightHelper().isNightMode(ThemeUsageContext.OVER_MAP);
 			Context themedContext = UiUtilities.getThemedContext(activity, nightMode);
 
-			AlertDialog.Builder bld = new AlertDialog.Builder(themedContext);
+			AlertDialog.Builder bld = new MaterialAlertDialogBuilder(themedContext);
 			bld.setTitle(R.string.renderers);
 
 			Map<String, String> renderers = app.getRendererRegistry().getRenderers(false);

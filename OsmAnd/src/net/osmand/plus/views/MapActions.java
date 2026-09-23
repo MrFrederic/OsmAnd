@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.Location;
 import net.osmand.data.LatLon;
 import net.osmand.data.PointDescription;
@@ -370,7 +372,7 @@ public class MapActions {
 				startRoutePlanningWithDestination(latLon, pointDescription, targetHelper);
 				menu.close();
 			} else {
-				AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+				AlertDialog.Builder builder = new MaterialAlertDialogBuilder(activity);
 				builder.setTitle(R.string.new_directions_point_dialog);
 				int[] defaultVls = {0};
 				builder.setSingleChoiceItems(new String[] {activity.getString(R.string.clear_intermediate_points),

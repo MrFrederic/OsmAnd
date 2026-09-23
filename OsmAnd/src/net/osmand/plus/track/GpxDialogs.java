@@ -22,6 +22,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.CallbackWithObject;
 import net.osmand.IndexConstants;
 import net.osmand.plus.utils.AndroidUtils;
@@ -106,7 +108,7 @@ public class GpxDialogs {
 	                                 boolean nightMode) {
 		OsmandApplication app = (OsmandApplication) activity.getApplication();
 		File dir = app.getAppPath(IndexConstants.GPX_INDEX_DIR);
-		AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(activity, themeRes));
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(new ContextThemeWrapper(activity, themeRes));
 		final int layout = R.layout.gpx_track_item;
 		DialogGpxDataItemCallback gpxDataItemCallback = new DialogGpxDataItemCallback(app);
 
@@ -237,7 +239,7 @@ public class GpxDialogs {
 				if (position == 0 && showCurrentGpx && item.getSelected()) {
 					OsmandMonitoringPlugin plugin = PluginsHelper.getActivePlugin(OsmandMonitoringPlugin.class);
 					if (plugin == null) {
-						AlertDialog.Builder confirm = new AlertDialog.Builder(new ContextThemeWrapper(activity, themeRes));
+						AlertDialog.Builder confirm = new MaterialAlertDialogBuilder(new ContextThemeWrapper(activity, themeRes));
 						confirm.setPositiveButton(R.string.shared_string_ok, (dialog, which) -> {
 							Bundle params = new Bundle();
 							params.putBoolean(PluginsFragment.OPEN_PLUGINS, true);

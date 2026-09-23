@@ -22,6 +22,8 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.plus.OsmAndTaskManager;
 import net.osmand.plus.R;
 import net.osmand.plus.activities.MapActivity;
@@ -492,7 +494,7 @@ public class TracksTabsFragment extends BaseTracksTabsFragment implements LoadTr
 	private void showDeleteConfirmationDialog(@NonNull Set<TrackItem> trackItems) {
 		String size = String.valueOf(trackItems.size());
 		String delete = app.getString(R.string.shared_string_delete);
-		AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(requireActivity());
 		builder.setMessage(app.getString(R.string.local_index_action_do, delete.toLowerCase(), size));
 		builder.setPositiveButton(delete, (dialog, which) -> deleteTracks(trackItems));
 		builder.setNegativeButton(R.string.shared_string_cancel, null);

@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.R;
 import net.osmand.plus.Version;
@@ -65,7 +67,7 @@ public class DownloadValidationManager {
 		if (availableSpace > 0 && (szMaxTemp > availableSpace)) {
 			if (showAlert) {
 				String message = app.getString(R.string.download_files_error_not_enough_space);
-				AlertDialog.Builder builder = new AlertDialog.Builder(context);
+				AlertDialog.Builder builder = new MaterialAlertDialogBuilder(context);
 				builder.setMessage(MessageFormat.format(message, i, szChange, availableSpace, szMaxTemp));
 				builder.setNegativeButton(R.string.shared_string_ok, null);
 				builder.show();
@@ -140,7 +142,7 @@ public class DownloadValidationManager {
 			if (DOWNLOAD_MOBILE_INTERNET_CONFIRMED) {
 				downloadFilesCheck_3_ValidateSpace(context, items, callback);
 			} else {
-				AlertDialog.Builder builder = new AlertDialog.Builder(context);
+				AlertDialog.Builder builder = new MaterialAlertDialogBuilder(context);
 				builder.setMessage(context.getString(R.string.download_using_mobile_internet));
 				builder.setPositiveButton(R.string.shared_string_yes, (dialog, which) -> {
 					DOWNLOAD_MOBILE_INTERNET_CONFIRMED = true;
@@ -179,13 +181,13 @@ public class DownloadValidationManager {
 		// get available space
 		double availableSpace = downloadThread.getAvailableSpace();
 		if (availableSpace > 0 && (szMaxTemp > availableSpace)) {
-			AlertDialog.Builder builder = new AlertDialog.Builder(context);
+			AlertDialog.Builder builder = new MaterialAlertDialogBuilder(context);
 			String message = app.getString(R.string.download_files_error_not_enough_space);
 			builder.setMessage(MessageFormat.format(message, i, szChange, availableSpace, szMaxTemp));
 			builder.setNegativeButton(R.string.shared_string_ok, null);
 			builder.show();
 		} else if (availableSpace > 0 && ((szChange + 10 > availableSpace) || (szMaxTemp + 10 > availableSpace))) {
-			AlertDialog.Builder builder = new AlertDialog.Builder(context);
+			AlertDialog.Builder builder = new MaterialAlertDialogBuilder(context);
 			if (szChange != szMaxTemp) {
 				String message = app.getString(R.string.download_files_question_space_with_temp);
 				builder.setMessage(MessageFormat.format(message, i, szChange, availableSpace, szMaxTemp));
@@ -211,7 +213,7 @@ public class DownloadValidationManager {
 	}
 
 	public void makeSureUserCancelDownload(@NonNull FragmentActivity ctx, DownloadItem item) {
-		AlertDialog.Builder bld = new AlertDialog.Builder(ctx);
+		AlertDialog.Builder bld = new MaterialAlertDialogBuilder(ctx);
 		bld.setTitle(ctx.getString(R.string.shared_string_cancel));
 		bld.setMessage(R.string.confirm_interrupt_download);
 		bld.setPositiveButton(R.string.shared_string_yes, (dialog, which) -> {

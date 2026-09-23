@@ -29,6 +29,8 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.map.OsmandRegions;
 import net.osmand.map.WorldRegion;
 import net.osmand.plus.OsmAndTaskManager;
@@ -587,7 +589,7 @@ public class ItemViewHolder {
 
 	private void confirmRemove(@NonNull DownloadItem downloadItem,
 			@NonNull List<File> downloadedFiles) {
-		AlertDialog.Builder confirm = new AlertDialog.Builder(context);
+		AlertDialog.Builder confirm = new MaterialAlertDialogBuilder(context);
 
 		String message;
 		if (downloadedFiles.size() > 1) {

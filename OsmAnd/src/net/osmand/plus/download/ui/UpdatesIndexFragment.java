@@ -31,6 +31,8 @@ import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.Collator;
 import net.osmand.OsmAndCollator;
 import net.osmand.map.OsmandRegions;
@@ -233,7 +235,7 @@ public class UpdatesIndexFragment extends BaseNestedListFragment implements Down
 				DownloadActivity activity = getMyActivity();
 				if (AndroidUtils.isActivityNotDestroyed(activity)) {
 					if (indexItems.size() > 3) {
-						AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
+						AlertDialog.Builder dialog = new MaterialAlertDialogBuilder(activity);
 						dialog.setTitle(R.string.update_all_maps);
 						dialog.setMessage(getString(R.string.update_all_maps_q, indexItems.size()));
 						dialog.setNegativeButton(R.string.shared_string_cancel, null);

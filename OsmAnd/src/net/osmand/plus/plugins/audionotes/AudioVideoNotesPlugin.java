@@ -38,6 +38,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.CallbackWithObject;
 import net.osmand.IProgress;
 import net.osmand.Location;
@@ -400,7 +402,7 @@ public class AudioVideoNotesPlugin extends OsmandPlugin {
 
 	private void chooseDefaultAction(double lat, double lon, MapActivity mapActivity) {
 		boolean nightMode = app.getDaynightHelper().isNightMode(ThemeUsageContext.OVER_MAP);
-		AlertDialog.Builder ab = new AlertDialog.Builder(UiUtilities.getThemedContext(mapActivity, nightMode));
+		AlertDialog.Builder ab = new MaterialAlertDialogBuilder(UiUtilities.getThemedContext(mapActivity, nightMode));
 		ab.setItems(
 				new String[] {mapActivity.getString(R.string.recording_context_menu_arecord),
 						mapActivity.getString(R.string.recording_context_menu_vrecord),

@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.data.LatLon;
 import net.osmand.data.PointDescription;
 import net.osmand.plus.R;
@@ -149,7 +151,7 @@ public class DashWaypointsFragment extends DashLocationFragment {
 	
 	protected void deletePointConfirm(TargetPoint point, View view) {
 		boolean target = point == app.getTargetPointsHelper().getPointToNavigate();
-		AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(view.getContext());
 		// Stop the navigation
 		builder.setTitle(getString(R.string.delete_target_point));
 		builder.setMessage(PointDescription.getSimpleName(point, app));

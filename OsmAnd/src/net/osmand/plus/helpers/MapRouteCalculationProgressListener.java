@@ -5,6 +5,8 @@ import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.R;
 import net.osmand.plus.activities.MapActivity;
@@ -64,7 +66,7 @@ public class MapRouteCalculationProgressListener implements RouteCalculationProg
 				settings.setPrivateAccessRoutingAsked();
 				OsmandPreference<Boolean> allowPrivate = settings.getAllowPrivatePreference(routingProfile);
 				if (!allowPrivate.getModeValue(routingProfile)) {
-					AlertDialog.Builder dlg = new AlertDialog.Builder(activity);
+					AlertDialog.Builder dlg = new MaterialAlertDialogBuilder(activity);
 					dlg.setMessage(R.string.private_access_routing_req);
 					dlg.setPositiveButton(R.string.shared_string_yes, (dialog, which) -> {
 						settings.setAllowPrivateAccessAllModes(true);

@@ -11,13 +11,14 @@ import android.widget.TextView;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import net.osmand.plus.R;
 import net.osmand.plus.settings.backend.ApplicationMode;
@@ -168,7 +169,7 @@ public class CoordinatesFormatEditFragment extends BaseCoordinateFormatFragment 
 
 	private void closeScreen() {
 		if (isEditChanged()) {
-			new AlertDialog.Builder(UiUtilities.getThemedContext(requireContext(), nightMode))
+			new MaterialAlertDialogBuilder(UiUtilities.getThemedContext(requireContext(), nightMode))
 					.setTitle(R.string.coordinate_format_cancel_changes_title)
 					.setMessage(R.string.coordinate_format_cancel_changes_message)
 					.setPositiveButton(R.string.coordinate_format_discard_changes, (dialog, which) -> dismiss())

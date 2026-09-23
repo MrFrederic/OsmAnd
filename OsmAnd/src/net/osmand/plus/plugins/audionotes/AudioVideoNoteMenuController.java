@@ -5,6 +5,8 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.data.LatLon;
 import net.osmand.data.PointDescription;
 import net.osmand.plus.OsmandApplication;
@@ -54,7 +56,7 @@ public class AudioVideoNoteMenuController extends MenuController {
 				public void buttonPressed() {
 					MapActivity activity = getMapActivity();
 					if (activity != null) {
-						AlertDialog.Builder bld = new AlertDialog.Builder(activity);
+						AlertDialog.Builder bld = new MaterialAlertDialogBuilder(activity);
 						String recordingName = recording.getName(activity, false);
 						bld.setMessage(activity.getString(R.string.delete_confirmation_msg, recordingName));
 						bld.setPositiveButton(R.string.shared_string_yes, (dialog, which) -> {

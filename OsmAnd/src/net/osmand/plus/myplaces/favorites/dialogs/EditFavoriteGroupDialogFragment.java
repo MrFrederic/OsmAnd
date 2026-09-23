@@ -13,6 +13,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.plus.R;
 import net.osmand.plus.activities.MapActivity;
 import net.osmand.plus.base.MenuBottomSheetDialogFragment;
@@ -69,7 +71,7 @@ public class EditFavoriteGroupDialogFragment extends MenuBottomSheetDialogFragme
 					Activity activity = getActivity();
 					if (activity != null) {
 						Context themedContext = getThemedContext();
-						AlertDialog.Builder b = new AlertDialog.Builder(themedContext);
+						AlertDialog.Builder b = new MaterialAlertDialogBuilder(themedContext);
 						b.setTitle(R.string.favorite_category_name);
 						EditText nameEditText = new EditText(themedContext);
 						nameEditText.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
@@ -183,7 +185,7 @@ public class EditFavoriteGroupDialogFragment extends MenuBottomSheetDialogFragme
 				.setTitle(UiUtilities.createCustomFontSpannable(FontCache.getMediumFont(), delete, delete))
 				.setLayoutId(R.layout.bottom_sheet_item_simple)
 				.setOnClickListener(v -> {
-					AlertDialog.Builder b = new AlertDialog.Builder(getThemedContext());
+					AlertDialog.Builder b = new MaterialAlertDialogBuilder(getThemedContext());
 					b.setTitle(R.string.favorite_delete_group);
 					String groupName = Algorithms.isEmpty(group.getName()) ? getString(R.string.shared_string_favorites) : group.getName();
 					b.setMessage(getString(R.string.favorite_confirm_delete_group, groupName, group.getPoints().size()));

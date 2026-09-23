@@ -20,6 +20,8 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.CallbackWithObject;
 import net.osmand.plus.R;
 import net.osmand.plus.activities.MapActivity;
@@ -177,7 +179,7 @@ public class CreateEditActionDialog extends BaseFullScreenDialogFragment impleme
 	}
 
 	private void showDuplicatedDialog() {
-		AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(requireContext());
 		builder.setTitle(R.string.quick_action_duplicate);
 		builder.setMessage(getString(R.string.quick_action_duplicates, action.getName(app)));
 		builder.setPositiveButton(R.string.shared_string_ok,

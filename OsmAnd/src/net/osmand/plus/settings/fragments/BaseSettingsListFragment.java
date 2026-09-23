@@ -20,6 +20,8 @@ import androidx.fragment.app.FragmentManager;
 
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.plus.R;
 import net.osmand.plus.activities.MapActivity;
 import net.osmand.plus.backup.BackupUtils;
@@ -167,7 +169,7 @@ public abstract class BaseSettingsListFragment extends BaseFullScreenFragment im
 
 	public void showExitDialog() {
 		Context themedContext = UiUtilities.getThemedContext(getActivity(), nightMode);
-		AlertDialog.Builder dismissDialog = new AlertDialog.Builder(themedContext);
+		AlertDialog.Builder dismissDialog = new MaterialAlertDialogBuilder(themedContext);
 		dismissDialog.setTitle(getString(R.string.shared_string_dismiss));
 		dismissDialog.setMessage(getString(R.string.exit_without_saving));
 		dismissDialog.setNegativeButton(R.string.shared_string_cancel, null);

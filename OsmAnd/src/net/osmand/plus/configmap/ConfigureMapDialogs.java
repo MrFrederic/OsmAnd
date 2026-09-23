@@ -13,6 +13,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatCheckedTextView;
 import androidx.appcompat.widget.SwitchCompat;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.core.android.MapRendererContext;
 import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.R;
@@ -79,7 +81,7 @@ public class ConfigureMapDialogs {
 				adapter.onDataSetInvalidated();
 			});
 		} else {
-			AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+			AlertDialog.Builder builder = new MaterialAlertDialogBuilder(activity);
 			builder.setTitle(R.string.map_magnifier);
 			builder.setSingleChoiceItems(values, magnifierValues.selectedIndex, (dialog, which) -> {
 				setPhoneMapDensity(view, mapDensity, magnifierValues.percentValues.get(which));
@@ -177,7 +179,7 @@ public class ConfigureMapDialogs {
 
 		OsmandMapTileView view = activity.getMapView();
 		Context ctx = UiUtilities.getThemedContext(activity, nightMode);
-		AlertDialog.Builder b = new AlertDialog.Builder(ctx);
+		AlertDialog.Builder b = new MaterialAlertDialogBuilder(ctx);
 		b.setTitle(activity.getString(R.string.map_locale));
 
 		Map<String, String> mapLanguages = ConfigureMapUtils.getSorterMapLanguages(app);

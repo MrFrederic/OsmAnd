@@ -4,8 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentManager;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import net.osmand.PlatformUtil;
 import net.osmand.plus.R;
@@ -93,7 +94,7 @@ public class HeapDumpBottomSheet extends BasePreferenceBottomSheet {
 			app.showToastMessage(summary);
 			return;
 		}
-		new AlertDialog.Builder(activity)
+		new MaterialAlertDialogBuilder(activity)
 				.setTitle(R.string.heap_dump)
 				.setMessage(summary)
 				.setPositiveButton(R.string.shared_string_close, null)

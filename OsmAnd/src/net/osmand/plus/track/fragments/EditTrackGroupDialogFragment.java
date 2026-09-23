@@ -15,6 +15,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.data.LatLon;
 import net.osmand.data.PointDescription;
 import net.osmand.plus.OsmAndTaskManager;
@@ -265,7 +267,7 @@ public class EditTrackGroupDialogFragment extends MenuBottomSheetDialogFragment 
 	}
 
 	private void showDeleteConfirmationDialog(@NonNull FragmentActivity activity) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(getThemedContext());
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(getThemedContext());
 		builder.setTitle(getString(R.string.are_you_sure));
 		builder.setPositiveButton(R.string.shared_string_delete, (dialog, which) -> deleteGroupItems());
 		builder.setNegativeButton(R.string.shared_string_cancel, null);

@@ -13,6 +13,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.util.Pair;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -187,7 +188,7 @@ public class MapOverlayAction extends SwitchableAction<Pair<String, String>> {
 				entriesMap.put(KEY_NO_OVERLAY, activity.getString(R.string.no_overlay));
 				boolean nightMode = app.getDaynightHelper().isNightMode(ThemeUsageContext.OVER_MAP);
 				Context themedContext = UiUtilities.getThemedContext(activity, nightMode);
-				AlertDialog.Builder builder = new AlertDialog.Builder(themedContext);
+				AlertDialog.Builder builder = new MaterialAlertDialogBuilder(themedContext);
 				ArrayList<String> keys = new ArrayList<>(entriesMap.keySet());
 				String[] items = new String[entriesMap.size()];
 				int i = 0;

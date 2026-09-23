@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import net.osmand.plus.R;
 import net.osmand.plus.activities.MapActivity;
@@ -209,7 +210,7 @@ public class ConfigureMenuItemsFragment extends BaseFullScreenFragment implement
 
 	private void showExitDialog() {
 		Context context = UiUtilities.getThemedContext(requireContext(), nightMode);
-		AlertDialog.Builder builder = new AlertDialog.Builder(context);
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(context);
 		builder.setTitle(R.string.shared_string_dismiss);
 		builder.setMessage(R.string.exit_without_saving);
 		builder.setNegativeButton(R.string.shared_string_cancel, null);

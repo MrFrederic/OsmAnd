@@ -20,6 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.slider.Slider;
 import com.google.android.material.slider.Slider.OnChangeListener;
 
@@ -79,7 +80,7 @@ public class VehicleSpeedHelper {
 
 		Context themedContext = UiUtilities.getThemedContext(activity, nightMode);
 		View view = LayoutInflater.from(themedContext).inflate(R.layout.default_speed_dialog, null, false);
-		AlertDialog.Builder builder = new AlertDialog.Builder(themedContext);
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(themedContext);
 		builder.setView(view);
 		builder.setPositiveButton(R.string.shared_string_ok, (dialog, which) -> {
 			mode.setDefaultSpeed(defaultValue[0] / ratio[0]);

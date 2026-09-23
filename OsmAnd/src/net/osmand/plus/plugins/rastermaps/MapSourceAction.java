@@ -14,6 +14,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.util.Pair;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -183,7 +184,7 @@ public class MapSourceAction extends SwitchableAction<Pair<String, String>> {
 
 				boolean nightMode = app.getDaynightHelper().isNightMode(ThemeUsageContext.OVER_MAP);
 				Context themedContext = UiUtilities.getThemedContext(activity, nightMode);
-				AlertDialog.Builder builder = new AlertDialog.Builder(themedContext);
+				AlertDialog.Builder builder = new MaterialAlertDialogBuilder(themedContext);
 
 				String[] items = new String[entriesMapList.size()];
 				int i = 0;

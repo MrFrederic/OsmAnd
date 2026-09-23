@@ -21,6 +21,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.data.BackgroundType;
 import net.osmand.data.FavouritePoint;
 import net.osmand.data.LatLon;
@@ -316,7 +318,7 @@ public class FavoritePointEditorFragment extends PointEditorFragment {
 		if (activity != null && favorite != null) {
 			OsmandApplication app = (OsmandApplication) activity.getApplication();
 			boolean nightMode = app.getDaynightHelper().isNightMode(ThemeUsageContext.OVER_MAP);
-			AlertDialog.Builder builder = new AlertDialog.Builder(UiUtilities.getThemedContext(activity, nightMode));
+			AlertDialog.Builder builder = new MaterialAlertDialogBuilder(UiUtilities.getThemedContext(activity, nightMode));
 			builder.setMessage(getString(R.string.favourites_remove_dialog_msg, favorite.getName()));
 			builder.setNegativeButton(R.string.shared_string_no, null);
 			builder.setPositiveButton(R.string.shared_string_yes, (dialog, which) -> {

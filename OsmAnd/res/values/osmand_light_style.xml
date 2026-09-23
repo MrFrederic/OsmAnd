@@ -64,6 +64,7 @@
 
     <style name="OsmandLightTheme.NoAnimation">
         <item name="alertDialogTheme">@style/ThemeOverlay.OsmAnd.Dialog.Alert.NoAnimation</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.OsmAnd.MaterialAlertDialog.NoAnimation</item>
     </style>
 
     <style name="OsmandLightTheme" parent="Base.Theme.OsmAnd.Light">

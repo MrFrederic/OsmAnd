@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.data.FavouritePoint;
 import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.R;
@@ -50,7 +52,7 @@ public class FavoriteDialogs {
 		if ((!index.isEmpty() || emoticons)) {
 			boolean nightMode = app.getDaynightHelper().isNightMode(ThemeUsageContext.OVER_MAP);
 			Context themedContext = UiUtilities.getThemedContext(activity, nightMode);
-			AlertDialog.Builder builder = new AlertDialog.Builder(themedContext);
+			AlertDialog.Builder builder = new MaterialAlertDialogBuilder(themedContext);
 			builder.setTitle(R.string.fav_point_dublicate);
 			if (emoticons) {
 				builder.setMessage(activity.getString(R.string.fav_point_emoticons_message, name));

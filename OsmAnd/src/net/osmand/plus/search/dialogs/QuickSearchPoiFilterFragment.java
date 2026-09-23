@@ -30,6 +30,8 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.osm.AbstractPoiType;
 import net.osmand.osm.MapPoiTypes;
 import net.osmand.osm.PoiCategory;
@@ -264,7 +266,7 @@ public class QuickSearchPoiFilterFragment extends BaseFullScreenDialogFragment {
 	}
 
 	private void deleteFilter() {
-		AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(requireContext());
 		builder.setMessage(R.string.edit_filter_delete_dialog_title);
 		builder.setNegativeButton(R.string.shared_string_no, null);
 		builder.setPositiveButton(R.string.shared_string_yes, (dialog, which) -> {
@@ -285,7 +287,7 @@ public class QuickSearchPoiFilterFragment extends BaseFullScreenDialogFragment {
 	}
 
 	private void saveFilter() {
-		AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(requireContext());
 		builder.setTitle(R.string.access_hint_enter_name);
 
 		EditText editText = new EditText(getContext());

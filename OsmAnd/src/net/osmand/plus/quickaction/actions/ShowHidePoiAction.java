@@ -20,6 +20,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.R;
 import net.osmand.plus.activities.MapActivity;
@@ -286,7 +288,7 @@ public class ShowHidePoiAction extends QuickAction {
 		boolean nightMode = app.getDaynightHelper().isNightMode(ThemeUsageContext.OVER_MAP);
 		ViewCreator viewCreator = new ViewCreator(mapActivity, nightMode);
 		ArrayAdapter<ContextMenuItem> listAdapter = adapter.toListAdapter(mapActivity, viewCreator);
-		AlertDialog.Builder builder = new AlertDialog.Builder(UiUtilities.getThemedContext(mapActivity, nightMode));
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(UiUtilities.getThemedContext(mapActivity, nightMode));
 		builder.setAdapter(listAdapter, (dialog, which) -> {
 			String oldTitle = getTitle(filtersAdapter.filters);
 

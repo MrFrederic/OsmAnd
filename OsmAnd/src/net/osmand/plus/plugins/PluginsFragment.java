@@ -21,6 +21,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.PlatformUtil;
 import net.osmand.aidl.ConnectedApp;
 import net.osmand.plus.R;
@@ -229,7 +231,7 @@ public class PluginsFragment extends BaseFullScreenFragment implements PluginSta
 	private void showDeletePluginDialog(CustomOsmandPlugin plugin) {
 		Context context = getContext();
 		if (context != null) {
-			AlertDialog.Builder builder = new AlertDialog.Builder(context);
+			AlertDialog.Builder builder = new MaterialAlertDialogBuilder(context);
 			builder.setTitle(getString(R.string.delete_confirmation_msg, plugin.getName()));
 			builder.setMessage(R.string.are_you_sure);
 			builder.setNegativeButton(R.string.shared_string_cancel, null);

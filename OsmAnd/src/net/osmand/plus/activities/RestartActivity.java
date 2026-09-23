@@ -16,6 +16,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.PlatformUtil;
 import net.osmand.plus.R;
 import net.osmand.util.Algorithms;
@@ -108,7 +110,7 @@ public class RestartActivity extends AppCompatActivity {
 	}
 
 	public static void doRestart(@NonNull FragmentActivity activity, @Nullable String message) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(activity);
 		builder.setTitle(R.string.shared_string_restart);
 		builder.setMessage(message);
 		builder.setOnCancelListener(dialog -> keepRestartDialog = false);

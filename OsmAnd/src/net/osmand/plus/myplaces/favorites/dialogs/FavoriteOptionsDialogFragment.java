@@ -19,6 +19,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.data.FavouritePoint;
 import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.R;
@@ -291,7 +293,7 @@ public class FavoriteOptionsDialogFragment extends MenuBottomSheetDialogFragment
 				.setTitle(UiUtilities.createCustomFontSpannable(FontCache.getMediumFont(), delete, delete))
 				.setLayoutId(R.layout.bottom_sheet_item_simple)
 				.setOnClickListener(v -> {
-					AlertDialog.Builder b = new AlertDialog.Builder(getThemedContext());
+					AlertDialog.Builder b = new MaterialAlertDialogBuilder(getThemedContext());
 					b.setTitle(R.string.delete_folder);
 					b.setMessage(getDeleteFolderMessage());
 					b.setNeutralButton(R.string.shared_string_cancel, null);

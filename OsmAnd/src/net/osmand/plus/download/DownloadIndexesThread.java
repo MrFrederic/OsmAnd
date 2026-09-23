@@ -20,6 +20,8 @@ import androidx.annotation.UiThread;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.IndexConstants;
 import net.osmand.PlatformUtil;
 import net.osmand.map.WorldRegion;
@@ -430,7 +432,7 @@ public class DownloadIndexesThread {
 		}
 
 		private void showWarnDialog() {
-			AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
+			AlertDialog.Builder builder = new MaterialAlertDialogBuilder(ctx);
 			builder.setMessage(R.string.map_version_changed_info);
 			builder.setPositiveButton(R.string.button_upgrade_osmandplus, (dialog, which) -> {
 				Uri uri = Uri.parse(Version.getUrlWithUtmRef(app, FULL_VERSION_NAME));

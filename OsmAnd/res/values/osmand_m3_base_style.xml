@@ -73,6 +73,8 @@
 		     which M3 would otherwise leave on its baseline value -->
 		<item name="colorAccent">@color/primary_light</item>
 		<item name="colorControlActivated">@color/primary_light</item>
+
+		<item name="materialAlertDialogTheme">@style/ThemeOverlay.OsmAnd.MaterialAlertDialog</item>
 	</style>
 
 	<style name="Base.Theme.OsmAnd.Dark" parent="Theme.Material3Expressive.Dark">
@@ -142,6 +144,22 @@
 		     which M3 would otherwise leave on its baseline value -->
 		<item name="colorAccent">@color/primary_dark</item>
 		<item name="colorControlActivated">@color/primary_dark</item>
+
+		<item name="materialAlertDialogTheme">@style/ThemeOverlay.OsmAnd.MaterialAlertDialog</item>
+	</style>
+
+	<!-- M3 dialogs, with the container on the same surface as OsmAnd's list backgrounds so
+	     custom dialog content (which paints list_background_color) does not look boxed -->
+	<style name="ThemeOverlay.OsmAnd.MaterialAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+		<item name="alertDialogStyle">@style/MaterialAlertDialog.OsmAnd</item>
+	</style>
+
+	<style name="ThemeOverlay.OsmAnd.MaterialAlertDialog.NoAnimation">
+		<item name="android:windowAnimationStyle">@null</item>
+	</style>
+
+	<style name="MaterialAlertDialog.OsmAnd" parent="MaterialAlertDialog.Material3">
+		<item name="backgroundTint">?attr/colorSurfaceContainerLow</item>
 	</style>
 
 </resources>

@@ -24,6 +24,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.data.BackgroundType;
 import net.osmand.plus.R;
 import net.osmand.plus.base.BaseFullScreenDialogFragment;
@@ -249,7 +251,7 @@ public class FavoriteAppearanceFragment extends BaseFullScreenDialogFragment {
 
 		if (hasChanges) {
 			Context themedContext = UiUtilities.getThemedContext(requireActivity(), nightMode);
-			AlertDialog.Builder dismissDialog = new AlertDialog.Builder(themedContext);
+			AlertDialog.Builder dismissDialog = new MaterialAlertDialogBuilder(themedContext);
 			dismissDialog.setTitle(getString(R.string.exit_without_saving));
 			dismissDialog.setMessage(getString(R.string.dismiss_changes_descr));
 			dismissDialog.setNegativeButton(R.string.shared_string_cancel, null);

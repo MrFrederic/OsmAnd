@@ -15,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.data.LatLon;
 import net.osmand.data.PointDescription;
 import net.osmand.plus.OsmandApplication;
@@ -39,7 +41,7 @@ public class AvoidRoadsDialog {
 			AvoidRoadsHelper avoidRoadsHelper = app.getAvoidSpecificRoads();
 			boolean nightMode = app.getDaynightHelper().isNightMode(ThemeUsageContext.OVER_MAP);
 
-			AlertDialog.Builder builder = new AlertDialog.Builder(UiUtilities.getThemedContext(activity, nightMode));
+			AlertDialog.Builder builder = new MaterialAlertDialogBuilder(UiUtilities.getThemedContext(activity, nightMode));
 			builder.setTitle(R.string.impassable_road);
 
 			List<AvoidRoadInfo> roadInfos = new ArrayList<>(avoidRoadsHelper.getImpassableRoads());

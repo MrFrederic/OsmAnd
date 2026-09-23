@@ -39,6 +39,7 @@
 
     <style name="OsmandDarkTheme.NoAnimation">
         <item name="alertDialogTheme">@style/ThemeOverlay.OsmAnd.Dialog.Alert.NoAnimation</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.OsmAnd.MaterialAlertDialog.NoAnimation</item>
         <item name="dialog_title_color">@color/marker_red</item>
     </style>
 

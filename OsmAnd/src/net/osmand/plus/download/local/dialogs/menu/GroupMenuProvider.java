@@ -23,6 +23,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.MenuProvider;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.R;
 import net.osmand.plus.activities.MapActivity;
@@ -209,7 +211,7 @@ public class GroupMenuProvider implements MenuProvider {
 		ItemsSelectionHelper<BaseLocalItem> helper = fragment.getSelectionHelper();
 		Set<BaseLocalItem> selectedItems = helper.getSelectedItems();
 
-		AlertDialog.Builder builder = new AlertDialog.Builder(UiUtilities.getThemedContext(activity, nightMode));
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(UiUtilities.getThemedContext(activity, nightMode));
 		builder.setMessage(app.getString(R.string.local_index_action_do, action.toLowerCase(), String.valueOf(helper.getSelectedItemsSize())));
 		builder.setPositiveButton(action, (dialog, which) -> {
 			fragment.performOperation(type, selectedItems.toArray(new BaseLocalItem[0]));

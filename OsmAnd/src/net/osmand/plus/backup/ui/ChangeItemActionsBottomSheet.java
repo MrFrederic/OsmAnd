@@ -22,6 +22,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.plus.R;
 import net.osmand.plus.backup.UploadedFileInfo;
 import net.osmand.plus.backup.ExportBackupTask;
@@ -173,7 +175,7 @@ public class ChangeItemActionsBottomSheet extends BottomSheetDialogFragment {
 		uploadItem.setOnClickListener(v -> {
 			SyncOperationType operationType = deleteOperation || item.localFile == null ? SYNC_OPERATION_DELETE : SYNC_OPERATION_UPLOAD;
 			if (operationType == SYNC_OPERATION_DELETE) {
-				AlertDialog.Builder builder = new AlertDialog.Builder(getThemedContext());
+				AlertDialog.Builder builder = new MaterialAlertDialogBuilder(getThemedContext());
 				builder.setTitle(getString(R.string.shared_string_delete_file));
 				builder.setMessage(getString(R.string.cloud_version_confirm_delete, item.title));
 				builder.setNeutralButton(R.string.shared_string_cancel, null);

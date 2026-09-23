@@ -7,6 +7,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import net.osmand.data.LatLon;
 import net.osmand.data.PointDescription;
 import net.osmand.plus.OsmandApplication;
@@ -24,7 +26,7 @@ public class DirectionsDialogs {
 		OsmandApplication ctx = (OsmandApplication) activity.getApplication();
 		TargetPointsHelper targetPointsHelper = ctx.getTargetPointsHelper();
 		if (!targetPointsHelper.getIntermediatePoints().isEmpty()) {
-			AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+			AlertDialog.Builder builder = new MaterialAlertDialogBuilder(activity);
 			builder.setTitle(R.string.new_directions_point_dialog);
 			builder.setItems(
 					new String[] {

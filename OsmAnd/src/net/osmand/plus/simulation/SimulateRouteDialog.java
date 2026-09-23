@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.slider.Slider;
 
 import net.osmand.plus.OsmandApplication;
@@ -25,7 +26,7 @@ public class SimulateRouteDialog {
 	                                @Nullable Runnable runnable) {
 		OsmandApplication app = (OsmandApplication) activity.getApplication();
 		boolean nightMode = app.getDaynightHelper().isNightMode(ThemeUsageContext.OVER_MAP);
-		AlertDialog.Builder builder = new AlertDialog.Builder(UiUtilities.getThemedContext(activity, nightMode));
+		AlertDialog.Builder builder = new MaterialAlertDialogBuilder(UiUtilities.getThemedContext(activity, nightMode));
 		builder.setTitle(R.string.animate_route);
 
 		View view = activity.getLayoutInflater().inflate(R.layout.simulate_route, null);
