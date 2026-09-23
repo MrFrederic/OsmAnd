@@ -14,10 +14,10 @@
 	     ColorUtilities call sites and layouts follow the M3 palette unchanged. -->
 	<color name="activity_background_color_light">@color/surface_light</color>
 	<color name="activity_background_color_dark">@color/surface_dark</color>
-	<color name="card_and_list_background_light">@color/surface_container_light</color>
-	<color name="card_and_list_background_dark">@color/surface_container_dark</color>
-	<color name="list_background_color_light">@color/surface_container_light</color>
-	<color name="list_background_color_dark">@color/surface_container_dark</color>
+	<color name="card_and_list_background_light">@color/surface_container_low_light</color>
+	<color name="card_and_list_background_dark">@color/surface_container_low_dark</color>
+	<color name="list_background_color_light">@color/surface_container_low_light</color>
+	<color name="list_background_color_dark">@color/surface_container_low_dark</color>
 	<color name="widget_background_color_light">@color/surface_container_lowest_light</color>
 	<color name="widget_background_color_dark">@color/surface_container_lowest_dark</color>
 	<color name="widget_secondary_background_color_light">#FFFFFF</color>
@@ -49,16 +49,16 @@
 	<color name="icon_color_warning">#EE5622</color>
 	<color name="map_button_icon_color_light">@color/on_surface_variant_light</color>
 	<color name="map_button_icon_color_dark">@color/on_surface_variant_dark</color>
-	<color name="map_button_background_color_light">@color/surface_container_lowest_light</color>
-	<color name="map_button_background_color_dark">@color/surface_container_lowest_dark</color>
+	<color name="map_button_background_color_light">@color/surface_container_high_light</color>
+	<color name="map_button_background_color_dark">@color/surface_container_high_dark</color>
 	<color name="icon_color_inverse_light">#FFFFFF</color>
 	<color name="icon_color_inverse_dark">#F2F2F2</color>
 	
 	<!-- AppBar & Status bar -->
 	<color name="app_bar_main_light">@color/brand_accent_light</color>
 	<color name="app_bar_main_dark">@color/surface_container_dark</color>
-	<color name="app_bar_secondary_light">@color/surface_container_light</color>
-	<color name="app_bar_secondary_dark">@color/surface_container_dark</color>
+	<color name="app_bar_secondary_light">@color/surface_light</color>
+	<color name="app_bar_secondary_dark">@color/surface_dark</color>
 	<color name="app_bar_active_light">@color/primary_light</color>
 	<color name="app_bar_active_dark">@color/primary_container_dark</color>
 
@@ -68,7 +68,7 @@
 	<color name="status_bar_main_light">#E68200</color>
 	<color name="status_bar_main_dark">@color/surface_container_dark</color>
 	<color name="status_bar_secondary_light">@color/surface_light</color>
-	<color name="status_bar_secondary_dark">@color/surface_container_dark</color>
+	<color name="status_bar_secondary_dark">@color/surface_dark</color>
 	<color name="status_bar_selection_color_light">@color/primary_pressed_light</color>
 	<color name="status_bar_selection_color_dark">#0B2F65</color>
 	<color name="status_bar_transparent_light">#66000000</color>
@@ -148,8 +148,8 @@
 	<!-- Buttons -->
 	<color name="active_buttons_and_links_bg_pressed_light">@color/primary_pressed_light</color>
 	<color name="active_buttons_and_links_bg_pressed_dark">@color/primary_pressed_dark</color>
-	<color name="inactive_buttons_and_links_bg_light">@color/surface_container_highest_light</color>
-	<color name="inactive_buttons_and_links_bg_dark">@color/surface_container_highest_dark</color>
+	<color name="inactive_buttons_and_links_bg_light">@color/secondary_container_light</color>
+	<color name="inactive_buttons_and_links_bg_dark">@color/secondary_container_dark</color>
 	<color name="active_buttons_and_links_text_light">#ffffff</color>
 	<color name="active_buttons_and_links_text_dark">#ebebeb</color>
 	<color name="stroked_buttons_and_links_bg_light">#00ffffff</color>
@@ -692,8 +692,13 @@
     <color name="palette_blue_muted_30">#364063</color>
 
     <color name="palette_neutral_100">#FFFFFF</color>
+	<color name="palette_neutral_98">#FAFAFA</color>
+	<color name="palette_neutral_96">#F4F4F5</color>
     <color name="palette_neutral_95">#F1F1F3</color>
+	<color name="palette_neutral_94">#EFEFF1</color>
+	<color name="palette_neutral_92">#E9E9EC</color>
     <color name="palette_neutral_90">#E4E4E7</color>
+    <color name="palette_neutral_87">#DCDCE0</color>
     <color name="palette_neutral_85">#D6D6DB</color>
     <color name="palette_neutral_80">#C9C9CF</color>
     <color name="palette_neutral_70">#AEAEB7</color>
@@ -702,8 +707,13 @@
     <color name="palette_neutral_45">#6B6B7B</color>
     <color name="palette_neutral_30">#484851</color>
     <color name="palette_neutral_25">#3C3C44</color>
+	<color name="palette_neutral_22">#34343C</color>
+	<color name="palette_neutral_17">#29292E</color>
     <color name="palette_neutral_15">#242429</color>
+	<color name="palette_neutral_12">#1D1D21</color>
     <color name="palette_neutral_10">#18181B</color>
+	<color name="palette_neutral_6">#0E0E10</color>
+	<color name="palette_neutral_4">#0A0A0B</color>
     <color name="palette_neutral_0">#000000</color>
 
 	<color name="palette_orange_93">#FFEEDB</color>
@@ -732,20 +742,20 @@
     <!-- Pressed states use baked opaque values, not M3 state layers.  -->
     <!-- ============================================================ -->
 
-    <color name="surface_light">@color/palette_neutral_95</color>
-    <color name="surface_dark">@color/palette_neutral_0</color>
-    <color name="surface_container_light">@color/palette_neutral_100</color>
-    <color name="surface_container_dark">@color/palette_neutral_15</color>
+    <color name="surface_light">@color/palette_neutral_98</color>
+    <color name="surface_dark">@color/palette_neutral_6</color>
+    <color name="surface_container_light">@color/palette_neutral_94</color>
+    <color name="surface_container_dark">@color/palette_neutral_12</color>
     <color name="surface_container_highest_light">@color/palette_neutral_90</color>
-    <color name="surface_container_highest_dark">@color/palette_neutral_25</color>
-    <color name="surface_container_highest_pressed_light">@color/palette_neutral_80</color>
+    <color name="surface_container_highest_dark">@color/palette_neutral_22</color>
+    <color name="surface_container_highest_pressed_light">@color/palette_neutral_85</color>
     <color name="surface_container_highest_pressed_dark">@color/palette_neutral_30</color>
     <color name="on_surface_light">@color/palette_neutral_10</color>
     <color name="on_surface_dark">@color/palette_neutral_90</color>
     <color name="on_surface_variant_light">@color/palette_neutral_30</color>
     <color name="on_surface_variant_dark">@color/palette_neutral_70</color>
     <color name="on_surface_tertiary_light">@color/palette_neutral_45</color>
-    <color name="on_surface_tertiary_dark">@color/palette_neutral_55</color>
+    <color name="on_surface_tertiary_dark">@color/palette_neutral_60</color>
     <color name="on_surface_disabled_light">@color/palette_neutral_55</color>
     <color name="on_surface_disabled_dark">@color/palette_neutral_60</color>
 
@@ -807,20 +817,20 @@
 	<!-- no baseline (purple) M3 value leaks into OsmAnd screens.      -->
 
 	<color name="surface_container_lowest_light">@color/palette_neutral_100</color>
-	<color name="surface_container_lowest_dark">@color/palette_neutral_0</color>
-	<color name="surface_container_low_light">@color/palette_neutral_100</color>
-	<color name="surface_container_low_dark">@color/palette_neutral_15</color>
-	<color name="surface_container_high_light">@color/palette_neutral_90</color>
-	<color name="surface_container_high_dark">@color/palette_neutral_25</color>
+	<color name="surface_container_lowest_dark">@color/palette_neutral_4</color>
+	<color name="surface_container_low_light">@color/palette_neutral_96</color>
+	<color name="surface_container_low_dark">@color/palette_neutral_10</color>
+	<color name="surface_container_high_light">@color/palette_neutral_92</color>
+	<color name="surface_container_high_dark">@color/palette_neutral_17</color>
 	<color name="surface_variant_light">@color/palette_neutral_90</color>
-	<color name="surface_variant_dark">@color/palette_neutral_25</color>
-	<color name="surface_dim_light">@color/palette_neutral_85</color>
-	<color name="surface_dim_dark">@color/palette_neutral_0</color>
-	<color name="surface_bright_light">@color/palette_neutral_95</color>
+	<color name="surface_variant_dark">@color/palette_neutral_30</color>
+	<color name="surface_dim_light">@color/palette_neutral_87</color>
+	<color name="surface_dim_dark">@color/palette_neutral_6</color>
+	<color name="surface_bright_light">@color/palette_neutral_98</color>
 	<color name="surface_bright_dark">@color/palette_neutral_25</color>
 	<!-- Low-emphasis content: secondary icons, placeholders. -->
-	<color name="on_surface_quaternary_light">@color/palette_neutral_70</color>
-	<color name="on_surface_quaternary_dark">@color/palette_neutral_30</color>
+	<color name="on_surface_quaternary_light">@color/palette_neutral_55</color>
+	<color name="on_surface_quaternary_dark">@color/palette_neutral_45</color>
 
 	<color name="surface_inverse_light">@color/palette_neutral_15</color>
 	<color name="surface_inverse_dark">@color/palette_neutral_90</color>
@@ -830,19 +840,33 @@
 	<color name="primary_inverse_dark">@color/palette_blue_60</color>
 
 	<!-- Tertiary carries the OsmAnd brand orange. -->
-	<color name="tertiary_light">@color/palette_orange_40</color>
+	<color name="tertiary_light">@color/palette_orange_30</color>
 	<color name="tertiary_dark">@color/palette_orange_65</color>
 	<color name="on_tertiary_light">@color/palette_neutral_100</color>
 	<color name="on_tertiary_dark">@color/palette_orange_20</color>
 	<color name="tertiary_container_light">@color/palette_orange_93</color>
 	<color name="tertiary_container_dark">@color/palette_orange_30</color>
-	<color name="on_tertiary_container_light">@color/palette_orange_30</color>
+	<color name="on_tertiary_container_light">@color/palette_orange_20</color>
 	<color name="on_tertiary_container_dark">@color/palette_orange_93</color>
 
 	<color name="error_container_light">@color/palette_red_93</color>
 	<color name="error_container_dark">@color/palette_red_30</color>
 	<color name="on_error_container_light">@color/palette_red_30</color>
 	<color name="on_error_container_dark">@color/palette_red_93</color>
+
+	<!-- M3 disabled state: content at 38% and containers at 12% of on-surface -->
+	<color name="disabled_content_light">#6118181B</color>
+	<color name="disabled_content_dark">#61E4E4E7</color>
+	<color name="disabled_container_light">#1F18181B</color>
+	<color name="disabled_container_dark">#1FE4E4E7</color>
+
+	<!-- M3 state layers: 10% of the content colour, drawn over the container -->
+	<color name="state_layer_primary_light">#1A3355FF</color>
+	<color name="state_layer_primary_dark">#1A8A9DFF</color>
+	<color name="state_layer_on_primary_light">#1AFFFFFF</color>
+	<color name="state_layer_on_primary_dark">#1A242429</color>
+	<color name="state_layer_on_surface_light">#1A18181B</color>
+	<color name="state_layer_on_surface_dark">#1AE4E4E7</color>
 
 	<!-- Fixed roles keep the same value in light and dark. -->
 	<color name="primary_fixed">@color/palette_blue_93</color>
