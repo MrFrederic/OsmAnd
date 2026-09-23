@@ -35,7 +35,8 @@
 
     <dimen name="acceptable_touch_radius">48dp</dimen>
 
-	<dimen name="dialog_button_height">36dp</dimen>
+	<!-- M3 button: 40dp high, Label Large (14sp medium) -->
+	<dimen name="dialog_button_height">40dp</dimen>
 	<dimen name="undo_bottom_offset">15dp</dimen>
 	<dimen name="touch_slop">32dp</dimen>
 
@@ -237,7 +238,7 @@
 	<dimen name="default_header_text_size">21sp</dimen>
 	<dimen name="big_header_text_size">30sp</dimen>
 	<dimen name="welcome_header_text_size">23sp</dimen>
-	<dimen name="text_button_text_size">15sp</dimen>
+	<dimen name="text_button_text_size">14sp</dimen>
 	<dimen name="travel_card_primary_text_size">15sp</dimen>
 	<dimen name="default_title_line_height">24sp</dimen>
 	<dimen name="default_desc_line_height">20sp</dimen>
@@ -279,7 +280,7 @@
 	<dimen name="empty_state_text_button_padding_top">64dp</dimen>
 
     <dimen name="bottom_sheet_cancel_button_height">48dp</dimen>
-	<dimen name="bottom_sheet_cancel_button_height_small">36dp</dimen>
+	<dimen name="bottom_sheet_cancel_button_height_small">40dp</dimen>
 	<dimen name="landscape_bottom_sheet_dialog_fragment_width">360dp</dimen>
 
 	<dimen name="measurement_tool_select_radius">20dp</dimen>
@@ -321,7 +322,7 @@
 	<dimen name="measurement_tool_button_margin">8dp</dimen>
 	<dimen name="measurement_tool_button_padding">8dp</dimen>
 	<dimen name="measurement_tool_button_padding_top">10dp</dimen>
-	<dimen name="measurement_tool_button_height">36dp</dimen>
+	<dimen name="measurement_tool_button_height">40dp</dimen>
 	<dimen name="measurement_tool_button_width">98dp</dimen>
 	<dimen name="measurement_tool_options_divider_margin_start">72dp</dimen>
 	<dimen name="bottom_sheet_title_height">52dp</dimen>
@@ -386,7 +387,7 @@
 	<dimen name="route_info_start_divider_margin">64dp</dimen>
 	<dimen name="route_info_end_divider_margin">56dp</dimen>
 	<dimen name="route_info_list_item_height">48dp</dimen>
-	<dimen name="route_info_buttons_height">36dp</dimen>
+	<dimen name="route_info_buttons_height">40dp</dimen>
 	<dimen name="route_info_settings_buttons_height">32dp</dimen>
 	<dimen name="route_info_app_modes_padding">40dp</dimen>
 	<dimen name="route_info_card_row_min_height">60dp</dimen>
@@ -438,7 +439,7 @@
 	<dimen name="wikivoyage_welcome_title_top_margin">20dp</dimen>
 	<dimen name="wikivoyage_welcome_title_bottom_margin">15dp</dimen>
 	<dimen name="wikivoyage_welcome_content_margin">32dp</dimen>
-	<dimen name="wikivoyage_card_button_height">36dp</dimen>
+	<dimen name="wikivoyage_card_button_height">40dp</dimen>
 	<dimen name="wikivoyage_search_icon_margin_left">14dp</dimen>
 	<dimen name="wikivoyage_search_icon_margin_right">22dp</dimen>
 	<dimen name="wikivoyage_search_divider_margin_start">64dp</dimen>

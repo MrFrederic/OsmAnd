@@ -452,8 +452,8 @@ public class UiUtilities {
 			return;
 		}
 		Context ctx = compoundButton.getContext();
-		int inactiveColorPrimary = ContextCompat.getColor(ctx, nightMode ? R.color.icon_color_default_dark : R.color.icon_color_secondary_light);
-		int inactiveColorSecondary = ColorUtilities.getColorWithAlpha(inactiveColorPrimary, 0.45f);
+		int inactiveColorPrimary = getInactiveControlColor(ctx, compoundButton, nightMode);
+		int inactiveColorSecondary = getInactiveControlTrackColor(ctx, compoundButton, nightMode, inactiveColorPrimary);
 		setupCompoundButton(compoundButton, activeColor, inactiveColorPrimary, inactiveColorSecondary);
 	}
 
@@ -463,8 +463,8 @@ public class UiUtilities {
 		}
 		OsmandApplication app = (OsmandApplication) compoundButton.getContext().getApplicationContext();
 		int activeColor = ColorUtilities.getActiveColor(app, nightMode);
-		@ColorInt int inactiveColorPrimary = ContextCompat.getColor(app, nightMode ? R.color.icon_color_default_dark : R.color.icon_color_secondary_light);
-		@ColorInt int inactiveColorSecondary = ColorUtilities.getColorWithAlpha(inactiveColorPrimary, 0.45f);
+		@ColorInt int inactiveColorPrimary = getInactiveControlColor(app, compoundButton, nightMode);
+		@ColorInt int inactiveColorSecondary = getInactiveControlTrackColor(app, compoundButton, nightMode, inactiveColorPrimary);
 		switch (type) {
 			case PROFILE_DEPENDENT:
 				ApplicationMode appMode = app.getSettings().getApplicationMode();
@@ -477,6 +477,30 @@ public class UiUtilities {
 				break;
 		}
 		setupCompoundButton(compoundButton, activeColor, inactiveColorPrimary, inactiveColorSecondary);
+	}
+
+	/**
+	 * M3 unselected control colour: the outline role for switches (thumb and track outline),
+	 * on-surface-variant for check box and radio button outlines. Both keep 3:1 against the surface.
+	 */
+	@ColorInt
+	private static int getInactiveControlColor(@NonNull Context ctx, @NonNull CompoundButton button, boolean nightMode) {
+		if (button instanceof MaterialSwitch) {
+			return ContextCompat.getColor(ctx, nightMode ? R.color.outline_dark : R.color.outline_light);
+		}
+		return ColorUtilities.getSecondaryTextColor(ctx, nightMode);
+	}
+
+	/**
+	 * M3 unselected switch track: surface container highest. Legacy switches keep a translucent track.
+	 */
+	@ColorInt
+	private static int getInactiveControlTrackColor(@NonNull Context ctx, @NonNull CompoundButton button,
+	                                                boolean nightMode, @ColorInt int inactiveColor) {
+		if (button instanceof MaterialSwitch) {
+			return ContextCompat.getColor(ctx, nightMode ? R.color.surface_container_highest_dark : R.color.surface_container_highest_light);
+		}
+		return ColorUtilities.getColorWithAlpha(inactiveColor, 0.45f);
 	}
 
 	public static Drawable getStrokedBackgroundForCompoundButton(@NonNull OsmandApplication app, int highlightColorDay, int highlightColorNight, boolean checked, boolean nightMode) {
@@ -541,29 +565,43 @@ public class UiUtilities {
 				new int[] {android.R.attr.state_checked},
 				new int[] {}
 		};
-		float disabledAlpha = 0.38f;
-		int onActiveColor = ColorUtils.calculateLuminance(activeColor) > 0.5 ? Color.BLACK : Color.WHITE;
+		// M3 disabled switch: content at 38%, track and outline at 12%
+		float disabledContentAlpha = 0.38f;
+		float disabledContainerAlpha = 0.12f;
+		int onActiveColor = getContrastingContentColor(materialSwitch.getContext(), activeColor);
 		int[] thumbColors = {
-				ColorUtilities.getColorWithAlpha(onActiveColor, disabledAlpha),
-				ColorUtilities.getColorWithAlpha(inactiveColorPrimary, disabledAlpha),
+				onActiveColor,
+				ColorUtilities.getColorWithAlpha(inactiveColorPrimary, disabledContentAlpha),
 				onActiveColor,
 				inactiveColorPrimary
 		};
 		int[] trackColors = {
-				ColorUtilities.getColorWithAlpha(activeColor, disabledAlpha),
-				ColorUtilities.getColorWithAlpha(inactiveColorSecondary, disabledAlpha),
+				ColorUtilities.getColorWithAlpha(inactiveColorPrimary, disabledContainerAlpha),
+				ColorUtilities.getColorWithAlpha(inactiveColorSecondary, disabledContainerAlpha),
 				activeColor,
 				inactiveColorSecondary
 		};
 		int[] decorationColors = {
 				Color.TRANSPARENT,
-				ColorUtilities.getColorWithAlpha(inactiveColorPrimary, disabledAlpha),
+				ColorUtilities.getColorWithAlpha(inactiveColorPrimary, disabledContainerAlpha),
 				Color.TRANSPARENT,
 				inactiveColorPrimary
 		};
 		materialSwitch.setThumbTintList(new ColorStateList(states, thumbColors));
 		materialSwitch.setTrackTintList(new ColorStateList(states, trackColors));
 		materialSwitch.setTrackDecorationTintList(new ColorStateList(states, decorationColors));
+	}
+
+	/**
+	 * Content colour for a filled container of any colour (profile colours included): the M3 light
+	 * or dark on-primary, whichever contrasts more with the container.
+	 */
+	@ColorInt
+	public static int getContrastingContentColor(@NonNull Context ctx, @ColorInt int containerColor) {
+		int opaque = ColorUtils.setAlphaComponent(containerColor, 255);
+		int light = ContextCompat.getColor(ctx, R.color.on_primary_light);
+		int dark = ContextCompat.getColor(ctx, R.color.on_primary_dark);
+		return ColorUtils.calculateContrast(light, opaque) >= ColorUtils.calculateContrast(dark, opaque) ? light : dark;
 	}
 
 	public static void setupToolbarOverflowIcon(Toolbar toolbar, @DrawableRes int iconId, @ColorRes int colorId) {
