@@ -64,12 +64,19 @@
 
     <!-- Osmand themes styles -->
     <style name="ToolbarStyle" parent="@style/Widget.AppCompat.Toolbar">
+        <item name="titleTextAppearance">@style/TextAppearance.OsmAnd.Toolbar.Title</item>
         <item name="contentInsetStart">0dp</item>
         <item name="contentInsetEnd">0dp</item>
         <item name="titleMargin">0dp</item>
         <item name="contentInsetStartWithNavigation">@dimen/toolbar_inset_start_with_navigation</item>
         <item name="android:paddingStart">0dp</item>
         <item name="android:paddingEnd">0dp</item>
+    </style>
+
+    <!-- M3 title size; the colour stays the toolbar theme's textColorPrimary, as in AppCompat,
+         so titles on the orange and on the light app bars keep their contrast -->
+    <style name="TextAppearance.OsmAnd.Toolbar.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
     <style name="OverflowMenuButton" parent="@style/Widget.AppCompat.ActionButton.Overflow">
@@ -135,11 +142,11 @@
         <item name="android:width">@dimen/radioButtonSize</item>
     </style>
 
-    <style name="Widget.Styled.LightActionBarTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+    <style name="Widget.Styled.LightActionBarTitle" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textColor">@color/card_and_list_background_light</item>
     </style>
 
-    <style name="Widget.Styled.DarkActionBarTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+    <style name="Widget.Styled.DarkActionBarTitle" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textColor">@color/text_color_primary_dark</item>
     </style>
 
@@ -254,25 +261,26 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
-    <style name="TextAppearance.ListItemTitle" parent="TextAppearance.AppCompat.Subhead">
+    <!-- OsmAnd text appearances sit on the M3 type scale (font, line height, letter spacing);
+         sizes that already match the scale are kept as OsmAnd dimens -->
+    <style name="TextAppearance.ListItemTitle" parent="TextAppearance.Material3.BodyLarge">
         <item name="android:textColor">?android:textColorPrimary</item>
         <item name="android:textSize">@dimen/default_list_text_size</item>
     </style>
 
-    <style name="TextAppearance.ListItemCategoryTitle" parent="TextAppearance.AppCompat.Subhead">
+    <style name="TextAppearance.ListItemCategoryTitle" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textColor">?android:textColorPrimary</item>
         <item name="typefaceWeight">medium</item>
         <item name="android:textSize">@dimen/default_list_text_size</item>
     </style>
 
-    <style name="TextAppearance.ContextMenuTitle" parent="TextAppearance.AppCompat">
+    <style name="TextAppearance.ContextMenuTitle" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textColor">?android:textColorPrimary</item>
-        <item name="android:textSize">@dimen/default_list_text_size_large</item>
         <item name="android:maxLines">3</item>
         <item name="android:ellipsize">end</item>
     </style>
 
-    <style name="TextAppearance.ContextMenuSubtitle" parent="TextAppearance.AppCompat.Subhead">
+    <style name="TextAppearance.ContextMenuSubtitle" parent="TextAppearance.Material3.BodyMedium">
         <item name="android:textColor">?android:textColorSecondary</item>
         <item name="android:textSize">@dimen/default_desc_text_size</item>
     </style>
@@ -320,15 +328,13 @@
 
     </style>
 
-    <style name="AppBarTitle" parent="TextAppearance.AppCompat.Title">
+    <style name="AppBarTitle" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textColor">?attr/app_bar_primary_item_color</item>
-        <item name="android:textSize">@dimen/dialog_header_text_size</item>
     </style>
 
 
-    <style name="AppBarTitlePrimary" parent="TextAppearance.AppCompat.Title">
+    <style name="AppBarTitlePrimary" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textColor">?android:textColorPrimary</item>
-        <item name="android:textSize">@dimen/dialog_header_text_size</item>
     </style>
 
     <style name="ThemeOverlay.AppCompat.ActionBar">
@@ -522,9 +528,8 @@
         <item name="typefaceWeight">medium</item>
     </style>
 
-    <style name="ToolbarTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+    <style name="ToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textColor">?attr/app_bar_primary_item_color</item>
-        <item name="android:textSize">@dimen/bottom_sheet_title_big</item>
     </style>
 
     <style name="CoordinateInputEditText" parent="Widget.AppCompat.EditText">
