@@ -93,7 +93,7 @@
 
 						<com.google.android.material.textfield.TextInputLayout
 							android:id="@+id/name_caption"
-							style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+							style="@style/Widget.Material3.TextInputLayout.FilledBox"
 							android:layout_width="0dp"
 							android:layout_height="wrap_content"
 							android:layout_weight="1"
@@ -136,7 +136,7 @@
 
 					<com.google.android.material.textfield.TextInputLayout
 						android:id="@+id/address_caption"
-						style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+						style="@style/Widget.Material3.TextInputLayout.FilledBox"
 						android:layout_width="0dp"
 						android:layout_height="wrap_content"
 						android:layout_marginStart="@dimen/content_padding"
@@ -230,7 +230,7 @@
 
 					<com.google.android.material.textfield.TextInputLayout
 						android:id="@+id/description_caption"
-						style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+						style="@style/Widget.Material3.TextInputLayout.FilledBox"
 						android:layout_width="0dp"
 						android:layout_height="wrap_content"
 						android:layout_marginStart="@dimen/content_padding"

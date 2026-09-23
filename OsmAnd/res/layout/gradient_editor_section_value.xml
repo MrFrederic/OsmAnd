@@ -33,7 +33,7 @@
             android:baselineAligned="false">
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                style="@style/Widget.Material3.TextInputLayout.FilledBox"
                 android:id="@+id/text_caption"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

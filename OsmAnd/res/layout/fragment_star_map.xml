@@ -275,7 +275,7 @@
 
 						<net.osmand.plus.plugins.astronomy.views.StarMapTimeControlButton
 							android:id="@+id/time_control_button"
-							style="@style/Widget.MaterialComponents.Button.TextButton"
+							style="@style/Widget.Material3.Button.TextButton"
 							android:layout_width="wrap_content"
 							android:layout_height="match_parent"
 							android:text="16.12.26 14:28"

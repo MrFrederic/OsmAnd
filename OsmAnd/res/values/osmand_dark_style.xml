@@ -4,11 +4,10 @@
         <item name="colorAccent">@color/card_and_list_background_light</item>
     </style>
 
-    <style name="OsmandDarkTheme.SearchTabbar"  parent="Widget.MaterialComponents.TabLayout">
-        <item name="tabIndicatorColor">@color/app_bar_main_light</item>
+    <style name="OsmandDarkTheme.SearchTabbar" parent="Widget.Material3.TabLayout">
+        <item name="tabIndicatorColor">?attr/colorPrimary</item>
         <item name="tabTextColor">@color/text_color_secondary_dark</item>
-        <item name="colorAccent">@color/osmand_orange</item>
-        <item name="tabSelectedTextColor">@color/osmand_orange</item>
+        <item name="tabSelectedTextColor">?attr/colorPrimary</item>
         <item name="android:textColorSecondary">@color/text_color_secondary_dark</item>
         <item name="android:textColorHint">@color/text_color_secondary_dark</item>
     </style>
@@ -39,13 +38,16 @@
     </style>
 
     <style name="OsmandDarkTheme.NoAnimation">
-        <item name="alertDialogTheme">@style/Theme.MaterialComponents.Dialog.Alert.NoAnimation</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.OsmAnd.Dialog.Alert.NoAnimation</item>
         <item name="dialog_title_color">@color/marker_red</item>
     </style>
 
 
 
-    <style name="OsmandDarkTheme" parent="Theme.MaterialComponents">
+    <style name="OsmandDarkTheme" parent="Base.Theme.OsmAnd.Dark">
+        <!-- Cards without an explicit style keep the elevated look they had under
+             MaterialComponents instead of M3's default outlined card -->
+        <item name="materialCardViewStyle">@style/Widget.Material3.CardView.Elevated</item>
         <item name="alert_dialog_theme">@style/OsmandDarkTheme</item>
         <item name="bottom_bar_background_color">@color/card_and_list_background_dark</item>
         <item name="android:textDirection">locale</item>
@@ -142,9 +144,6 @@
         <item name="toolbar_theme">@style/OsmandDarkTheme</item>
         <item name="new_app_theme">@style/OsmandDarkTheme</item>
 
-        <item name="colorPrimary">@color/active_color_primary_dark</item>
-        <item name="colorAccent">@color/active_color_primary_dark</item>
-
 	    <item name="text_color_primary_v2">@color/text_color_primary_dark_v2</item>
 	    <item name="icon_color_default_v2">@color/icon_color_default_dark_v2</item>
 	    <item name="icon_color_active_v2">@color/icon_color_active_dark_v2</item>
@@ -156,7 +155,7 @@
         <item name="contextMenuButtonColor">@color/osmand_orange</item>
         <item name="color_dialog_buttons">@color/active_color_primary_dark</item>
 
-        <item name="popupMenuStyle">@style/PopupMenuDark</item>
+        <item name="popupMenuStyle">@style/Widget.OsmAnd.PopupMenu</item>
 
         <item name="keyboard_controls_divider">@color/keyboard_item_add_button_divider_dark</item>
 
@@ -242,9 +241,9 @@
         <item name="profile_cancel_btn">@drawable/btn_round_profile_gray_n</item>
         <item name="btn_history_disabled_card_bg">@drawable/dlg_btn_secondary_dark</item>
 
-        <item name="buttonBarNegativeButtonStyle">@style/DialogButtonStyleDark</item>
-        <item name="buttonBarPositiveButtonStyle">@style/DialogButtonStyleDark</item>
-        <item name="buttonBarNeutralButtonStyle">@style/DialogButtonStyleDark</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.OsmAnd.Button.TextButton.Dialog</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.OsmAnd.Button.TextButton.Dialog</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Widget.OsmAnd.Button.TextButton.Dialog</item>
         <item name="colorBackgroundFloating">@color/list_background_color_dark</item>
         <item name="android:colorBackgroundFloating">@color/list_background_color_dark</item>
         <item name="preferenceTheme">@style/OsmandPreferenceTheme</item>

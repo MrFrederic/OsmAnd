@@ -77,13 +77,8 @@
         <item name="android:tint">?attr/app_bar_primary_item_color</item>
     </style>
 
-    <style name="PopupMenuLight" parent="@style/Widget.AppCompat.Light.PopupMenu">
-        <item name="overlapAnchor">true</item>'
-        <item name="android:dropDownVerticalOffset">8dip</item>
-    </style>
-
-    <style name="PopupMenuDark" parent="@style/Widget.AppCompat.PopupMenu">
-        <item name="overlapAnchor">true</item>'
+    <style name="Widget.OsmAnd.PopupMenu" parent="Widget.Material3.PopupMenu">
+        <item name="overlapAnchor">true</item>
         <item name="android:dropDownVerticalOffset">8dip</item>
     </style>
 
@@ -92,27 +87,15 @@
         <item name="android:textColor">@color/card_and_list_background_light</item>
     </style>
 
-    <style name="Theme.MaterialComponents.Dialog.Alert.NoAnimation">
-        <item name="buttonBarNegativeButtonStyle">@style/DialogButtonStyleDark</item>
-        <item name="buttonBarPositiveButtonStyle">@style/DialogButtonStyleDark</item>
-        <item name="buttonBarNeutralButtonStyle">@style/DialogButtonStyleDark</item>
+    <!-- Applied over the app theme, so colours follow Base.Theme.OsmAnd -->
+    <style name="ThemeOverlay.OsmAnd.Dialog.Alert.NoAnimation" parent="ThemeOverlay.Material3.Dialog.Alert">
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.OsmAnd.Button.TextButton.Dialog</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.OsmAnd.Button.TextButton.Dialog</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Widget.OsmAnd.Button.TextButton.Dialog</item>
         <item name="android:windowAnimationStyle">@null</item>
     </style>
 
-    <style name="Theme.MaterialComponents.Light.Dialog.Alert.NoAnimation">
-        <item name="buttonBarNegativeButtonStyle">@style/DialogButtonStyleLight</item>
-        <item name="buttonBarPositiveButtonStyle">@style/DialogButtonStyleLight</item>
-        <item name="buttonBarNeutralButtonStyle">@style/DialogButtonStyleLight</item>
-        <item name="android:windowAnimationStyle">@null</item>
-    </style>
-
-    <style name="DialogButtonStyleLight" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
-        <item name="android:textColor">@color/active_color_primary_light</item>
-    </style>
-
-    <style name="DialogButtonStyleDark" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
-        <item name="android:textColor">@color/active_color_primary_dark</item>
-    </style>
+    <style name="Widget.OsmAnd.Button.TextButton.Dialog" parent="Widget.Material3.Button.TextButton.Dialog" />
 
     <style name="OsmandPreferenceTheme" parent="@style/PreferenceThemeOverlay">
         <item name="android:layout">@layout/preferences_screen</item>
@@ -142,12 +125,12 @@
         <item name="elevation">0dp</item>
     </style>
 
-    <style name="CheckboxStyle" parent="Widget.AppCompat.CompoundButton.CheckBox">
+    <style name="CheckboxStyle" parent="Widget.Material3.CompoundButton.CheckBox">
         <item name="android:height">@dimen/checkBoxSize</item>
         <item name="android:width">@dimen/checkBoxSize</item>
     </style>
 
-    <style name="RadioButtonStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
+    <style name="RadioButtonStyle" parent="Widget.Material3.CompoundButton.RadioButton">
         <item name="android:height">@dimen/radioButtonSize</item>
         <item name="android:width">@dimen/radioButtonSize</item>
     </style>
@@ -353,7 +336,7 @@
         <item name="titleMargin">0dp</item>
     </style>
 
-    <style name="InputLayoutStyle.FilledBox" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+    <style name="InputLayoutStyle.FilledBox" parent="Widget.Material3.TextInputLayout.FilledBox">
         <item name="android:minHeight">@dimen/favorites_list_item_height</item>
         <item name="android:textColorHint">?android:textColorSecondary</item>
         <item name="boxBackgroundColor">@color/input_layout_bg_color</item>
@@ -549,7 +532,7 @@
         <item name="colorControlNormal">?attr/coordinate_input_edit_text_normal</item>
     </style>
 
-    <style name="TimeSlider" parent="Widget.MaterialComponents.Tooltip">
+    <style name="TimeSlider" parent="Widget.Material3.Tooltip">
         <item name="backgroundTint">?attr/active_color_primary</item>
         <item name="android:textColor">?attr/slider_label_text_dark</item>
     </style>
