@@ -1192,7 +1192,7 @@ public class MapRouteInfoMenu implements IRouteInformationListener, CardListener
 			}
 			color2 = color1;
 		} else {
-			color1 = ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode);
+			color1 = ColorUtilities.getOnActiveColorId(nightMode);
 			if (routeCalculated || currentLocationNotFound && !helper.isRouteBeingCalculated() && !hasCalculatedMissingMaps) {
 				AndroidUtils.setBackgroundColor(app, startButton, ColorUtilities.getActiveColorId(nightMode));
 				color2 = color1;

@@ -63,7 +63,7 @@ public abstract class BaseTravelCard {
 	@ColorRes
 	protected int getPrimaryBtnTextColorRes(boolean enabled) {
 		if (enabled) {
-			return ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode);
+			return ColorUtilities.getOnActiveColorId(nightMode);
 		}
 		return R.color.text_color_secondary_light;
 	}

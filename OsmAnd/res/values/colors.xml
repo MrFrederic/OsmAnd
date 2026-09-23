@@ -10,64 +10,66 @@
 	<color name="solar_eclipse_marker_halo">#FFFFFF</color>
 
 	<!-- Background -->
-	<color name="activity_background_color_light">#f0f0f0</color>
-	<color name="activity_background_color_dark">#0D0D0D</color>
-	<color name="card_and_list_background_light">#ffffff</color>
-	<color name="card_and_list_background_dark">#222526</color>
-	<color name="list_background_color_light">#ffffff</color>
-	<color name="list_background_color_dark">#1E1F20</color>
-	<color name="widget_background_color_light">#FFFFFF</color>
-	<color name="widget_background_color_dark">#000000</color>
+	<!-- Legacy names are aliases of the M3 semantic roles below, so the ~1300
+	     ColorUtilities call sites and layouts follow the M3 palette unchanged. -->
+	<color name="activity_background_color_light">@color/surface_light</color>
+	<color name="activity_background_color_dark">@color/surface_dark</color>
+	<color name="card_and_list_background_light">@color/surface_container_light</color>
+	<color name="card_and_list_background_dark">@color/surface_container_dark</color>
+	<color name="list_background_color_light">@color/surface_container_light</color>
+	<color name="list_background_color_dark">@color/surface_container_dark</color>
+	<color name="widget_background_color_light">@color/surface_container_lowest_light</color>
+	<color name="widget_background_color_dark">@color/surface_container_lowest_dark</color>
 	<color name="widget_secondary_background_color_light">#FFFFFF</color>
 	<color name="widget_secondary_background_color_dark">#F2F2F2</color>
 
 	<!-- Text -->
-	<color name="text_color_primary_light">#1A1A1A</color>
-	<color name="text_color_primary_dark">#E6E6E6</color>
-	<color name="text_color_secondary_light">#666666</color>
-	<color name="text_color_secondary_dark">#8C8C8C</color>
-	<color name="text_color_tertiary_light">#bfbfbf</color>
-	<color name="text_color_tertiary_dark">#404040</color>
+	<color name="text_color_primary_light">@color/on_surface_light</color>
+	<color name="text_color_primary_dark">@color/on_surface_dark</color>
+	<color name="text_color_secondary_light">@color/on_surface_variant_light</color>
+	<color name="text_color_secondary_dark">@color/on_surface_variant_dark</color>
+	<color name="text_color_tertiary_light">@color/on_surface_tertiary_light</color>
+	<color name="text_color_tertiary_dark">@color/on_surface_tertiary_dark</color>
 	<color name="text_color_tab_active_light">#ffffff</color>
 	<color name="text_color_tab_active_dark">#cccccc</color>
 	<color name="text_color_negative">#E71D36</color>
 	<color name="text_color_positive">#5baf3f</color>
 
 	<!-- Icon -->
-	<color name="icon_color_default_light">#727272</color>
-	<color name="icon_color_default_dark">#727272</color>
-	<color name="icon_color_secondary_light">#b3b3b3</color>
-	<color name="icon_color_secondary_dark">#4d4d4d</color>
-	<color name="icon_color_primary_light">#4d4d4d</color>
-	<color name="icon_color_primary_dark">#b3b3b3</color>
+	<color name="icon_color_default_light">@color/on_surface_tertiary_light</color>
+	<color name="icon_color_default_dark">@color/on_surface_tertiary_dark</color>
+	<color name="icon_color_secondary_light">@color/on_surface_quaternary_light</color>
+	<color name="icon_color_secondary_dark">@color/on_surface_quaternary_dark</color>
+	<color name="icon_color_primary_light">@color/on_surface_variant_light</color>
+	<color name="icon_color_primary_dark">@color/on_surface_variant_dark</color>
 	<color name="icon_color_osmand_light">#ff8800</color>
 	<color name="icon_color_osmand_dark">#d28521</color>
-	<color name="icon_color_active_light">#237bff</color>
-	<color name="icon_color_active_dark">#d28521</color>
+	<color name="icon_color_active_light">@color/primary_light</color>
+	<color name="icon_color_active_dark">@color/primary_dark</color>
 	<color name="icon_color_warning">#EE5622</color>
-	<color name="map_button_icon_color_light">#727272</color>
-	<color name="map_button_icon_color_dark">#cccccc</color>
-	<color name="map_button_background_color_light">#FFFFFF</color>
-	<color name="map_button_background_color_dark">#000000</color>
+	<color name="map_button_icon_color_light">@color/on_surface_variant_light</color>
+	<color name="map_button_icon_color_dark">@color/on_surface_variant_dark</color>
+	<color name="map_button_background_color_light">@color/surface_container_lowest_light</color>
+	<color name="map_button_background_color_dark">@color/surface_container_lowest_dark</color>
 	<color name="icon_color_inverse_light">#FFFFFF</color>
 	<color name="icon_color_inverse_dark">#F2F2F2</color>
 	
 	<!-- AppBar & Status bar -->
-	<color name="app_bar_main_light">#ff8800</color>
-	<color name="app_bar_main_dark">#252727</color>
-	<color name="app_bar_secondary_light">#FFFFFF</color>
-	<color name="app_bar_secondary_dark">#252727</color>
-	<color name="app_bar_active_light">#237BFF</color>
-	<color name="app_bar_active_dark">#0E3A7C</color>
+	<color name="app_bar_main_light">@color/brand_accent_light</color>
+	<color name="app_bar_main_dark">@color/surface_container_dark</color>
+	<color name="app_bar_secondary_light">@color/surface_container_light</color>
+	<color name="app_bar_secondary_dark">@color/surface_container_dark</color>
+	<color name="app_bar_active_light">@color/primary_light</color>
+	<color name="app_bar_active_dark">@color/primary_container_dark</color>
 
 	<color name="navigation_bar_bg_light">#000000</color>
 	<color name="navigation_bar_bg_dark">#000000</color>
 
 	<color name="status_bar_main_light">#E68200</color>
-	<color name="status_bar_main_dark">#1E1F1F</color>
-	<color name="status_bar_secondary_light">#F0F0F0</color>
-	<color name="status_bar_secondary_dark">#1E1F1F</color>
-	<color name="status_bar_selection_color_light">#0F6FFF</color>
+	<color name="status_bar_main_dark">@color/surface_container_dark</color>
+	<color name="status_bar_secondary_light">@color/surface_light</color>
+	<color name="status_bar_secondary_dark">@color/surface_container_dark</color>
+	<color name="status_bar_selection_color_light">@color/primary_pressed_light</color>
 	<color name="status_bar_selection_color_dark">#0B2F65</color>
 	<color name="status_bar_transparent_light">#66000000</color>
 	<color name="status_bar_transparent_dark">#99000000</color>
@@ -80,10 +82,10 @@
 
 	
 	<!-- Active -->
-	<color name="active_color_primary_light">#237bff</color>
-	<color name="active_color_primary_dark">#d28521</color>
-	<color name="active_color_secondary_light">#DEEBFF</color>
-	<color name="active_color_secondary_dark">#4D300E</color>
+	<color name="active_color_primary_light">@color/primary_light</color>
+	<color name="active_color_primary_dark">@color/primary_dark</color>
+	<color name="active_color_secondary_light">@color/primary_container_light</color>
+	<color name="active_color_secondary_dark">@color/primary_container_dark</color>
 
 	<!-- Material -->
 	<color name="text_color_primary_light_v2">#212121</color>
@@ -102,8 +104,8 @@
 	<color name="icon_color_active_dark_v2">#d28521</color>
 
 	<!-- Divider -->
-	<color name="divider_color_light">#e6e6e6</color>
-	<color name="divider_color_dark">#2c3033</color>
+	<color name="divider_color_light">@color/outline_variant_light</color>
+	<color name="divider_color_dark">@color/outline_variant_dark</color>
 	<color name="divider_color">#ccc</color>
 
 	<!-- Progress bar-->
@@ -144,16 +146,16 @@
 	<color name="material_text_input_layout_bg">#4DCCCCCC</color>
 
 	<!-- Buttons -->
-	<color name="active_buttons_and_links_bg_pressed_light">#0f67eb</color>
-	<color name="active_buttons_and_links_bg_pressed_dark">#b87114</color>
-	<color name="inactive_buttons_and_links_bg_light">#f0f0f0</color>
-	<color name="inactive_buttons_and_links_bg_dark">#303436</color>
+	<color name="active_buttons_and_links_bg_pressed_light">@color/primary_pressed_light</color>
+	<color name="active_buttons_and_links_bg_pressed_dark">@color/primary_pressed_dark</color>
+	<color name="inactive_buttons_and_links_bg_light">@color/surface_container_highest_light</color>
+	<color name="inactive_buttons_and_links_bg_dark">@color/surface_container_highest_dark</color>
 	<color name="active_buttons_and_links_text_light">#ffffff</color>
 	<color name="active_buttons_and_links_text_dark">#ebebeb</color>
 	<color name="stroked_buttons_and_links_bg_light">#00ffffff</color>
 	<color name="stroked_buttons_and_links_bg_dark">#0017181a</color>
-	<color name="stroked_buttons_and_links_outline_light">#cccccc</color>
-	<color name="stroked_buttons_and_links_outline_dark">#303336</color>
+	<color name="stroked_buttons_and_links_outline_light">@color/outline_variant_light</color>
+	<color name="stroked_buttons_and_links_outline_dark">@color/outline_variant_dark</color>
 
 	<color name="btn_bg_primary_light">#237BFF</color>
     <color name="btn_bg_primary_dark">#237BFF</color>
@@ -587,8 +589,8 @@
 	<color name="profile_icon_color_magenta_dark">#CC0063</color>
 	<color name="profile_icon_color_outdated_light">#A6A6A6</color>
 
-	<color name="switch_button_active_light">#1A237BFF</color>
-	<color name="switch_button_active_dark">#1AD28521</color>
+	<color name="switch_button_active_light">#1A3355FF</color>
+	<color name="switch_button_active_dark">#1A8A9DFF</color>
 	<color name="switch_button_active_stroke_light">#80237BFF</color>
 	<color name="switch_button_active_stroke_dark">#80D28521</color>
 	<color name="empty_hint_bg">#80000000</color>

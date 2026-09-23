@@ -143,6 +143,20 @@ public class ColorUtilities {
 		return nightMode ? R.color.active_color_primary_dark : R.color.active_color_primary_light;
 	}
 
+	/**
+	 * Text and icons drawn on a surface filled with {@link #getActiveColorId(boolean)}
+	 * (M3 on-primary). Not for app bars: use {@link #getActiveButtonsAndLinksTextColorId(boolean)}.
+	 */
+	@ColorInt
+	public static int getOnActiveColor(@NonNull Context ctx, boolean nightMode) {
+		return getColor(ctx, getOnActiveColorId(nightMode));
+	}
+
+	@ColorRes
+	public static int getOnActiveColorId(boolean nightMode) {
+		return nightMode ? R.color.on_primary_dark : R.color.on_primary_light;
+	}
+
 	@ColorInt
 	public static int getSecondaryActiveColor(@NonNull Context ctx, boolean nightMode) {
 		return getColor(ctx, getSecondaryActiveColorId(nightMode));

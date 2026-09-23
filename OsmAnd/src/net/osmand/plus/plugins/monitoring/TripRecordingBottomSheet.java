@@ -683,7 +683,7 @@ public class TripRecordingBottomSheet extends MenuBottomSheetDialogFragment impl
 
 	@ColorRes
 	public static int getPressedColorId(boolean nightMode) {
-		return ColorUtilities.getActiveButtonsAndLinksTextColorId(nightMode);
+		return ColorUtilities.getOnActiveColorId(nightMode);
 	}
 
 	@DrawableRes
