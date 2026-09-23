@@ -20,12 +20,14 @@ import org.apache.commons.logging.Log;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -57,6 +59,7 @@ public class RendererRegistry {
 	public static final String ROUTES_RENDER = "Routes";
 	public static final String OSMASSISTANT_RENDER = "OSM Assistant";
 	public static final String PUBLICTRANSPORTROUTES_RENDER = "Public transport routes";
+	public static final String MATERIAL_RENDER = "Material Design";
 
 	public static boolean IGNORE_CACHED_STYLES = false; // enable to overwrite RENDERERS_DIR styles (debug)
 
@@ -94,6 +97,10 @@ public class RendererRegistry {
 		internalRenderers.put(OFFROAD_RENDER, "offroad" + RENDERER_INDEX_EXT);
 		internalRenderers.put(DESERT_RENDER, "desert" + RENDERER_INDEX_EXT);
 		internalRenderers.put(SNOWMOBILE_RENDER, "snowmobile" + RENDERER_INDEX_EXT);
+		if (MaterialRenderStyle.isSupported()) {
+			// generated at runtime from the device palette, see getInputStream
+			internalRenderers.put(MATERIAL_RENDER, "material" + RENDERER_INDEX_EXT);
+		}
 		internalRenderers.put(WEATHER_RENDER, "weather" + ADDON_RENDERER_INDEX_EXT);
 		internalRenderers.put(CONTOURLINES_RENDER, "contourlines" + ADDON_RENDERER_INDEX_EXT);
 		internalRenderers.put(DEPTHCONTOURLINES_RENDER, "depthcontourlines" + ADDON_RENDERER_INDEX_EXT);
@@ -117,6 +124,12 @@ public class RendererRegistry {
 
 	@Nullable
 	public RenderingRulesStorage getRenderer(@NonNull String name, @Nullable List<String> warnings) {
+		if (name.startsWith(MATERIAL_RENDER)) {
+			name = MATERIAL_RENDER; // OpenGL core asks by palette-versioned name
+			if (MaterialRenderStyle.isStale(app)) {
+				loadedRenderers.remove(name);
+			}
+		}
 		if (loadedRenderers.containsKey(name)) {
 			return loadedRenderers.get(name);
 		}
@@ -255,6 +268,9 @@ public class RendererRegistry {
 			if ("default".equalsIgnoreCase(name)) {
 				name = DEFAULT_RENDER;
 			}
+			if (name.startsWith(MATERIAL_RENDER) && MaterialRenderStyle.isSupported()) {
+				return new ByteArrayInputStream(MaterialRenderStyle.xml(app).getBytes(StandardCharsets.UTF_8));
+			}
 
 			if (externalRenderers.containsKey(name)) {
 				File externalFile = externalRenderers.get(name);
@@ -299,6 +315,9 @@ public class RendererRegistry {
 	}
 
 	public void copyFileForInternalStyle(String name) {
+		if (MATERIAL_RENDER.equals(name)) {
+			return; // generated, nothing to copy
+		}
 		try {
 			FileOutputStream fout = new FileOutputStream(getFileForInternalStyle(name));
 			String internalRender = getInternalRender(name);
@@ -456,6 +475,8 @@ public class RendererRegistry {
 				return ctx.getString(R.string.desert_render_descr);
 			case SNOWMOBILE_RENDER:
 				return ctx.getString(R.string.snowmobile_render_descr);
+			case MATERIAL_RENDER:
+				return ctx.getString(R.string.material_render_descr);
 		}
 		return "";
 	}

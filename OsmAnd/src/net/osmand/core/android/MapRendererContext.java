@@ -32,6 +32,7 @@ import net.osmand.plus.plugins.PluginsHelper;
 import net.osmand.plus.plugins.srtm.building.Buildings3DColorType;
 import net.osmand.plus.plugins.srtm.SRTMPlugin;
 import net.osmand.plus.render.MapRenderRepositories;
+import net.osmand.plus.render.MaterialRenderStyle;
 import net.osmand.plus.render.RendererRegistry;
 import net.osmand.plus.settings.backend.OsmandSettings;
 import net.osmand.plus.utils.NativeUtilities;
@@ -216,6 +217,10 @@ public class MapRendererContext {
 		String rendName = settings.RENDERER.get();
 		if (rendName.length() == 0 || rendName.equals(RendererRegistry.DEFAULT_RENDER)) {
 			rendName = "default";
+		}
+		if (rendName.equals(RendererRegistry.MATERIAL_RENDER) && MaterialRenderStyle.isSupported()) {
+			// the native style cache is keyed by name, so a new palette needs a new name
+			rendName = MaterialRenderStyle.versionedName(app);
 		}
 		int tryCount = 0;
 		while (true) {

@@ -97,6 +97,8 @@ import net.osmand.plus.plugins.OsmandPlugin;
 import net.osmand.plus.plugins.PluginsHelper;
 import net.osmand.plus.plugins.accessibility.MapAccessibilityActions;
 import net.osmand.plus.plugins.audionotes.AudioVideoNoteRecordingMenu;
+import net.osmand.plus.render.MaterialRenderStyle;
+import net.osmand.plus.render.RendererRegistry;
 import net.osmand.plus.routepreparationmenu.MapRouteInfoMenu;
 import net.osmand.plus.routing.IRouteInformationListener;
 import net.osmand.plus.routing.RouteCalculationProgressListener;
@@ -711,6 +713,9 @@ public class MapActivity extends OsmandActionBarActivity implements DownloadEven
 
 		importHelper.setUiActivity(this);
 		app.getLocationProvider().ensureLatestLocation();
+		if (RendererRegistry.MATERIAL_RENDER.equals(settings.RENDERER.get()) && MaterialRenderStyle.isStale(app)) {
+			refreshMapComplete(); // wallpaper colours or contrast changed while we were away
+		}
 
 		long time = System.currentTimeMillis();
 		FragmentManager fragmentManager = getSupportFragmentManager();
